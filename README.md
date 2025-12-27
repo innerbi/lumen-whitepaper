@@ -1,8 +1,8 @@
 # LUMEN: Multi-Agent Architecture with Structural Plasticity
 
-[![Paper](https://img.shields.io/badge/Paper-PDF-red)](LUMEN_WHITEPAPER_v10.pdf)
-[![English](https://img.shields.io/badge/lang-English-blue)](LUMEN_WHITEPAPER_v10_EN.md)
-[![Español](https://img.shields.io/badge/lang-Español-yellow)](LUMEN_WHITEPAPER_v10.md)
+[![Paper](https://img.shields.io/badge/Paper-PDF-red)](lumen-whitepaper-en.pdf)
+[![English](https://img.shields.io/badge/lang-English-blue)](lumen-whitepaper-en.md)
+[![Español](https://img.shields.io/badge/lang-Español-yellow)](lumen-whitepaper-es.md)
 
 **Technical Whitepaper | Version 1.0 | December 2025**
 
@@ -30,8 +30,8 @@ This work presents a **comprehensive and generalizable framework for the design 
 
 | Language | Online (MD) | Download (PDF) |
 |----------|-------------|----------------|
-| **English** | [LUMEN_WHITEPAPER_v10_EN.md](LUMEN_WHITEPAPER_v10_EN.md) | [LUMEN_WHITEPAPER_v10_EN.pdf](LUMEN_WHITEPAPER_v10_EN.pdf) |
-| **Español** | [LUMEN_WHITEPAPER_v10.md](LUMEN_WHITEPAPER_v10.md) | [LUMEN_WHITEPAPER_v10.pdf](LUMEN_WHITEPAPER_v10.pdf) |
+| **English** | [lumen-whitepaper-en.md](lumen-whitepaper-en.md) | [lumen-whitepaper-en.pdf](lumen-whitepaper-en.pdf) |
+| **Español** | [lumen-whitepaper-es.md](lumen-whitepaper-es.md) | [lumen-whitepaper-es.pdf](lumen-whitepaper-es.pdf) |
 
 ---
 
