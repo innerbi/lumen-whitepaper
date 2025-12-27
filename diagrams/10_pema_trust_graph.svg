@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 450" width="780" height="450">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="780" height="450" fill="none"/>
+  <rect width="780" height="450" fill="url(#grid)" opacity="0.5"/>
+
+  <!-- Title bar -->
+  <rect x="25" y="20" width="730" height="55" rx="4" fill="#121212" stroke="#333333" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="390" y="55" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#3b82f6" text-anchor="middle" letter-spacing="2">GRAFO DE CONFIANZA</text>
+
+  <!-- Main container -->
+  <rect x="25" y="85" width="730" height="345" rx="4" fill="#121212" stroke="#333333" stroke-width="2" stroke-dasharray="8,4"/>
+
+  <!-- Redis Storage container -->
+  <rect x="50" y="100" width="680" height="200" rx="4" fill="#1a1a1a" stroke="#888888" stroke-width="1"/>
+  <text x="390" y="125" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">REDIS STORAGE</text>
+
+  <!-- Weights HASH -->
+  <rect x="70" y="140" width="290" height="145" rx="4" fill="#0d1117" stroke="#3b82f6" stroke-width="1"/>
+  <text x="215" y="165" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3b82f6" text-anchor="middle">pema:trust:weights</text>
+  <text x="320" y="165" font-family="Arial, sans-serif" font-size="12" fill="#888888">HASH</text>
+
+  <text x="95" y="200" font-family="monospace" font-size="13" fill="#888888">DAXAgent:DocAgent</text>
+  <text x="290" y="200" font-family="monospace" font-size="13" fill="#22c55e">→ 0.85</text>
+
+  <text x="95" y="228" font-family="monospace" font-size="13" fill="#888888">DocAgent:ReportAgent</text>
+  <text x="290" y="228" font-family="monospace" font-size="13" fill="#22c55e">→ 0.72</text>
+
+  <text x="95" y="256" font-family="monospace" font-size="13" fill="#888888">Router:DAXAgent</text>
+  <text x="290" y="256" font-family="monospace" font-size="13" fill="#22c55e">→ 0.91</text>
+
+  <!-- History STREAM -->
+  <rect x="390" y="140" width="320" height="145" rx="4" fill="#0d1117" stroke="#3b82f6" stroke-width="1"/>
+  <text x="550" y="165" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3b82f6" text-anchor="middle">pema:trust:history</text>
+  <text x="660" y="165" font-family="Arial, sans-serif" font-size="12" fill="#888888">STREAM</text>
+
+  <text x="415" y="200" font-family="monospace" font-size="12" fill="#888888">1234567-0:</text>
+  <text x="415" y="218" font-family="monospace" font-size="11" fill="#ffffff">{type: HEBBIAN, path: [...], delta: 0.05}</text>
+
+  <text x="415" y="250" font-family="monospace" font-size="12" fill="#888888">1234568-0:</text>
+  <text x="415" y="268" font-family="monospace" font-size="11" fill="#ffffff">{type: PRUNE, source: X, target: Y}</text>
+
+  <!-- Operations section -->
+  <rect x="50" y="320" width="680" height="100" rx="4" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="75" y="350" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">OPERACIONES</text>
+
+  <circle cx="75" cy="380" r="4" fill="#3b82f6"/>
+  <text x="95" y="385" font-family="monospace" font-size="13" fill="#888888">get_weight(src, tgt) → float</text>
+
+  <circle cx="75" cy="405" r="4" fill="#3b82f6"/>
+  <text x="95" y="410" font-family="monospace" font-size="13" fill="#888888">set_weight(src, tgt, w)</text>
+
+  <circle cx="380" cy="380" r="4" fill="#22c55e"/>
+  <text x="400" y="385" font-family="monospace" font-size="13" fill="#888888">update_hebbian(path, outcome)</text>
+
+  <circle cx="380" cy="405" r="4" fill="#888888"/>
+  <text x="400" y="410" font-family="monospace" font-size="13" fill="#888888">create_edge / remove_edge</text>
+
+</svg>

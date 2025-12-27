@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset dx="1" dy="1" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.1"/>
+      <feComposite in2="offsetBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="stripes" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#718096" stroke-width="2"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="320" fill="none"/>
+  
+  <!-- Header -->
+  <rect x="40" y="25" width="620" height="50" rx="0" fill="#1a365d" filter="url(#shadow)"/>
+  <text x="350" y="57" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="2">RESOLUTION DISTRIBUTION BY LAYER</text>
+  
+  <!-- Main container -->
+  <rect x="40" y="90" width="620" height="200" rx="0" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Keyword Layer (72%) -->
+  <text x="60" y="130" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#2d3748">Keyword Layer (72%)</text>
+  <rect x="210" y="115" width="432" height="25" rx="2" fill="#38a169" filter="url(#shadow)"/>
+  
+  <!-- LLM Layer (24%) -->
+  <text x="60" y="175" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#2d3748">LLM Layer (24%)</text>
+  <rect x="210" y="160" width="144" height="25" rx="2" fill="#2b6cb0" filter="url(#shadow)"/>
+  
+  <!-- Fallback (4%) -->
+  <text x="60" y="220" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#2d3748">Fallback (4%)</text>
+  <rect x="210" y="205" width="24" height="25" rx="2" fill="#d69e2e" filter="url(#shadow)"/>
+  
+  <!-- Legend -->
+  <line x1="60" y1="250" x2="640" y2="250" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="60" y="275" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#718096">Legend:</text>
+  <rect x="120" y="263" width="12" height="12" fill="#718096"/>
+  <text x="140" y="274" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568">= 2.5% of queries</text>
+  
+</svg>

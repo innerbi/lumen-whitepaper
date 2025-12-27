@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" width="700" height="400">
+  <!-- Background -->
+  <rect width="700" height="400" fill="none"/>
+  
+  <!-- Subtle grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="700" height="400" fill="url(#grid)" opacity="0.5"/>
+  
+  <!-- Title bar -->
+  <rect x="25" y="25" width="650" height="60" rx="4" fill="#121212" stroke="#333333" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="350" y="62" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="2">EVOLUTION OF AI SYSTEMS</text>
+
+  <!-- Main container (10px gap below title) -->
+  <rect x="25" y="95" width="650" height="280" rx="4" fill="#121212" stroke="#333333" stroke-width="2" stroke-dasharray="8,4"/>
+  
+  <!-- 2022-2023 -->
+  <text x="132" y="125" font-family="Arial, sans-serif" font-size="14" fill="#888888" text-anchor="middle">2022-2023</text>
+
+  <rect x="67" y="145" width="130" height="130" rx="4" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="132" y="180" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">Chatbot</text>
+  <text x="132" y="215" font-family="Arial, sans-serif" font-size="13" fill="#666666" text-anchor="middle">Q&amp;A</text>
+  <text x="132" y="235" font-family="Arial, sans-serif" font-size="13" fill="#666666" text-anchor="middle">simple</text>
+
+  <!-- Arrow 1 -->
+  <line x1="207" y1="210" x2="237" y2="210" stroke="#3b82f6" stroke-width="1.5"/>
+  <polygon points="237,205 247,210 237,215" fill="#3b82f6"/>
+
+  <!-- 2023-2024 -->
+  <text x="317" y="125" font-family="Arial, sans-serif" font-size="14" fill="#888888" text-anchor="middle">2023-2024</text>
+
+  <rect x="252" y="145" width="130" height="130" rx="4" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="317" y="180" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">Co-pilot</text>
+  <text x="317" y="215" font-family="Arial, sans-serif" font-size="13" fill="#666666" text-anchor="middle">Assists with</text>
+  <text x="317" y="235" font-family="Arial, sans-serif" font-size="13" fill="#666666" text-anchor="middle">tasks</text>
+
+  <!-- Arrow 2 -->
+  <line x1="392" y1="210" x2="422" y2="210" stroke="#3b82f6" stroke-width="1.5"/>
+  <polygon points="422,205 432,210 422,215" fill="#3b82f6"/>
+
+  <!-- 2025+ -->
+  <text x="532" y="125" font-family="Arial, sans-serif" font-size="14" fill="#888888" text-anchor="middle">2025+</text>
+
+  <rect x="432" y="145" width="200" height="130" rx="4" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="532" y="180" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#3b82f6" text-anchor="middle">Autonomous Agent</text>
+  <text x="532" y="215" font-family="Arial, sans-serif" font-size="13" fill="#666666" text-anchor="middle">Plans, executes,</text>
+  <text x="532" y="235" font-family="Arial, sans-serif" font-size="13" fill="#666666" text-anchor="middle">adapts, collaborates</text>
+
+  <!-- Interaction labels -->
+  <text x="132" y="315" font-family="Arial, sans-serif" font-size="12" fill="#888888" text-anchor="middle">Interaction:</text>
+  <text x="132" y="335" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">Single-turn</text>
+
+  <text x="317" y="315" font-family="Arial, sans-serif" font-size="12" fill="#888888" text-anchor="middle">Interaction:</text>
+  <text x="317" y="335" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">Guided multi-turn</text>
+
+  <text x="532" y="315" font-family="Arial, sans-serif" font-size="12" fill="#888888" text-anchor="middle">Interaction:</text>
+  <text x="532" y="335" font-family="Arial, sans-serif" font-size="12" fill="#3b82f6" text-anchor="middle">Autonomous multi-step</text>
+  
+</svg>

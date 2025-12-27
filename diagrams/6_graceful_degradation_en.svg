@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 450" width="700" height="450">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset dx="1" dy="1" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.1"/>
+      <feComposite in2="offsetBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="450" fill="none"/>
+  
+  <!-- Header -->
+  <rect x="40" y="25" width="620" height="50" rx="0" fill="#1a365d" filter="url(#shadow)"/>
+  <text x="350" y="57" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="2">GRACEFUL DEGRADATION CHAIN</text>
+  
+  <!-- Main container -->
+  <rect x="40" y="90" width="620" height="330" rx="0" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- REQUEST box -->
+  <rect x="70" y="180" width="120" height="40" rx="3" fill="#2b6cb0" filter="url(#shadow)"/>
+  <text x="130" y="205" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">REQUEST</text>
+  
+  <!-- Arrow to chain -->
+  <line x1="190" y1="200" x2="230" y2="200" stroke="#2b6cb0" stroke-width="2"/>
+  <polygon points="225,196 235,200 225,204" fill="#2b6cb0"/>
+  
+  <!-- Chain container -->
+  <rect x="240" y="115" width="390" height="290" rx="3" fill="#ffffff" stroke="#4a5568" stroke-width="2" filter="url(#shadow)"/>
+  
+  <!-- Step 1: Primary Service -->
+  <text x="270" y="150" font-family="Consolas, monospace" font-size="12" fill="#38a169">TRY</text>
+  <text x="310" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#2d3748">Primary Service</text>
+  <text x="440" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#718096">(Full Capability)</text>
+  
+  <line x1="350" y1="160" x2="350" y2="180" stroke="#e53e3e" stroke-width="1.5"/>
+  <polygon points="346,175 350,185 354,175" fill="#e53e3e"/>
+  <text x="365" y="180" font-family="Consolas, monospace" font-size="10" fill="#e53e3e">FAIL</text>
+  
+  <!-- Step 2: Cached Service -->
+  <text x="270" y="205" font-family="Consolas, monospace" font-size="12" fill="#38a169">TRY</text>
+  <text x="310" y="205" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#2d3748">Cached Service</text>
+  <text x="435" y="205" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#718096">(Cached Results)</text>
+  
+  <line x1="350" y1="215" x2="350" y2="235" stroke="#e53e3e" stroke-width="1.5"/>
+  <polygon points="346,230 350,240 354,230" fill="#e53e3e"/>
+  <text x="365" y="235" font-family="Consolas, monospace" font-size="10" fill="#e53e3e">FAIL</text>
+  
+  <!-- Step 3: Simplified Service -->
+  <text x="270" y="260" font-family="Consolas, monospace" font-size="12" fill="#38a169">TRY</text>
+  <text x="310" y="260" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#2d3748">Simplified Service</text>
+  <text x="455" y="260" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#718096">(Basic Mode)</text>
+  
+  <line x1="350" y1="270" x2="350" y2="290" stroke="#e53e3e" stroke-width="1.5"/>
+  <polygon points="346,285 350,295 354,285" fill="#e53e3e"/>
+  <text x="365" y="290" font-family="Consolas, monospace" font-size="10" fill="#e53e3e">FAIL</text>
+  
+  <!-- Step 4: Static Response -->
+  <text x="270" y="320" font-family="Consolas, monospace" font-size="12" fill="#d69e2e">RETURN</text>
+  <text x="345" y="320" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#2d3748">Static Response</text>
+  <text x="470" y="320" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#718096">(Minimal)</text>
+  
+</svg>

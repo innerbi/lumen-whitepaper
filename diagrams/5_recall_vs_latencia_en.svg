@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" width="700" height="420">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset dx="1" dy="1" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.1"/>
+      <feComposite in2="offsetBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="420" fill="none"/>
+  
+  <!-- Header -->
+  <rect x="40" y="25" width="620" height="50" rx="0" fill="#1a365d" filter="url(#shadow)"/>
+  <text x="350" y="57" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="2">COMPARATIVA RECALL vs LATENCIA</text>
+  
+  <!-- Main container -->
+  <rect x="40" y="90" width="620" height="300" rx="0" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Y axis label -->
+  <text x="70" y="130" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#2d3748">Recall</text>
+  
+  <!-- Y axis values -->
+  <text x="85" y="160" font-family="Consolas, monospace" font-size="12" fill="#718096">1.0</text>
+  <text x="85" y="200" font-family="Consolas, monospace" font-size="12" fill="#718096">0.9</text>
+  <text x="85" y="240" font-family="Consolas, monospace" font-size="12" fill="#718096">0.8</text>
+  <text x="85" y="280" font-family="Consolas, monospace" font-size="12" fill="#718096">0.7</text>
+  <text x="85" y="320" font-family="Consolas, monospace" font-size="12" fill="#718096">0.6</text>
+  
+  <!-- Y axis line -->
+  <line x1="110" y1="155" x2="110" y2="325" stroke="#4a5568" stroke-width="1.5"/>
+  
+  <!-- X axis line -->
+  <line x1="110" y1="325" x2="620" y2="325" stroke="#4a5568" stroke-width="1.5"/>
+  <polygon points="615,321 625,325 615,329" fill="#4a5568"/>
+  
+  <!-- X axis label -->
+  <text x="580" y="355" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#2d3748">Latencia (ms)</text>
+  
+  <!-- X axis values -->
+  <text x="110" y="350" font-family="Consolas, monospace" font-size="11" fill="#718096">0</text>
+  <text x="175" y="350" font-family="Consolas, monospace" font-size="11" fill="#718096">50</text>
+  <text x="240" y="350" font-family="Consolas, monospace" font-size="11" fill="#718096">100</text>
+  <text x="305" y="350" font-family="Consolas, monospace" font-size="11" fill="#718096">150</text>
+  <text x="370" y="350" font-family="Consolas, monospace" font-size="11" fill="#718096">200</text>
+  <text x="435" y="350" font-family="Consolas, monospace" font-size="11" fill="#718096">250</text>
+  <text x="500" y="350" font-family="Consolas, monospace" font-size="11" fill="#718096">300</text>
+  <text x="565" y="350" font-family="Consolas, monospace" font-size="11" fill="#718096">350</text>
+  
+  <!-- Grid lines -->
+  <line x1="110" y1="160" x2="610" y2="160" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="110" y1="200" x2="610" y2="200" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="110" y1="240" x2="610" y2="240" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="110" y1="280" x2="610" y2="280" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Data points -->
+  <!-- Keyword: ~100ms, 0.75 recall -->
+  <circle cx="240" cy="265" r="8" fill="#d69e2e"/>
+  <text x="265" y="270" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#2d3748">Keyword</text>
+  
+  <!-- Semantic: ~200ms, 0.85 recall -->
+  <circle cx="370" cy="230" r="8" fill="#2b6cb0"/>
+  <text x="395" y="235" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#2d3748">Semantic</text>
+  
+  <!-- Hybrid: ~280ms, 0.92 recall -->
+  <circle cx="470" cy="190" r="8" fill="#38a169"/>
+  <text x="495" y="195" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#2d3748">Hybrid</text>
+  
+  <!-- Hybrid+Rerank: ~320ms, 0.97 recall -->
+  <circle cx="530" cy="168" r="8" fill="#805ad5"/>
+  <text x="555" y="173" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#2d3748">Hybrid+Rerank</text>
+  
+</svg>

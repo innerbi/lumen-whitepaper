@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 560" width="950" height="560">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur"/>
+      <feOffset dx="0" dy="4" result="offsetBlur"/>
+      <feFlood flood-color="#000" flood-opacity="0.4"/>
+      <feComposite in2="offsetBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="950" height="560" fill="none"/>
+  
+  <!-- Subtle grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="950" height="560" fill="url(#grid)" opacity="0.5"/>
+
+  <!-- Title bar -->
+  <rect x="25" y="20" width="900" height="60" rx="4" fill="#121212" stroke="#333333" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="475" y="57" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="2">CURRENT CHALLENGES - AGENTIC AI 2025</text>
+
+  <!-- Main container (10px gap below title) -->
+  <rect x="25" y="90" width="900" height="450" rx="4" fill="#121212" stroke="#333333" stroke-width="2" stroke-dasharray="8,4"/>
+  
+  <!-- LLM CORE box -->
+  <rect x="40" y="110" width="280" height="410" rx="4" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="180" y="140" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">LLM CORE</text>
+  <line x1="60" y1="155" x2="300" y2="155" stroke="#2a2a2a" stroke-width="1"/>
+
+  <circle cx="60" cy="185" r="3" fill="#3b82f6"/>
+  <text x="75" y="190" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Epistemic Humility</text>
+  <text x="75" y="208" font-family="Arial, sans-serif" font-size="14" fill="#888888">Gemini 3 Flash: 91% hallucination</text>
+  <text x="75" y="224" font-family="Arial, sans-serif" font-size="14" fill="#888888">when unsure, doesn't say "I don't know"</text>
+
+  <circle cx="60" cy="254" r="3" fill="#3b82f6"/>
+  <text x="75" y="259" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Causal Reasoning</text>
+  <text x="75" y="277" font-family="Arial, sans-serif" font-size="14" fill="#888888">Deficit in complex logic and</text>
+  <text x="75" y="293" font-family="Arial, sans-serif" font-size="14" fill="#888888">multi-step causal chains</text>
+
+  <circle cx="60" cy="323" r="3" fill="#3b82f6"/>
+  <text x="75" y="328" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Metacognition</text>
+  <text x="75" y="346" font-family="Arial, sans-serif" font-size="14" fill="#888888">Inability to evaluate its own</text>
+  <text x="75" y="362" font-family="Arial, sans-serif" font-size="14" fill="#888888">uncertainty and calibration</text>
+
+  <circle cx="60" cy="392" r="3" fill="#3b82f6"/>
+  <text x="75" y="397" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Static Knowledge</text>
+  <text x="75" y="415" font-family="Arial, sans-serif" font-size="14" fill="#888888">Model frozen in time. RAG</text>
+  <text x="75" y="431" font-family="Arial, sans-serif" font-size="14" fill="#888888">does not equal native knowledge</text>
+
+  <circle cx="60" cy="461" r="3" fill="#3b82f6"/>
+  <text x="75" y="466" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Non-Determinism</text>
+  <text x="75" y="484" font-family="Arial, sans-serif" font-size="14" fill="#888888">Unpredictable outputs hinder</text>
+  <text x="75" y="500" font-family="Arial, sans-serif" font-size="14" fill="#888888">testing and quality guarantees</text>
+
+  <!-- SYSTEM box -->
+  <rect x="335" y="110" width="280" height="410" rx="4" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="475" y="140" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">SYSTEM</text>
+  <line x1="355" y1="155" x2="595" y2="155" stroke="#2a2a2a" stroke-width="1"/>
+
+  <circle cx="355" cy="185" r="3" fill="#3b82f6"/>
+  <text x="370" y="190" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Legacy Integration</text>
+  <text x="370" y="208" font-family="Arial, sans-serif" font-size="14" fill="#888888">40%+ projects fail due to legacy</text>
+  <text x="370" y="224" font-family="Arial, sans-serif" font-size="14" fill="#888888">systems without modern APIs (Gartner)</text>
+
+  <circle cx="355" cy="254" r="3" fill="#3b82f6"/>
+  <text x="370" y="259" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Multi-Agent Coordination</text>
+  <text x="370" y="277" font-family="Arial, sans-serif" font-size="14" fill="#888888">Orchestration, conflicts and</text>
+  <text x="370" y="293" font-family="Arial, sans-serif" font-size="14" fill="#888888">coordination failures between agents</text>
+
+  <circle cx="355" cy="323" r="3" fill="#3b82f6"/>
+  <text x="370" y="328" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Memory and Context</text>
+  <text x="370" y="346" font-family="Arial, sans-serif" font-size="14" fill="#888888">Limited persistence and state</text>
+  <text x="370" y="362" font-family="Arial, sans-serif" font-size="14" fill="#888888">loss in long-running tasks</text>
+
+  <circle cx="355" cy="392" r="3" fill="#3b82f6"/>
+  <text x="370" y="397" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Data Architecture</text>
+  <text x="370" y="415" font-family="Arial, sans-serif" font-size="14" fill="#888888">48% report issues with data</text>
+  <text x="370" y="431" font-family="Arial, sans-serif" font-size="14" fill="#888888">discovery and reuse (Deloitte)</text>
+
+  <circle cx="355" cy="461" r="3" fill="#3b82f6"/>
+  <text x="370" y="466" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Scale Infrastructure</text>
+  <text x="370" y="484" font-family="Arial, sans-serif" font-size="14" fill="#888888">Massive concurrency, latency &lt;2s,</text>
+  <text x="370" y="500" font-family="Arial, sans-serif" font-size="14" fill="#888888">async tasks with immediate response</text>
+
+  <!-- GOVERNANCE box -->
+  <rect x="630" y="110" width="280" height="410" rx="4" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="770" y="140" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">GOVERNANCE</text>
+  <line x1="650" y1="155" x2="890" y2="155" stroke="#2a2a2a" stroke-width="1"/>
+
+  <circle cx="650" cy="185" r="3" fill="#3b82f6"/>
+  <text x="665" y="190" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Security and Attacks</text>
+  <text x="665" y="208" font-family="Arial, sans-serif" font-size="14" fill="#888888">Prompt injection, expanded</text>
+  <text x="665" y="224" font-family="Arial, sans-serif" font-size="14" fill="#888888">attack surface in multi-agents</text>
+
+  <circle cx="650" cy="254" r="3" fill="#3b82f6"/>
+  <text x="665" y="259" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Trust and Transparency</text>
+  <text x="665" y="277" font-family="Arial, sans-serif" font-size="14" fill="#888888">Explainability of autonomous</text>
+  <text x="665" y="293" font-family="Arial, sans-serif" font-size="14" fill="#888888">decisions and traceability</text>
+
+  <circle cx="650" cy="323" r="3" fill="#3b82f6"/>
+  <text x="665" y="328" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Accountability</text>
+  <text x="665" y="346" font-family="Arial, sans-serif" font-size="14" fill="#888888">Who is responsible when</text>
+  <text x="665" y="362" font-family="Arial, sans-serif" font-size="14" fill="#888888">an autonomous agent fails?</text>
+
+  <circle cx="650" cy="392" r="3" fill="#3b82f6"/>
+  <text x="665" y="397" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Regulation and Compliance</text>
+  <text x="665" y="415" font-family="Arial, sans-serif" font-size="14" fill="#888888">EU AI Act, data privacy</text>
+  <text x="665" y="431" font-family="Arial, sans-serif" font-size="14" fill="#888888">and insufficient legal frameworks</text>
+
+  <circle cx="650" cy="461" r="3" fill="#3b82f6"/>
+  <text x="665" y="466" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">ROI and Business Value</text>
+  <text x="665" y="484" font-family="Arial, sans-serif" font-size="14" fill="#888888">80% companies without impact on</text>
+  <text x="665" y="500" font-family="Arial, sans-serif" font-size="14" fill="#888888">results (McKinsey 2025)</text>
+  
+</svg>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 380" width="750" height="380">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset dx="1" dy="1" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.1"/>
+      <feComposite in2="offsetBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="750" height="380" fill="none"/>
+  
+  <!-- Header -->
+  <rect x="40" y="25" width="670" height="50" rx="0" fill="#1a365d" filter="url(#shadow)"/>
+  <text x="375" y="57" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="2">QUERY WORKFLOW SIMPLE</text>
+  
+  <!-- Main container -->
+  <rect x="40" y="90" width="670" height="260" rx="0" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- FabricAgent box -->
+  <rect x="80" y="120" width="160" height="130" rx="3" fill="#ffffff" stroke="#38a169" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="80" y="120" width="160" height="5" fill="#38a169"/>
+  <text x="160" y="150" font-family="Consolas, monospace" font-size="13" font-weight="600" fill="#38a169" text-anchor="middle">FabricAgent</text>
+  <line x1="100" y1="165" x2="220" y2="165" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="160" y="190" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#4a5568" text-anchor="middle">Identifies</text>
+  <text x="160" y="208" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#4a5568" text-anchor="middle">model</text>
+  
+  <!-- Arrow 1 -->
+  <line x1="240" y1="185" x2="290" y2="185" stroke="#2b6cb0" stroke-width="2"/>
+  <polygon points="285,181 295,185 285,189" fill="#2b6cb0"/>
+  
+  <!-- DAXAgent box -->
+  <rect x="300" y="120" width="160" height="130" rx="3" fill="#ffffff" stroke="#2b6cb0" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="300" y="120" width="160" height="5" fill="#2b6cb0"/>
+  <text x="380" y="150" font-family="Consolas, monospace" font-size="13" font-weight="600" fill="#2b6cb0" text-anchor="middle">DAXAgent</text>
+  <line x1="320" y1="165" x2="440" y2="165" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="380" y="185" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#4a5568" text-anchor="middle">Generates DAX</text>
+  <text x="380" y="203" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#4a5568" text-anchor="middle">Executes</text>
+  <text x="380" y="221" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#4a5568" text-anchor="middle">Saves to memory</text>
+  
+  <!-- Arrow 2 -->
+  <line x1="460" y1="185" x2="510" y2="185" stroke="#2b6cb0" stroke-width="2"/>
+  <polygon points="505,181 515,185 505,189" fill="#2b6cb0"/>
+  
+  <!-- FormatterAgent box -->
+  <rect x="520" y="120" width="160" height="130" rx="3" fill="#ffffff" stroke="#d946ef" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="520" y="120" width="160" height="5" fill="#d946ef"/>
+  <text x="600" y="150" font-family="Consolas, monospace" font-size="12" font-weight="600" fill="#d946ef" text-anchor="middle">FormatterAgent</text>
+  <line x1="540" y1="165" x2="660" y2="165" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="600" y="190" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#4a5568" text-anchor="middle">Creates chart</text>
+  <text x="600" y="208" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#4a5568" text-anchor="middle">or KPI</text>
+  
+  <!-- Output section -->
+  <line x1="60" y1="275" x2="690" y2="275" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="80" y="305" font-family="Consolas, monospace" font-size="13" fill="#2d3748">Output:</text>
+  <text x="150" y="305" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#4a5568">Response + Visualization</text>
+  
+</svg>

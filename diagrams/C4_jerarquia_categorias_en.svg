@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 520" width="780" height="520">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset dx="1" dy="1" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.1"/>
+      <feComposite in2="offsetBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="780" height="520" fill="none"/>
+  <rect x="40" y="25" width="700" height="50" rx="0" fill="#1a365d" filter="url(#shadow)"/>
+  <text x="375" y="57" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="2">JERARQUÍA DE AGENTES</text>
+  <rect x="40" y="90" width="700" height="400" rx="0" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="300" y="115" width="150" height="45" rx="3" fill="#1a365d" filter="url(#shadow)"/>
+  <text x="375" y="143" font-family="Consolas, monospace" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">BaseAgent</text>
+  <line x1="375" y1="160" x2="375" y2="190" stroke="#4a5568" stroke-width="2"/>
+  <line x1="130" y1="190" x2="620" y2="190" stroke="#4a5568" stroke-width="2"/>
+  <line x1="130" y1="190" x2="130" y2="220" stroke="#4a5568" stroke-width="1.5"/>
+  <line x1="375" y1="190" x2="375" y2="220" stroke="#4a5568" stroke-width="1.5"/>
+  <line x1="620" y1="190" x2="620" y2="220" stroke="#4a5568" stroke-width="1.5"/>
+  <polygon points="126,215 130,225 134,215" fill="#4a5568"/>
+  <polygon points="371,215 375,225 379,215" fill="#4a5568"/>
+  <polygon points="616,215 620,225 624,215" fill="#4a5568"/>
+  <rect x="60" y="230" width="140" height="55" rx="3" fill="#ffffff" stroke="#1a1a1a" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="60" y="230" width="140" height="5" fill="#1a1a1a"/>
+  <text x="130" y="258" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a" text-anchor="middle">General</text>
+  <text x="130" y="275" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a" text-anchor="middle">Agents</text>
+  <rect x="305" y="230" width="140" height="55" rx="3" fill="#ffffff" stroke="#38a169" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="305" y="230" width="140" height="5" fill="#38a169"/>
+  <text x="375" y="258" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#38a169" text-anchor="middle">Domain</text>
+  <text x="375" y="275" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#38a169" text-anchor="middle">Agents</text>
+  <rect x="550" y="230" width="140" height="55" rx="3" fill="#ffffff" stroke="#d69e2e" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="550" y="230" width="140" height="5" fill="#d69e2e"/>
+  <text x="620" y="258" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#d69e2e" text-anchor="middle">Utility</text>
+  <text x="620" y="275" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#d69e2e" text-anchor="middle">Agents</text>
+  <line x1="130" y1="285" x2="130" y2="315" stroke="#4a5568" stroke-width="1.5"/>
+  <line x1="375" y1="285" x2="375" y2="315" stroke="#4a5568" stroke-width="1.5"/>
+  <line x1="620" y1="285" x2="620" y2="315" stroke="#4a5568" stroke-width="1.5"/>
+  <polygon points="126,310 130,320 134,310" fill="#4a5568"/>
+  <polygon points="371,310 375,320 379,310" fill="#4a5568"/>
+  <polygon points="616,310 620,320 624,310" fill="#4a5568"/>
+  <rect x="60" y="325" width="140" height="50" rx="3" fill="#ffffff" stroke="#a0aec0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="130" y="355" font-family="Consolas, monospace" font-size="11" fill="#2d3748" text-anchor="middle">GeneralAgent</text>
+  <rect x="275" y="325" width="200" height="140" rx="3" fill="#ffffff" stroke="#a0aec0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="375" y="350" font-family="Consolas, monospace" font-size="11" fill="#2d3748" text-anchor="middle">FabricAgent</text>
+  <text x="375" y="370" font-family="Consolas, monospace" font-size="11" fill="#2d3748" text-anchor="middle">DAXAgent</text>
+  <text x="375" y="390" font-family="Consolas, monospace" font-size="11" fill="#2d3748" text-anchor="middle">PowerBIAgent</text>
+  <text x="375" y="410" font-family="Consolas, monospace" font-size="11" fill="#2d3748" text-anchor="middle">ReportAgent</text>
+  <text x="375" y="430" font-family="Consolas, monospace" font-size="11" fill="#2d3748" text-anchor="middle">DocumentAgent</text>
+  <text x="375" y="450" font-family="Consolas, monospace" font-size="11" fill="#2d3748" text-anchor="middle">PDFAgent</text>
+  <rect x="520" y="325" width="200" height="110" rx="3" fill="#ffffff" stroke="#a0aec0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="620" y="350" font-family="Consolas, monospace" font-size="11" fill="#2d3748" text-anchor="middle">FormatterAgent</text>
+  <text x="620" y="370" font-family="Consolas, monospace" font-size="11" fill="#2d3748" text-anchor="middle">SummaryAgent</text>
+  <text x="620" y="390" font-family="Consolas, monospace" font-size="11" fill="#2d3748" text-anchor="middle">SearchAgent</text>
+  <text x="620" y="410" font-family="Consolas, monospace" font-size="11" fill="#2d3748" text-anchor="middle">PlanningAgent</text>
+</svg>

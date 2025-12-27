@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" width="700" height="420">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset dx="1" dy="1" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.1"/>
+      <feComposite in2="offsetBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="700" height="420" fill="none"/>
+  <rect x="40" y="25" width="620" height="50" rx="0" fill="#1a365d" filter="url(#shadow)"/>
+  <text x="350" y="57" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="2">CONTEXTUAL TOOL SELECTION</text>
+  <rect x="40" y="90" width="620" height="300" rx="0" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="70" y="115" width="130" height="55" rx="3" fill="#ffffff" stroke="#2b6cb0" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="70" y="115" width="130" height="5" fill="#2b6cb0"/>
+  <text x="135" y="143" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#2b6cb0" text-anchor="middle">Query</text>
+  <text x="135" y="160" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#2b6cb0" text-anchor="middle">Context</text>
+  <line x1="135" y1="170" x2="135" y2="200" stroke="#4a5568" stroke-width="1.5"/>
+  <line x1="135" y1="200" x2="250" y2="200" stroke="#4a5568" stroke-width="1.5"/>
+  <polygon points="245,196 255,200 245,204" fill="#4a5568"/>
+  <rect x="70" y="210" width="130" height="55" rx="3" fill="#ffffff" stroke="#38a169" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="70" y="210" width="130" height="5" fill="#38a169"/>
+  <text x="135" y="238" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#38a169" text-anchor="middle">User</text>
+  <text x="135" y="255" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#38a169" text-anchor="middle">Profile</text>
+  <line x1="200" y1="237" x2="250" y2="237" stroke="#4a5568" stroke-width="1.5"/>
+  <polygon points="245,233 255,237 245,241" fill="#4a5568"/>
+  <rect x="70" y="305" width="130" height="55" rx="3" fill="#ffffff" stroke="#d69e2e" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="70" y="305" width="130" height="5" fill="#d69e2e"/>
+  <text x="135" y="333" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#d69e2e" text-anchor="middle">Session</text>
+  <text x="135" y="350" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#d69e2e" text-anchor="middle">History</text>
+  <line x1="135" y1="305" x2="135" y2="275" stroke="#4a5568" stroke-width="1.5"/>
+  <line x1="135" y1="275" x2="250" y2="275" stroke="#4a5568" stroke-width="1.5"/>
+  <polygon points="245,271 255,275 245,279" fill="#4a5568"/>
+  <rect x="260" y="165" width="380" height="145" rx="3" fill="#ffffff" stroke="#1a365d" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="260" y="165" width="380" height="5" fill="#1a365d"/>
+  <text x="450" y="195" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#1a365d" text-anchor="middle">TOOL RELEVANCE SCORER</text>
+  <text x="290" y="235" font-family="Consolas, monospace" font-size="12" fill="#4a5568">score(tool, context, user) → R</text>
+  <text x="290" y="275" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568">Tools con score > θ se</text>
+  <text x="290" y="295" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568">incluyen en el prompt</text>
+</svg>

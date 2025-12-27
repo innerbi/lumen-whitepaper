@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 450" width="780" height="450">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset dx="1" dy="1" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.15"/>
+      <feComposite in2="offsetBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="780" height="450" fill="none"/>
+
+  <!-- Header -->
+  <rect x="40" y="25" width="700" height="50" rx="0" fill="#1a365d" filter="url(#shadow)"/>
+  <text x="390" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="2">AGENT-AS-TOOL PATTERN</text>
+
+  <!-- Main container -->
+  <rect x="40" y="90" width="700" height="330" rx="0" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- GeneralAgent box -->
+  <rect x="60" y="115" width="170" height="60" rx="4" fill="#ffffff" stroke="#1a1a1a" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="60" y="115" width="170" height="6" fill="#1a1a1a"/>
+  <text x="145" y="155" font-family="Consolas, monospace" font-size="14" font-weight="600" fill="#1a1a1a" text-anchor="middle">GeneralAgent</text>
+
+  <!-- Arrow 1 -->
+  <line x1="230" y1="145" x2="300" y2="145" stroke="#2b6cb0" stroke-width="2"/>
+  <polygon points="295,140 308,145 295,150" fill="#2b6cb0"/>
+  <text x="270" y="170" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#718096" text-anchor="middle">LLM decides</text>
+
+  <!-- document_search tool box -->
+  <rect x="310" y="115" width="160" height="60" rx="4" fill="#ffffff" stroke="#38a169" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="310" y="115" width="160" height="6" fill="#38a169"/>
+  <text x="390" y="155" font-family="Consolas, monospace" font-size="13" font-weight="600" fill="#38a169" text-anchor="middle">document_search</text>
+
+  <!-- Arrow 2 -->
+  <line x1="470" y1="145" x2="540" y2="145" stroke="#2b6cb0" stroke-width="2"/>
+  <polygon points="535,140 548,145 535,150" fill="#2b6cb0"/>
+  <text x="505" y="170" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#718096" text-anchor="middle">invokes</text>
+
+  <!-- DocumentAgent box -->
+  <rect x="550" y="105" width="180" height="80" rx="4" fill="#ffffff" stroke="#2b6cb0" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="550" y="105" width="180" height="6" fill="#2b6cb0"/>
+  <text x="640" y="135" font-family="Consolas, monospace" font-size="14" font-weight="600" fill="#2b6cb0" text-anchor="middle">DocumentAgent</text>
+  <text x="640" y="158" font-family="Consolas, monospace" font-size="12" fill="#38a169" text-anchor="middle">@ai_function</text>
+  <text x="640" y="176" font-family="Consolas, monospace" font-size="11" fill="#718096" text-anchor="middle">search_documents()</text>
+
+  <!-- Separator line -->
+  <line x1="60" y1="210" x2="720" y2="210" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Flujo section -->
+  <text x="70" y="245" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#2d3748">Flow:</text>
+
+  <text x="70" y="280" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#4a5568">1. GeneralAgent receives user query</text>
+  <text x="70" y="310" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#4a5568">2. LLM decides it needs to search documents</text>
+  <text x="70" y="340" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#4a5568">3. Invokes document_search(query) automatically</text>
+  <text x="70" y="370" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#4a5568">4. DocumentAgent executes @ai_function search_documents</text>
+  <text x="70" y="400" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#4a5568">5. GeneralAgent generates final response with context</text>
+
+</svg>

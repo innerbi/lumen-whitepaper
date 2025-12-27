@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 510" width="700" height="510">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset dx="1" dy="1" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.1"/>
+      <feComposite in2="offsetBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="510" fill="none"/>
+  
+  <!-- Header -->
+  <rect x="40" y="25" width="620" height="50" rx="0" fill="#1a365d" filter="url(#shadow)"/>
+  <text x="350" y="57" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="2">SEMANTIC ROUTING</text>
+  
+  <!-- Main container -->
+  <rect x="40" y="90" width="620" height="390" rx="0" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Flow: Mensaje Usuario -> Embedding -> Comparar con -->
+  <text x="100" y="135" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#2d3748">Mensaje Usuario</text>
+  
+  <line x1="220" y1="130" x2="260" y2="130" stroke="#2b6cb0" stroke-width="1.5"/>
+  <polygon points="255,126 265,130 255,134" fill="#2b6cb0"/>
+  
+  <rect x="270" y="115" width="110" height="32" rx="2" fill="#ffffff" stroke="#2b6cb0" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="325" y="136" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#2d3748" text-anchor="middle">Embedding</text>
+  
+  <line x1="380" y1="130" x2="420" y2="130" stroke="#2b6cb0" stroke-width="1.5"/>
+  <polygon points="415,126 425,130 415,134" fill="#2b6cb0"/>
+  
+  <text x="435" y="135" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#2d3748">Comparar con:</text>
+  
+  <!-- Comparison table - centered and taller -->
+  <rect x="80" y="165" width="540" height="170" rx="2" fill="#ffffff" stroke="#a0aec0" stroke-width="1" filter="url(#shadow)"/>
+  
+  <!-- Table header line -->
+  <line x1="80" y1="165" x2="620" y2="165" stroke="#2b6cb0" stroke-width="3"/>
+  
+  <!-- Row 1: DAXAgent -->
+  <text x="100" y="205" font-family="Consolas, monospace" font-size="13" font-weight="600" fill="#2b6cb0">DAXAgent:</text>
+  <text x="205" y="205" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#4a5568">"Consultas de datos, métricas, DAX"</text>
+  <rect x="530" y="188" width="70" height="28" rx="2" fill="#38a169"/>
+  <text x="565" y="208" font-family="Consolas, monospace" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">0.92</text>
+  
+  <!-- Separator -->
+  <line x1="90" y1="225" x2="610" y2="225" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Row 2: ReportAgent -->
+  <text x="100" y="260" font-family="Consolas, monospace" font-size="13" font-weight="600" fill="#718096">ReportAgent:</text>
+  <text x="220" y="260" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#4a5568">"Reportes, dashboards, Power BI"</text>
+  <rect x="530" y="243" width="70" height="28" rx="2" fill="#edf2f7" stroke="#a0aec0" stroke-width="1"/>
+  <text x="565" y="263" font-family="Consolas, monospace" font-size="13" fill="#718096" text-anchor="middle">0.45</text>
+  
+  <!-- Separator -->
+  <line x1="90" y1="280" x2="610" y2="280" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Row 3: DocAgent -->
+  <text x="100" y="315" font-family="Consolas, monospace" font-size="13" font-weight="600" fill="#718096">DocAgent:</text>
+  <text x="195" y="315" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#4a5568">"Documentos, archivos, búsqueda"</text>
+  <rect x="530" y="298" width="70" height="28" rx="2" fill="#edf2f7" stroke="#a0aec0" stroke-width="1"/>
+  <text x="565" y="318" font-family="Consolas, monospace" font-size="13" fill="#718096" text-anchor="middle">0.23</text>
+  
+  <!-- Result section -->
+  <rect x="80" y="360" width="540" height="55" rx="2" fill="#ebf8ff" stroke="#bee3f8" stroke-width="1"/>
+  <text x="110" y="393" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#2d3748">Seleccionar agente con mayor similitud →</text>
+  <rect x="400" y="373" width="110" height="30" rx="2" fill="#2b6cb0" filter="url(#shadow)"/>
+  <text x="455" y="394" font-family="Consolas, monospace" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">DAXAgent</text>
+  
+</svg>

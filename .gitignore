@@ -1,0 +1,18 @@
+# Old versions (only keep v10)
+*_v8.md
+*_v9.md
+PEMA_Paper*.pdf
+
+# LaTeX build artifacts
+arxiv/*.aux
+arxiv/*.log
+arxiv/*.toc
+arxiv/*.bbl
+arxiv/*.blg
+arxiv/*.out
+arxiv/*.pdf
+arxiv/svg-inkscape/
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 520" width="700" height="520">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset dx="1" dy="1" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.1"/>
+      <feComposite in2="offsetBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="520" fill="none"/>
+  
+  <!-- Header -->
+  <rect x="40" y="25" width="620" height="50" rx="0" fill="#1a365d" filter="url(#shadow)"/>
+  <text x="350" y="57" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="2">BIWORKFLOW ROUTING</text>
+  
+  <!-- Main container -->
+  <rect x="40" y="90" width="620" height="400" rx="0" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Row 1: Mensaje -> KEYWORDS? -> Yes -> Workflow directo -->
+  <text x="80" y="140" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#2d3748">Mensaje</text>
+  
+  <line x1="135" y1="135" x2="170" y2="135" stroke="#2b6cb0" stroke-width="1.5"/>
+  <polygon points="165,131 175,135 165,139" fill="#2b6cb0"/>
+  
+  <rect x="180" y="120" width="120" height="32" rx="2" fill="#ffffff" stroke="#d69e2e" stroke-width="2" filter="url(#shadow)"/>
+  <text x="240" y="141" font-family="Consolas, monospace" font-size="12" font-weight="600" fill="#d69e2e" text-anchor="middle">KEYWORDS?</text>
+  
+  <line x1="300" y1="135" x2="340" y2="135" stroke="#38a169" stroke-width="1.5"/>
+  <polygon points="335,131 345,135 335,139" fill="#38a169"/>
+  <text x="320" y="128" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#38a169">Yes</text>
+  
+  <rect x="350" y="120" width="140" height="32" rx="2" fill="#38a169" filter="url(#shadow)"/>
+  <text x="420" y="141" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#ffffff" text-anchor="middle">Workflow directo</text>
+  
+  <!-- No branch going down -->
+  <line x1="240" y1="152" x2="240" y2="175" stroke="#718096" stroke-width="1.5"/>
+  <text x="255" y="168" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#718096">No</text>
+  <line x1="240" y1="175" x2="240" y2="210" stroke="#718096" stroke-width="1.5"/>
+  <polygon points="236,205 240,215 244,205" fill="#718096"/>
+  
+  <!-- LLM CLASSIFY box -->
+  <rect x="170" y="220" width="140" height="36" rx="2" fill="#ffffff" stroke="#2b6cb0" stroke-width="2" filter="url(#shadow)"/>
+  <text x="240" y="243" font-family="Consolas, monospace" font-size="12" font-weight="600" fill="#2b6cb0" text-anchor="middle">LLM CLASSIFY</text>
+  
+  <!-- Line down from LLM CLASSIFY -->
+  <line x1="240" y1="256" x2="240" y2="290" stroke="#2b6cb0" stroke-width="1.5"/>
+  
+  <!-- Horizontal branch line -->
+  <line x1="120" y1="290" x2="360" y2="290" stroke="#2b6cb0" stroke-width="1.5"/>
+  
+  <!-- Vertical lines down to categories -->
+  <line x1="120" y1="290" x2="120" y2="320" stroke="#2b6cb0" stroke-width="1.5"/>
+  <polygon points="116,315 120,325 124,315" fill="#2b6cb0"/>
+  
+  <line x1="240" y1="290" x2="240" y2="320" stroke="#2b6cb0" stroke-width="1.5"/>
+  <polygon points="236,315 240,325 244,315" fill="#2b6cb0"/>
+  
+  <line x1="360" y1="290" x2="360" y2="320" stroke="#2b6cb0" stroke-width="1.5"/>
+  <polygon points="356,315 360,325 364,315" fill="#2b6cb0"/>
+  
+  <!-- Category boxes -->
+  <rect x="80" y="330" width="80" height="32" rx="2" fill="#ffffff" stroke="#4a5568" stroke-width="1" filter="url(#shadow)"/>
+  <text x="120" y="351" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#2d3748" text-anchor="middle">Query</text>
+  
+  <rect x="200" y="330" width="80" height="32" rx="2" fill="#ffffff" stroke="#4a5568" stroke-width="1" filter="url(#shadow)"/>
+  <text x="240" y="351" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#2d3748" text-anchor="middle">Report</text>
+  
+  <rect x="320" y="330" width="80" height="32" rx="2" fill="#ffffff" stroke="#4a5568" stroke-width="1" filter="url(#shadow)"/>
+  <text x="360" y="351" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#2d3748" text-anchor="middle">General</text>
+  
+  <!-- Lines down to workflows -->
+  <line x1="120" y1="362" x2="120" y2="400" stroke="#4a5568" stroke-width="1.5"/>
+  <polygon points="116,395 120,405 124,395" fill="#4a5568"/>
+  
+  <line x1="240" y1="362" x2="240" y2="400" stroke="#4a5568" stroke-width="1.5"/>
+  <polygon points="236,395 240,405 244,395" fill="#4a5568"/>
+  
+  <line x1="360" y1="362" x2="360" y2="400" stroke="#4a5568" stroke-width="1.5"/>
+  <polygon points="356,395 360,405 364,395" fill="#4a5568"/>
+  
+  <!-- Workflow boxes -->
+  <rect x="70" y="410" width="100" height="36" rx="2" fill="#2b6cb0" filter="url(#shadow)"/>
+  <text x="120" y="433" font-family="Consolas, monospace" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">QueryWF</text>
+  
+  <rect x="190" y="410" width="100" height="36" rx="2" fill="#2b6cb0" filter="url(#shadow)"/>
+  <text x="240" y="433" font-family="Consolas, monospace" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">ReportWF</text>
+  
+  <rect x="310" y="410" width="100" height="36" rx="2" fill="#2b6cb0" filter="url(#shadow)"/>
+  <text x="360" y="433" font-family="Consolas, monospace" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">GeneralWF</text>
+  
+</svg>

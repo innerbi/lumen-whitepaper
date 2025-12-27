@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 480" width="700" height="480">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset dx="1" dy="1" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.1"/>
+      <feComposite in2="offsetBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="480" fill="none"/>
+  
+  <!-- Header -->
+  <rect x="40" y="25" width="620" height="50" rx="0" fill="#1a365d" filter="url(#shadow)"/>
+  <text x="350" y="57" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="2">SESSION ISOLATION</text>
+  
+  <!-- Main container -->
+  <rect x="40" y="90" width="620" height="360" rx="0" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Flow: Request -> Cookie -> Session ID -> Context -->
+  <text x="60" y="130" font-family="Consolas, monospace" font-size="13" fill="#2b6cb0">Request</text>
+  <line x1="125" y1="125" x2="155" y2="125" stroke="#4a5568" stroke-width="1.5"/>
+  <polygon points="150,121 160,125 150,129" fill="#4a5568"/>
+  <text x="165" y="130" font-family="Consolas, monospace" font-size="13" fill="#38a169">Cookie</text>
+  <line x1="220" y1="125" x2="250" y2="125" stroke="#4a5568" stroke-width="1.5"/>
+  <polygon points="245,121 255,125 245,129" fill="#4a5568"/>
+  <text x="260" y="130" font-family="Consolas, monospace" font-size="13" fill="#d69e2e">Session ID</text>
+  <line x1="355" y1="125" x2="385" y2="125" stroke="#4a5568" stroke-width="1.5"/>
+  <polygon points="380,121 390,125 380,129" fill="#4a5568"/>
+  <text x="400" y="130" font-family="Consolas, monospace" font-size="13" fill="#805ad5">Context</text>
+  
+  <!-- Arrow down -->
+  <line x1="430" y1="140" x2="430" y2="165" stroke="#4a5568" stroke-width="1.5"/>
+  <polygon points="426,160 430,170 434,160" fill="#4a5568"/>
+  
+  <!-- Context box -->
+  <rect x="120" y="180" width="420" height="120" rx="3" fill="#ffffff" stroke="#805ad5" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="120" y="180" width="420" height="5" fill="#805ad5"/>
+  <text x="330" y="210" font-family="Consolas, monospace" font-size="14" font-weight="600" fill="#805ad5" text-anchor="middle">CONTEXT</text>
+  
+  <text x="150" y="240" font-family="Consolas, monospace" font-size="12" fill="#4a5568">session_id:</text>
+  <text x="250" y="240" font-family="Consolas, monospace" font-size="12" fill="#718096">"abc123"</text>
+  
+  <text x="150" y="262" font-family="Consolas, monospace" font-size="12" fill="#4a5568">user_id:</text>
+  <text x="230" y="262" font-family="Consolas, monospace" font-size="12" fill="#718096">"user@company.com"</text>
+  
+  <text x="150" y="284" font-family="Consolas, monospace" font-size="12" fill="#4a5568">metadata:</text>
+  <text x="235" y="284" font-family="Consolas, monospace" font-size="12" fill="#718096">{model_id: "...", tokens: {...}}</text>
+  
+  <!-- Arrow down -->
+  <line x1="330" y1="300" x2="330" y2="330" stroke="#4a5568" stroke-width="1.5"/>
+  <polygon points="326,325 330,335 334,325" fill="#4a5568"/>
+  
+  <!-- Database and Agents info -->
+  <text x="120" y="365" font-family="Consolas, monospace" font-size="13" fill="#2b6cb0">Database:</text>
+  <text x="210" y="365" font-family="Consolas, monospace" font-size="12" fill="#4a5568">WHERE session_id = 'abc123'</text>
+  
+  <text x="120" y="395" font-family="Consolas, monospace" font-size="13" fill="#38a169">Agentes:</text>
+  <text x="200" y="395" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568">Solo ven datos de esta sesión</text>
+  
+</svg>

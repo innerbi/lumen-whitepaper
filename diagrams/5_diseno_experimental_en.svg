@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 430" width="700" height="430">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset dx="1" dy="1" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.1"/>
+      <feComposite in2="offsetBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="700" height="430" fill="none"/>
+  <rect x="40" y="25" width="620" height="50" rx="0" fill="#1a365d" filter="url(#shadow)"/>
+  <text x="350" y="57" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="2">DISEÑO EXPERIMENTAL</text>
+  <rect x="40" y="90" width="620" height="310" rx="0" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="70" y="115" width="160" height="60" rx="3" fill="#ffffff" stroke="#2b6cb0" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="70" y="115" width="160" height="5" fill="#2b6cb0"/>
+  <text x="150" y="145" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#2b6cb0" text-anchor="middle">MÉTRICAS</text>
+  <text x="150" y="163" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#2b6cb0" text-anchor="middle">INTERNAS</text>
+  <rect x="270" y="115" width="160" height="60" rx="3" fill="#ffffff" stroke="#38a169" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="270" y="115" width="160" height="5" fill="#38a169"/>
+  <text x="350" y="145" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#38a169" text-anchor="middle">BENCHMARKS</text>
+  <text x="350" y="163" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#38a169" text-anchor="middle">COMPARATIVOS</text>
+  <rect x="470" y="115" width="160" height="60" rx="3" fill="#ffffff" stroke="#d69e2e" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="470" y="115" width="160" height="5" fill="#d69e2e"/>
+  <text x="550" y="145" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#d69e2e" text-anchor="middle">VALIDACIÓN</text>
+  <text x="550" y="163" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#d69e2e" text-anchor="middle">USUARIO</text>
+  <line x1="150" y1="175" x2="150" y2="210" stroke="#4a5568" stroke-width="1.5"/>
+  <line x1="350" y1="175" x2="350" y2="210" stroke="#4a5568" stroke-width="1.5"/>
+  <line x1="550" y1="175" x2="550" y2="210" stroke="#4a5568" stroke-width="1.5"/>
+  <line x1="150" y1="210" x2="550" y2="210" stroke="#4a5568" stroke-width="2"/>
+  <line x1="350" y1="210" x2="350" y2="240" stroke="#4a5568" stroke-width="2"/>
+  <polygon points="346,235 350,245 354,235" fill="#4a5568"/>
+  <rect x="100" y="250" width="500" height="120" rx="3" fill="#ffffff" stroke="#1a365d" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="100" y="250" width="500" height="5" fill="#1a365d"/>
+  <text x="350" y="280" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#1a365d" text-anchor="middle">ANÁLISIS INTEGRADO</text>
+  <circle cx="150" cy="300" r="5" fill="#2b6cb0"/>
+  <text x="170" y="306" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#4a5568">Correlación métricas-experiencia</text>
+  <circle cx="150" cy="325" r="5" fill="#38a169"/>
+  <text x="170" y="331" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#4a5568">Identificación trade-offs</text>
+  <circle cx="150" cy="350" r="5" fill="#d69e2e"/>
+  <text x="170" y="356" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#4a5568">Recomendaciones arquitecturales</text>
+</svg>

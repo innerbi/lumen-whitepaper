@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 520" width="750" height="520">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset dx="1" dy="1" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.1"/>
+      <feComposite in2="offsetBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="750" height="520" fill="none"/>
+  
+  <!-- Header -->
+  <rect x="40" y="25" width="670" height="50" rx="0" fill="#1a365d" filter="url(#shadow)"/>
+  <text x="375" y="57" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="2">MAPA DE TRADE-OFFS</text>
+  
+  <!-- Main container -->
+  <rect x="40" y="90" width="670" height="400" rx="0" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Left chart: PRECISION vs COSTO -->
+  <text x="170" y="120" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#2b6cb0" text-anchor="middle">PRECISIÓN</text>
+  
+  <!-- Y axis -->
+  <line x1="100" y1="135" x2="100" y2="280" stroke="#4a5568" stroke-width="1.5"/>
+  <polygon points="96,140 100,130 104,140" fill="#4a5568"/>
+  
+  <!-- X axis -->
+  <line x1="100" y1="280" x2="280" y2="280" stroke="#4a5568" stroke-width="1.5"/>
+  <polygon points="275,276 285,280 275,284" fill="#4a5568"/>
+  <text x="195" y="305" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">COSTO</text>
+  
+  <!-- Labels -->
+  <text x="70" y="160" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#718096">Alta</text>
+  <text x="70" y="260" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#718096">Baja</text>
+  
+  <!-- Optimal zone box -->
+  <rect x="130" y="150" width="80" height="50" rx="2" fill="#ebf8ff" stroke="#2b6cb0" stroke-width="1.5"/>
+  <text x="170" y="172" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#2b6cb0" text-anchor="middle">ÓPTIMO</text>
+  <text x="170" y="188" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#2b6cb0" text-anchor="middle">LUMEN</text>
+  
+  <!-- Diagonal line -->
+  <line x1="130" y1="200" x2="240" y2="260" stroke="#a0aec0" stroke-width="1" stroke-dasharray="4,2"/>
+  
+  <!-- Right chart: LATENCIA vs COMPLEJIDAD -->
+  <text x="540" y="120" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#38a169" text-anchor="middle">LATENCIA</text>
+  
+  <!-- Y axis -->
+  <line x1="450" y1="135" x2="450" y2="280" stroke="#4a5568" stroke-width="1.5"/>
+  <polygon points="446,140 450,130 454,140" fill="#4a5568"/>
+  
+  <!-- X axis -->
+  <line x1="450" y1="280" x2="660" y2="280" stroke="#4a5568" stroke-width="1.5"/>
+  <polygon points="655,276 665,280 655,284" fill="#4a5568"/>
+  <text x="560" y="305" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">COMPLEJIDAD</text>
+  
+  <!-- Labels -->
+  <text x="420" y="160" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#718096">Baja</text>
+  <text x="420" y="260" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#718096">Alta</text>
+  
+  <!-- Horizontal lines -->
+  <line x1="470" y1="175" x2="620" y2="175" stroke="#a0aec0" stroke-width="1"/>
+  <line x1="470" y1="245" x2="620" y2="245" stroke="#a0aec0" stroke-width="1"/>
+  
+  <!-- Decisions section -->
+  <line x1="60" y1="330" x2="690" y2="330" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <text x="60" y="360" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#2d3748">Decisiones de diseño:</text>
+  
+  <circle cx="80" cy="390" r="5" fill="#2b6cb0"/>
+  <text x="95" y="395" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568">Two-Layer Routing: Optimiza costo sin sacrificar precisión</text>
+  
+  <circle cx="80" cy="420" r="5" fill="#38a169"/>
+  <text x="95" y="425" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568">Agent-as-Tool: Acepta +58% latencia por +28% precisión</text>
+  
+  <circle cx="80" cy="450" r="5" fill="#d69e2e"/>
+  <text x="95" y="455" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568">Hybrid RAG: Acepta +120ms por +19% recall</text>
+  
+</svg>

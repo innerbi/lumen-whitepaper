@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 480" width="700" height="480">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset dx="1" dy="1" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.1"/>
+      <feComposite in2="offsetBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="480" fill="none"/>
+  
+  <!-- Header -->
+  <rect x="40" y="25" width="620" height="50" rx="0" fill="#1a365d" filter="url(#shadow)"/>
+  <text x="350" y="57" font-family="Consolas, monospace" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle">BaseAgent</text>
+  
+  <!-- Main container -->
+  <rect x="40" y="90" width="620" height="360" rx="0" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Atributos section -->
+  <rect x="70" y="110" width="560" height="175" rx="3" fill="#ffffff" stroke="#2b6cb0" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="70" y="110" width="560" height="5" fill="#2b6cb0"/>
+  <text x="90" y="140" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#2b6cb0">Atributos de Instancia</text>
+  
+  <text x="90" y="170" font-family="Consolas, monospace" font-size="12" fill="#e53e3e">- agent_id</text>
+  <text x="250" y="170" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568">Identificador único del agente</text>
+  
+  <text x="90" y="195" font-family="Consolas, monospace" font-size="12" fill="#e53e3e">- description</text>
+  <text x="250" y="195" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568">Descripción para el router</text>
+  
+  <text x="90" y="220" font-family="Consolas, monospace" font-size="12" fill="#e53e3e">- tools_names</text>
+  <text x="250" y="220" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568">Lista de nombres de herramientas</text>
+  
+  <text x="90" y="245" font-family="Consolas, monospace" font-size="12" fill="#e53e3e">- container</text>
+  <text x="250" y="245" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568">Dependency Injection container</text>
+  
+  <text x="90" y="270" font-family="Consolas, monospace" font-size="12" fill="#e53e3e">- mcp_tools</text>
+  <text x="250" y="270" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568">Tools MCP cargados automáticamente</text>
+  
+  <!-- Metodos section -->
+  <rect x="70" y="300" width="560" height="130" rx="3" fill="#ffffff" stroke="#38a169" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="70" y="300" width="560" height="5" fill="#38a169"/>
+  <text x="90" y="330" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#38a169">Métodos Principales</text>
+  
+  <text x="90" y="360" font-family="Consolas, monospace" font-size="12" fill="#805ad5">- create_chat_agent()</text>
+  <text x="300" y="360" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568">Crea instancia de ChatAgent</text>
+  
+  <text x="90" y="385" font-family="Consolas, monospace" font-size="12" fill="#805ad5">- stream()</text>
+  <text x="300" y="385" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568">Genera respuestas SSE (obligatorio)</text>
+  
+  <text x="90" y="410" font-family="Consolas, monospace" font-size="12" fill="#805ad5">- _load_mcp_tools()</text>
+  <text x="300" y="410" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568">Carga tools MCP automáticamente</text>
+  
+</svg>

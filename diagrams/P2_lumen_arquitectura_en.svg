@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 720" width="850" height="720">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset dx="1" dy="1" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.1"/>
+      <feComposite in2="offsetBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="850" height="720" fill="none"/>
+  
+  <!-- Layer 1: LUMEN (Top) -->
+  <rect x="40" y="25" width="770" height="55" rx="0" fill="#1a365d" filter="url(#shadow)"/>
+  <text x="425" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="2">LUMEN</text>
+  
+  <!-- Layer 2: Capabilities -->
+  <rect x="40" y="95" width="770" height="100" rx="0" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="60" y="115" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#718096" font-weight="500">CAPABILITIES</text>
+  
+  <!-- Capability boxes -->
+  <rect x="60" y="130" width="140" height="50" rx="2" fill="#ffffff" stroke="#2b6cb0" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="130" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#2d3748" text-anchor="middle">BI Analyst</text>
+  <text x="130" y="168" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#718096" text-anchor="middle">DAX</text>
+  
+  <rect x="220" y="130" width="140" height="50" rx="2" fill="#ffffff" stroke="#2b6cb0" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="290" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#2d3748" text-anchor="middle">Document Analyst</text>
+  <text x="290" y="168" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#718096" text-anchor="middle">RAG</text>
+  
+  <rect x="380" y="130" width="140" height="50" rx="2" fill="#ffffff" stroke="#2b6cb0" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="450" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#2d3748" text-anchor="middle">Reporting</text>
+  <text x="450" y="168" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#718096" text-anchor="middle">Power BI</text>
+  
+  <rect x="540" y="130" width="140" height="50" rx="2" fill="#ffffff" stroke="#2b6cb0" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="610" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#2d3748" text-anchor="middle">General Expert</text>
+  <text x="610" y="168" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#718096" text-anchor="middle">Multi-purpose</text>
+  
+  <!-- Arrows from capabilities to orchestration -->
+  <line x1="130" y1="180" x2="130" y2="215" stroke="#2b6cb0" stroke-width="1.5"/>
+  <polygon points="126,210 130,220 134,210" fill="#2b6cb0"/>
+  
+  <line x1="290" y1="180" x2="290" y2="215" stroke="#2b6cb0" stroke-width="1.5"/>
+  <polygon points="286,210 290,220 294,210" fill="#2b6cb0"/>
+  
+  <line x1="450" y1="180" x2="450" y2="215" stroke="#2b6cb0" stroke-width="1.5"/>
+  <polygon points="446,210 450,220 454,210" fill="#2b6cb0"/>
+  
+  <line x1="610" y1="180" x2="610" y2="215" stroke="#2b6cb0" stroke-width="1.5"/>
+  <polygon points="606,210 610,220 614,210" fill="#2b6cb0"/>
+  
+  <!-- Layer 3: Orchestration -->
+  <rect x="40" y="210" width="770" height="110" rx="0" fill="#ebf8ff" stroke="#bee3f8" stroke-width="1"/>
+  <text x="60" y="230" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#718096" font-weight="500">ORCHESTRATION</text>
+  
+  <rect x="80" y="245" width="690" height="60" rx="2" fill="#2b6cb0" filter="url(#shadow)"/>
+  <text x="425" y="268" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="2">ORCHESTRATION LAYER</text>
+  <text x="425" y="288" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#bee3f8" text-anchor="middle">BIWorkflow | GeneralWorkflow | DocumentOnlyWorkflow | ReportWorkflow</text>
+  
+  <!-- Arrows from orchestration to agents -->
+  <line x1="200" y1="305" x2="200" y2="340" stroke="#2b6cb0" stroke-width="1.5"/>
+  <polygon points="196,335 200,345 204,335" fill="#2b6cb0"/>
+  
+  <line x1="425" y1="305" x2="425" y2="340" stroke="#2b6cb0" stroke-width="1.5"/>
+  <polygon points="421,335 425,345 429,335" fill="#2b6cb0"/>
+  
+  <line x1="650" y1="305" x2="650" y2="340" stroke="#2b6cb0" stroke-width="1.5"/>
+  <polygon points="646,335 650,345 654,335" fill="#2b6cb0"/>
+  
+  <!-- Layer 4: Specialized Agents -->
+  <rect x="40" y="335" width="770" height="190" rx="0" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="60" y="355" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#718096" font-weight="500">SPECIALIZED AGENTS</text>
+  
+  <!-- Agent boxes - Row 1 -->
+  <rect x="60" y="370" width="115" height="50" rx="2" fill="#ffffff" stroke="#4a5568" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="60" y="370" width="115" height="4" fill="#1a1a1a"/>
+  <text x="117" y="400" font-family="Consolas, monospace" font-size="10" font-weight="500" fill="#2d3748" text-anchor="middle">GeneralAgent</text>
+  
+  <rect x="190" y="370" width="115" height="50" rx="2" fill="#ffffff" stroke="#4a5568" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="190" y="370" width="115" height="4" fill="#38a169"/>
+  <text x="247" y="400" font-family="Consolas, monospace" font-size="10" font-weight="500" fill="#2d3748" text-anchor="middle">DAXAgent</text>
+  
+  <rect x="320" y="370" width="115" height="50" rx="2" fill="#ffffff" stroke="#4a5568" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="320" y="370" width="115" height="4" fill="#38a169"/>
+  <text x="377" y="400" font-family="Consolas, monospace" font-size="10" font-weight="500" fill="#2d3748" text-anchor="middle">DocumentAgent</text>
+  
+  <rect x="450" y="370" width="115" height="50" rx="2" fill="#ffffff" stroke="#4a5568" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="450" y="370" width="115" height="4" fill="#f97316"/>
+  <text x="507" y="400" font-family="Consolas, monospace" font-size="10" font-weight="500" fill="#2d3748" text-anchor="middle">ReportAgent</text>
+  
+  <rect x="580" y="370" width="115" height="50" rx="2" fill="#ffffff" stroke="#4a5568" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="580" y="370" width="115" height="4" fill="#d946ef"/>
+  <text x="637" y="400" font-family="Consolas, monospace" font-size="10" font-weight="500" fill="#2d3748" text-anchor="middle">PDFAgent</text>
+  
+  <!-- Agent boxes - Row 2 -->
+  <rect x="60" y="440" width="105" height="50" rx="2" fill="#ffffff" stroke="#4a5568" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="60" y="440" width="105" height="4" fill="#1a1a1a"/>
+  <text x="112" y="470" font-family="Consolas, monospace" font-size="9" font-weight="500" fill="#2d3748" text-anchor="middle">PlanningAgent</text>
+  
+  <rect x="175" y="440" width="105" height="50" rx="2" fill="#ffffff" stroke="#4a5568" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="175" y="440" width="105" height="4" fill="#f97316"/>
+  <text x="227" y="470" font-family="Consolas, monospace" font-size="10" font-weight="500" fill="#2d3748" text-anchor="middle">SearchAgent</text>
+  
+  <rect x="290" y="440" width="105" height="50" rx="2" fill="#ffffff" stroke="#4a5568" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="290" y="440" width="105" height="4" fill="#eab308"/>
+  <text x="342" y="470" font-family="Consolas, monospace" font-size="9" font-weight="500" fill="#2d3748" text-anchor="middle">SummaryAgent</text>
+  
+  <rect x="405" y="440" width="105" height="50" rx="2" fill="#ffffff" stroke="#4a5568" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="405" y="440" width="105" height="4" fill="#d946ef"/>
+  <text x="457" y="470" font-family="Consolas, monospace" font-size="9" font-weight="500" fill="#2d3748" text-anchor="middle">FormatterAgent</text>
+  
+  <rect x="520" y="440" width="105" height="50" rx="2" fill="#ffffff" stroke="#4a5568" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="520" y="440" width="105" height="4" fill="#38a169"/>
+  <text x="572" y="470" font-family="Consolas, monospace" font-size="10" font-weight="500" fill="#2d3748" text-anchor="middle">FabricAgent</text>
+  
+  <rect x="635" y="440" width="105" height="50" rx="2" fill="#ffffff" stroke="#4a5568" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="635" y="440" width="105" height="4" fill="#1a1a1a"/>
+  <text x="687" y="470" font-family="Consolas, monospace" font-size="9" font-weight="500" fill="#2d3748" text-anchor="middle">PowerBIAgent</text>
+  
+  <!-- Arrows from agents to services -->
+  <line x1="200" y1="490" x2="200" y2="545" stroke="#4a5568" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="400" y1="490" x2="400" y2="545" stroke="#4a5568" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="600" y1="490" x2="600" y2="545" stroke="#4a5568" stroke-width="1" stroke-dasharray="4,2"/>
+  
+  <!-- Layer 5: Platform Services -->
+  <rect x="40" y="540" width="770" height="130" rx="0" fill="#edf2f7" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="60" y="560" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#718096" font-weight="500">PLATFORM SERVICES</text>
+  
+  <!-- Service boxes -->
+  <rect x="60" y="575" width="110" height="45" rx="2" fill="#ffffff" stroke="#a0aec0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="115" y="595" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#2d3748" text-anchor="middle">Azure OpenAI</text>
+  <text x="115" y="610" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">LLM</text>
+  
+  <rect x="185" y="575" width="110" height="45" rx="2" fill="#ffffff" stroke="#a0aec0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="240" y="595" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#2d3748" text-anchor="middle">Weaviate</text>
+  <text x="240" y="610" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">Vector DB</text>
+  
+  <rect x="310" y="575" width="110" height="45" rx="2" fill="#ffffff" stroke="#a0aec0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="365" y="595" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#2d3748" text-anchor="middle">SQL Server</text>
+  <text x="365" y="610" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">Database</text>
+  
+  <rect x="435" y="575" width="110" height="45" rx="2" fill="#ffffff" stroke="#a0aec0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="490" y="595" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#2d3748" text-anchor="middle">Redis</text>
+  <text x="490" y="610" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">Cache</text>
+  
+  <rect x="560" y="575" width="110" height="45" rx="2" fill="#ffffff" stroke="#a0aec0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="615" y="595" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#2d3748" text-anchor="middle">OAuth</text>
+  <text x="615" y="610" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">Auth</text>
+  
+  <rect x="685" y="575" width="110" height="45" rx="2" fill="#ffffff" stroke="#a0aec0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="740" y="595" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#2d3748" text-anchor="middle">MCP</text>
+  <text x="740" y="610" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">Protocol</text>
+  
+  <!-- Bottom line - infrastructure -->
+  <rect x="40" y="680" width="770" height="30" rx="0" fill="#2d3748"/>
+  <text x="425" y="700" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#a0aec0" text-anchor="middle" letter-spacing="2">AZURE INFRASTRUCTURE</text>
+  
+</svg>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 520" width="750" height="520">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset dx="1" dy="1" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.1"/>
+      <feComposite in2="offsetBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="750" height="520" fill="none"/>
+  
+  <!-- Header -->
+  <rect x="40" y="25" width="670" height="50" rx="0" fill="#1a365d" filter="url(#shadow)"/>
+  <text x="375" y="57" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="2">REDIS STREAMS ARCHITECTURE</text>
+  
+  <!-- Main container -->
+  <rect x="40" y="90" width="670" height="400" rx="0" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- API -->
+  <text x="60" y="140" font-family="Consolas, monospace" font-size="14" font-weight="600" fill="#2d3748">API</text>
+  
+  <!-- Arrow to XADD -->
+  <line x1="90" y1="135" x2="120" y2="135" stroke="#2b6cb0" stroke-width="1.5"/>
+  <polygon points="115,131 125,135 115,139" fill="#2b6cb0"/>
+  
+  <!-- XADD command -->
+  <rect x="130" y="118" width="280" height="35" rx="3" fill="#ffffff" stroke="#e53e3e" stroke-width="2" filter="url(#shadow)"/>
+  <text x="145" y="141" font-family="Consolas, monospace" font-size="12" fill="#e53e3e">XADD</text>
+  <text x="195" y="141" font-family="Consolas, monospace" font-size="12" fill="#4a5568">document_queue {...}</text>
+  
+  <!-- Arrow to Redis Stream -->
+  <line x1="410" y1="135" x2="450" y2="135" stroke="#2b6cb0" stroke-width="1.5"/>
+  <polygon points="445,131 455,135 445,139" fill="#2b6cb0"/>
+  
+  <!-- Redis Stream box -->
+  <rect x="460" y="110" width="180" height="55" rx="3" fill="#ffffff" stroke="#e53e3e" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="460" y="110" width="180" height="5" fill="#e53e3e"/>
+  <text x="550" y="138" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#2d3748" text-anchor="middle">Redis Stream</text>
+  <text x="550" y="155" font-family="Consolas, monospace" font-size="11" fill="#e53e3e" text-anchor="middle">document_queue</text>
+  
+  <!-- Vertical line from Redis Stream -->
+  <line x1="550" y1="165" x2="550" y2="200" stroke="#4a5568" stroke-width="2"/>
+  
+  <!-- Horizontal distribution line -->
+  <line x1="180" y1="200" x2="620" y2="200" stroke="#4a5568" stroke-width="2"/>
+  
+  <!-- Vertical lines to workers -->
+  <line x1="180" y1="200" x2="180" y2="235" stroke="#4a5568" stroke-width="1.5"/>
+  <line x1="400" y1="200" x2="400" y2="235" stroke="#4a5568" stroke-width="1.5"/>
+  <line x1="620" y1="200" x2="620" y2="235" stroke="#4a5568" stroke-width="1.5"/>
+  
+  <!-- Arrows to workers -->
+  <polygon points="176,230 180,240 184,230" fill="#4a5568"/>
+  <polygon points="396,230 400,240 404,230" fill="#4a5568"/>
+  <polygon points="616,230 620,240 624,230" fill="#4a5568"/>
+  
+  <!-- Worker 1 -->
+  <rect x="110" y="245" width="140" height="80" rx="3" fill="#ffffff" stroke="#38a169" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="110" y="245" width="140" height="5" fill="#38a169"/>
+  <text x="180" y="275" font-family="Consolas, monospace" font-size="13" font-weight="600" fill="#38a169" text-anchor="middle">Worker 1</text>
+  <text x="180" y="298" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">Process</text>
+  <text x="180" y="315" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">Doc A</text>
+  
+  <!-- Worker 2 -->
+  <rect x="330" y="245" width="140" height="80" rx="3" fill="#ffffff" stroke="#38a169" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="330" y="245" width="140" height="5" fill="#38a169"/>
+  <text x="400" y="275" font-family="Consolas, monospace" font-size="13" font-weight="600" fill="#38a169" text-anchor="middle">Worker 2</text>
+  <text x="400" y="298" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">Process</text>
+  <text x="400" y="315" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">Doc B</text>
+  
+  <!-- Worker 3 -->
+  <rect x="550" y="245" width="140" height="80" rx="3" fill="#ffffff" stroke="#38a169" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="550" y="245" width="140" height="5" fill="#38a169"/>
+  <text x="620" y="275" font-family="Consolas, monospace" font-size="13" font-weight="600" fill="#38a169" text-anchor="middle">Worker 3</text>
+  <text x="620" y="298" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">Process</text>
+  <text x="620" y="315" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">Doc C</text>
+  
+  <!-- Lines from workers to merge point -->
+  <line x1="180" y1="325" x2="180" y2="360" stroke="#4a5568" stroke-width="1.5"/>
+  <line x1="400" y1="325" x2="400" y2="360" stroke="#4a5568" stroke-width="1.5"/>
+  <line x1="620" y1="325" x2="620" y2="360" stroke="#4a5568" stroke-width="1.5"/>
+  
+  <!-- Horizontal merge line -->
+  <line x1="180" y1="360" x2="620" y2="360" stroke="#4a5568" stroke-width="2"/>
+  
+  <!-- Vertical line to SQL Server -->
+  <line x1="400" y1="360" x2="400" y2="395" stroke="#4a5568" stroke-width="2"/>
+  <polygon points="396,390 400,400 404,390" fill="#4a5568"/>
+  
+  <!-- SQL Server Results -->
+  <rect x="300" y="405" width="200" height="60" rx="3" fill="#ffffff" stroke="#2b6cb0" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="300" y="405" width="200" height="5" fill="#2b6cb0"/>
+  <text x="400" y="435" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#2d3748" text-anchor="middle">SQL Server</text>
+  <text x="400" y="455" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle">Results</text>
+  
+</svg>
