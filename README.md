@@ -30,7 +30,7 @@ This work presents a **comprehensive and generalizable framework for the design 
 
 | Language | Online (MD) | Download (PDF) |
 |----------|-------------|----------------|
-| **English** | [LUMEN_WHITEPAPER_v10_EN.md](LUMEN_WHITEPAPER_v10_EN.md) | Coming soon |
+| **English** | [LUMEN_WHITEPAPER_v10_EN.md](LUMEN_WHITEPAPER_v10_EN.md) | [LUMEN_WHITEPAPER_v10_EN.pdf](LUMEN_WHITEPAPER_v10_EN.pdf) |
 | **Español** | [LUMEN_WHITEPAPER_v10.md](LUMEN_WHITEPAPER_v10.md) | [LUMEN_WHITEPAPER_v10.pdf](LUMEN_WHITEPAPER_v10.pdf) |
 
 ---
