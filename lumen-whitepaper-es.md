@@ -101,10 +101,19 @@ La **IA Agentica** (Agentic AI) se refiere a sistemas de inteligencia artificial
 - **Interactua con el entorno**: Usa herramientas, navega sistemas y se adapta en tiempo real
 - **Se auto-corrige**: Evalua sus propios resultados e itera hasta satisfacer criterios
 
-<p align="center">
-  <img src="diagrams/1.1_evolucion_sistemas_ia.svg" alt="Evolución de Sistemas de IA" width="700">
-<br><em>Figura 1: Evolución de Sistemas de IA</em>
-</p>
+<table>
+<tr>
+<td width="70%" valign="top">
+<img src="diagrams/1.1_evolucion_sistemas_ia.svg" alt="Evolución de Sistemas de IA" width="100%">
+<p align="center"><em>Figura 1: Evolución de Sistemas de IA</em></p>
+</td>
+<td width="30%" valign="top">
+
+**La evolución muestra cuatro eras distintas**: desde sistemas basados en reglas (1980s-2000s), pasando por ML estadístico (2000s-2017), hasta LLMs basados en transformers (2017-2023), y finalmente sistemas agénticos multi-agente (2023+).
+
+</td>
+</tr>
+</table>
 
 ## 1.2 Agencia Funcional: Un Marco Teorico
 
@@ -150,10 +159,19 @@ El sistema debe **modificar su comportamiento cuando cambia su modelo de resulta
 
 *Justificación*: Del resultado de la Proposición 1.1, si queremos que un sistema basado en LLM satisfaga la Condición 3, debemos externalizar la función de adaptación α. Los mecanismos externos (memoria persistente para recordar errores, herramientas para ejecutar acciones, bucles de feedback para evaluar resultados) permiten implementar α fuera del LLM, complementando sus capacidades estáticas con adaptación dinámica. ∎
 
-<p align="center">
-  <img src="diagrams/1.2_agencia_funcional.svg" alt="Agencia Funcional" width="700">
-<br><em>Figura 2: Agencia Funcional</em>
-</p>
+<table>
+<tr>
+<td width="70%" valign="top">
+<img src="diagrams/1.2_agencia_funcional.svg" alt="Agencia Funcional" width="100%">
+<p align="center"><em>Figura 2: Agencia Funcional</em></p>
+</td>
+<td width="30%" valign="top">
+
+**Las tres condiciones para agencia funcional**: (1) Generación de Acciones; (2) Modelo de Resultados—comprensión causal; (3) Adaptación—modificar comportamiento cuando fallan predicciones. Un LLM aislado falla la Condición 3.
+
+</td>
+</tr>
+</table>
 
 ## 1.3 Componentes de un Sistema Agentico
 
@@ -190,10 +208,19 @@ Las herramientas extienden las capacidades del agente mas alla de la generacion 
 
 El sistema agentico opera mediante bucles de feedback integrados:
 
-<p align="center">
-  <img src="diagrams/1.3_ciclo_agentico.svg" alt="Ciclo Agéntico" width="700">
-<br><em>Figura 3: Ciclo Agéntico</em>
-</p>
+<table>
+<tr>
+<td width="70%" valign="top">
+<img src="diagrams/1.3_ciclo_agentico.svg" alt="Ciclo Agéntico" width="100%">
+<p align="center"><em>Figura 3: Ciclo Agéntico</em></p>
+</td>
+<td width="30%" valign="top">
+
+**El ciclo agéntico continuo**: Percibir → Pensar → Actuar → Observar → Adaptar. El agente recibe input, razona, ejecuta con herramientas, observa resultados y actualiza su estado interno.
+
+</td>
+</tr>
+</table>
 
 ## 1.4 Patrones de Razonamiento Agentico
 
@@ -385,10 +412,19 @@ El horizonte apunta hacia **empresas con autonomia incremental**:
 **Fase 3 (2027-2029)**: Ecosistemas multi-agente coordinan entre departamentos
 **Fase 4 (2030+)**: Autonomia en la mayoria de procesos operativos
 
-<p align="center">
-  <img src="diagrams/1.7_horizonte_ia_agentica.svg" alt="Horizonte de IA Agéntica" width="700">
-<br><em>Figura 5: Horizonte de IA Agéntica</em>
-</p>
+<table>
+<tr>
+<td width="70%" valign="top">
+<img src="diagrams/1.7_horizonte_ia_agentica.svg" alt="Horizonte de IA Agéntica" width="100%">
+<p align="center"><em>Figura 5: Horizonte de IA Agéntica</em></p>
+</td>
+<td width="30%" valign="top">
+
+**Trayectoria 2025-2030**: Fase 1 (actual) co-pilotos; Fase 2 (2025-27) agentes con supervisión; Fase 3 (2027-29) ecosistemas multi-agente; Fase 4 (2030+) autonomía operacional.
+
+</td>
+</tr>
+</table>
 
 ---
 
@@ -431,10 +467,19 @@ La investigacion y practica industrial han convergido en cinco arquitecturas pri
 
 Divide la inteligencia en capas con diferentes escalas temporales y niveles de abstraccion:
 
-<p align="center">
-  <img src="diagrams/2.2.1_arquitectura_jerarquica.svg" alt="Arquitectura Jerárquica" width="700">
-<br><em>Figura 6: Arquitectura Jerárquica</em>
-</p>
+<table>
+<tr>
+<td width="70%" valign="top">
+<img src="diagrams/2.2.1_arquitectura_jerarquica.svg" alt="Arquitectura Jerárquica" width="100%">
+<p align="center"><em>Figura 6: Arquitectura Jerárquica</em></p>
+</td>
+<td width="30%" valign="top">
+
+**Capas cognitivas con escalas temporales diferentes**: Capa estratégica (planificación largo plazo), Capa táctica (decisiones intermedias), Capa operacional (ejecución tiempo real). **Uso**: Robótica, trading.
+
+</td>
+</tr>
+</table>
 
 **Uso**: Sistemas que requieren decisiones a multiples escalas temporales (robotica, trading).
 
@@ -442,10 +487,19 @@ Divide la inteligencia en capas con diferentes escalas temporales y niveles de a
 
 Enfoque minimalista con agentes simples que emergen comportamiento complejo:
 
-<p align="center">
-  <img src="diagrams/2.2.2_arquitectura_swarm.svg" alt="Arquitectura Swarm" width="700">
-<br><em>Figura 7: Arquitectura Swarm</em>
-</p>
+<table>
+<tr>
+<td width="70%" valign="top">
+<img src="diagrams/2.2.2_arquitectura_swarm.svg" alt="Arquitectura Swarm" width="100%">
+<p align="center"><em>Figura 7: Arquitectura Swarm</em></p>
+</td>
+<td width="30%" valign="top">
+
+**Agentes homogéneos simples con comportamiento emergente**: Comunicación peer-to-peer, sin coordinador central. **Uso**: Prototipado rápido, búsqueda distribuida.
+
+</td>
+</tr>
+</table>
 
 **Uso**: Prototipado rapido, busqueda distribuida, procesamiento paralelo.
 
@@ -462,10 +516,19 @@ Enfoque minimalista con agentes simples que emergen comportamiento complejo:
 
 Separa el aprendizaje de tareas del meta-aprendizaje (aprender a aprender). **Magentic-One** de Microsoft Agent Framework ejemplifica este patrón:
 
-<p align="center">
-  <img src="diagrams/2.2.3_arquitectura_meta_aprendizaje.svg" alt="Meta-Aprendizaje" width="700">
-<br><em>Figura 8: Meta-Aprendizaje</em>
-</p>
+<table>
+<tr>
+<td width="70%" valign="top">
+<img src="diagrams/2.2.3_arquitectura_meta_aprendizaje.svg" alt="Meta-Aprendizaje" width="100%">
+<p align="center"><em>Figura 8: Meta-Aprendizaje</em></p>
+</td>
+<td width="30%" valign="top">
+
+**Aprender a aprender**: Separa ejecución de tareas del meta-aprendizaje. Magentic-One de Microsoft ejemplifica este patrón. **Uso**: Sistemas que requieren adaptación rápida.
+
+</td>
+</tr>
+</table>
 
 **Uso**: Sistemas que deben adaptarse rapidamente a nuevos dominios.
 
@@ -475,10 +538,19 @@ Separa el aprendizaje de tareas del meta-aprendizaje (aprender a aprender). **Ma
 
 Componentes intercambiables con interfaces bien definidas:
 
-<p align="center">
-  <img src="diagrams/2.2.4_arquitectura_modular.svg" alt="Arquitectura Modular" width="700">
-<br><em>Figura 9: Arquitectura Modular</em>
-</p>
+<table>
+<tr>
+<td width="70%" valign="top">
+<img src="diagrams/2.2.4_arquitectura_modular.svg" alt="Arquitectura Modular" width="100%">
+<p align="center"><em>Figura 9: Arquitectura Modular</em></p>
+</td>
+<td width="30%" valign="top">
+
+**Componentes intercambiables con interfaces definidas**: Agentes plug-and-play, módulos hot-swappable. **Uso**: Sistemas empresariales que requieren flexibilidad.
+
+</td>
+</tr>
+</table>
 
 **Uso**: Sistemas empresariales que requieren componentes intercambiables.
 
@@ -486,10 +558,19 @@ Componentes intercambiables con interfaces bien definidas:
 
 Agentes que evolucionan y se adaptan mediante selección y mutación:
 
-<p align="center">
-  <img src="diagrams/2.2.5_arquitectura_evolutiva.svg" alt="Arquitectura Evolutiva" width="700">
-<br><em>Figura 10: Arquitectura Evolutiva</em>
-</p>
+<table>
+<tr>
+<td width="70%" valign="top">
+<img src="diagrams/2.2.5_arquitectura_evolutiva.svg" alt="Arquitectura Evolutiva" width="100%">
+<p align="center"><em>Figura 10: Arquitectura Evolutiva</em></p>
+</td>
+<td width="30%" valign="top">
+
+**Agentes que evolucionan mediante selección y mutación**: Población de variantes compiten; estrategias exitosas se propagan. **Uso**: Optimización largo plazo, sistemas auto-mejorables.
+
+</td>
+</tr>
+</table>
 
 **Uso**: Optimización a largo plazo, sistemas auto-mejorables, descubrimiento de estrategias.
 
@@ -497,37 +578,73 @@ Agentes que evolucionan y se adaptan mediante selección y mutación:
 
 Un agente central coordina trabajadores especializados:
 
-<p align="center">
-  <img src="diagrams/2.2.6_orquestador_trabajador.svg" alt="Arquitectura Orquestador-Trabajador" width="700">
-<br><em>Figura 11: Arquitectura Orquestador-Trabajador</em>
-</p>
+<table>
+<tr>
+<td width="70%" valign="top">
+<img src="diagrams/2.2.6_orquestador_trabajador.svg" alt="Arquitectura Orquestador-Trabajador" width="100%">
+<p align="center"><em>Figura 11: Arquitectura Orquestador-Trabajador</em></p>
+</td>
+<td width="30%" valign="top">
+
+**Coordinador central con workers especializados**: Orquestador descompone tareas, asigna a workers apropiados, agrega resultados. **Uso**: Mayoría de sistemas multi-agente empresariales.
+
+</td>
+</tr>
+</table>
 
 ### 2.2.7 Arquitectura Generador-Critico
 
 Separa la creacion de contenido de su validacion:
 
-<p align="center">
-  <img src="diagrams/2.2.7_generador_critico.svg" alt="Arquitectura Generador-Crítico" width="700">
-<br><em>Figura 12: Arquitectura Generador-Crítico</em>
-</p>
+<table>
+<tr>
+<td width="70%" valign="top">
+<img src="diagrams/2.2.7_generador_critico.svg" alt="Arquitectura Generador-Crítico" width="100%">
+<p align="center"><em>Figura 12: Arquitectura Generador-Crítico</em></p>
+</td>
+<td width="30%" valign="top">
+
+**Separa creación de validación**: Generador produce contenido; Crítico evalúa calidad y da feedback. Itera hasta umbral de calidad. **Uso**: Generación de código, contenido de alta calidad.
+
+</td>
+</tr>
+</table>
 
 ### 2.2.8 Arquitectura Blackboard (Pizarra)
 
 Agentes comparten estado via almacenamiento centralizado:
 
-<p align="center">
-  <img src="diagrams/2.2.8_arquitectura_blackboard.svg" alt="Arquitectura Blackboard - Estado Compartido" width="700">
-<br><em>Figura 13: Arquitectura Blackboard - Estado Compartido</em>
-</p>
+<table>
+<tr>
+<td width="70%" valign="top">
+<img src="diagrams/2.2.8_arquitectura_blackboard.svg" alt="Arquitectura Blackboard" width="100%">
+<p align="center"><em>Figura 13: Arquitectura Blackboard</em></p>
+</td>
+<td width="30%" valign="top">
+
+**Estado compartido centralizado**: Agentes leen/escriben en almacenamiento común. Sin comunicación directa inter-agente. **Uso**: Colaboración de agentes heterogéneos.
+
+</td>
+</tr>
+</table>
 
 ### 2.2.9 Arquitectura Secuencial (Pipeline)
 
 Agentes procesan en cadena, cada uno transforma el output del anterior:
 
-<p align="center">
-  <img src="diagrams/2.2.9_arquitectura_secuencial.svg" alt="Arquitectura Secuencial" width="700">
-<br><em>Figura 14: Arquitectura Secuencial</em>
-</p>
+<table>
+<tr>
+<td width="70%" valign="top">
+<img src="diagrams/2.2.9_arquitectura_secuencial.svg" alt="Arquitectura Secuencial" width="100%">
+<p align="center"><em>Figura 14: Arquitectura Secuencial</em></p>
+</td>
+<td width="30%" valign="top">
+
+**Procesamiento en cadena**: Cada agente transforma output del anterior. Flujo determinístico, fácil de depurar. **Uso**: Procesamiento estructurado, ETL, pipelines.
+
+</td>
+</tr>
+</table>
 
 **Uso**: Procesamiento estructurado, ETL, pipelines de transformación.
 
@@ -535,10 +652,19 @@ Agentes procesan en cadena, cada uno transforma el output del anterior:
 
 Múltiples agentes procesan simultáneamente y combinan resultados:
 
-<p align="center">
-  <img src="diagrams/2.2.10_arquitectura_paralela.svg" alt="Arquitectura Paralela" width="700">
-<br><em>Figura 15: Arquitectura Paralela</em>
-</p>
+<table>
+<tr>
+<td width="70%" valign="top">
+<img src="diagrams/2.2.10_arquitectura_paralela.svg" alt="Arquitectura Paralela" width="100%">
+<p align="center"><em>Figura 15: Arquitectura Paralela</em></p>
+</td>
+<td width="30%" valign="top">
+
+**Procesamiento simultáneo con agregación**: Fan-out distribuye trabajo; Fan-in combina resultados. Minimiza latencia, habilita redundancia. **Uso**: Consultas multi-fuente, tolerancia a fallos.
+
+</td>
+</tr>
+</table>
 
 **Uso**: Consultas que requieren múltiples fuentes, reducción de latencia, redundancia.
 
@@ -546,10 +672,19 @@ Múltiples agentes procesan simultáneamente y combinan resultados:
 
 Agente evalúa su output y refina iterativamente hasta satisfacer criterio:
 
-<p align="center">
-  <img src="diagrams/2.2.11_arquitectura_reflexiva.svg" alt="Arquitectura Reflexiva" width="700">
-<br><em>Figura 16: Arquitectura Reflexiva</em>
-</p>
+<table>
+<tr>
+<td width="70%" valign="top">
+<img src="diagrams/2.2.11_arquitectura_reflexiva.svg" alt="Arquitectura Reflexiva" width="100%">
+<p align="center"><em>Figura 16: Arquitectura Reflexiva</em></p>
+</td>
+<td width="30%" valign="top">
+
+**Auto-evaluación y refinamiento iterativo**: Agente produce output, evalúa contra criterios, refina hasta satisfactorio. **Uso**: Generación de código, contenido de alta calidad.
+
+</td>
+</tr>
+</table>
 
 **Uso**: Generación de código, respuestas de alta calidad, tareas con criterio verificable.
 
@@ -586,10 +721,19 @@ Agente evalúa su output y refina iterativamente hasta satisfacer criterio:
 
 ### 2.4.3 Comparativa: Single vs Multi-Agent
 
-<p align="center">
-  <img src="diagrams/2.4.3_single_vs_multiagent.svg" alt="Comparativa Single vs Multi-Agent" width="700">
-<br><em>Figura 17: Comparativa Single vs Multi-Agent</em>
-</p>
+<table>
+<tr>
+<td width="70%" valign="top">
+<img src="diagrams/2.4.3_single_vs_multiagent.svg" alt="Comparativa Single vs Multi-Agent" width="100%">
+<p align="center"><em>Figura 17: Single vs Multi-Agent</em></p>
+</td>
+<td width="30%" valign="top">
+
+**Comparativa de rendimiento**: Multi-agente logra +20pp precisión vs LLMs monolíticos. Trade-off: latencia aumentada (+58%) pero mejor especialización, recuperación de errores y mantenibilidad.
+
+</td>
+</tr>
+</table>
 
 ---
 
@@ -823,7 +967,7 @@ Este whitepaper esta organizado por **capacidades**. Cada seccion presenta:
 3. **Versiones Futuras**: Mejoras planificadas o como se implementaria si no existe
 
 <p align="center">
-  <img src="diagrams/P2_lumen_arquitectura.svg" alt="Arquitectura LUMEN" width="800">
+  <img src="diagrams/P2_lumen_arquitectura.svg" alt="Arquitectura LUMEN" width="850">
 <br><em>Figura 18: Arquitectura LUMEN</em>
 </p>
 
@@ -1987,7 +2131,7 @@ Workers de background implementan heartbeat:
 Lumen utiliza Azure Kubernetes Service (AKS) con Ray para procesamiento distribuido de documentos:
 
 <p align="center">
-  <img src="diagrams/C8_arquitectura_aks.svg" alt="Arquitectura Física AKS" width="700">
+  <img src="diagrams/C8_arquitectura_aks.svg" alt="Arquitectura Física AKS" width="850">
 <br><em>Figura 35: Arquitectura Física AKS</em>
 </p>
 
