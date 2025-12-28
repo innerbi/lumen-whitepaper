@@ -1947,6 +1947,47 @@ Los tokens se almacenan en SQL Server asociados a session_id:
 - Refresh tokens separados y protegidos
 - Expiracion trackeada para refresh proactivo
 
+### Token Refresh Scheduler: Renovacion Proactiva Event-Driven
+
+Los access tokens de OAuth tienen vida limitada (tipicamente 1 hora). El enfoque tradicional de polling periodico (verificar cada N minutos si hay tokens por expirar) es ineficiente y puede fallar si el intervalo es muy largo o desperdiciar recursos si es muy corto.
+
+Lumen implementa un **Token Refresh Scheduler** event-driven que programa la renovacion de cada token individualmente basandose en su tiempo de expiracion real:
+
+<p align="center">
+  <img src="diagrams/C7_token_refresh_scheduler.svg" alt="Token Refresh Scheduler" width="750">
+<br><em>Figura 32b: Token Refresh Scheduler - Renovacion proactiva event-driven</em>
+</p>
+
+**Principio de Diseno**: En lugar de polling periodico, cada token obtiene su propio `asyncio.Task` que duerme hasta 5 minutos antes de la expiracion y luego ejecuta el refresh. Esto elimina queries innecesarias a la base de datos y garantiza renovacion precisa.
+
+**Flujo del Scheduler**:
+
+1. **Login**: Al guardar un token nuevo, se calcula `expires_at` y se programa un Task:
+   ```python
+   delay = expires_at - now - timedelta(minutes=5)
+   asyncio.create_task(sleep(delay) → refresh())
+   ```
+
+2. **Startup Recovery**: Al iniciar el servidor, el scheduler lee todos los tokens activos de la DB y programa sus refreshes pendientes.
+
+3. **Ejecucion del Task**: 5 minutos antes de expirar:
+   - Llama a `oauth_service.refresh()` con el refresh token
+   - Si es exitoso: guarda nuevo token y **reprograma** el siguiente refresh
+   - Si falla: reintenta en 1 minuto
+
+4. **Logout**: Cancela el Task pendiente para esa sesion, liberando recursos.
+
+**Ventajas vs Polling**:
+
+| Aspecto | Polling Tradicional | Event-Driven (Lumen) |
+|---------|---------------------|----------------------|
+| Queries DB | Cada N minutos | Solo al startup |
+| Precision | Error de hasta N min | Exacto (5 min antes) |
+| CPU/Memoria | Constante | Solo cuando hay trabajo |
+| Escalabilidad | O(n) por intervalo | O(1) por token |
+
+**Implementacion Clave**: El scheduler es un singleton que mantiene un `Dict[session_id, asyncio.Task]`. Cada Task se auto-reprograma tras un refresh exitoso, creando un ciclo autonomo que no requiere intervencion externa.
+
 ### Session Isolation
 
 Cada request incluye session cookie:
