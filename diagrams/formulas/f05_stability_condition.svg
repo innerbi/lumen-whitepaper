@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 90" width="280" height="90">
+  <style>
+    .formula { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 18px; fill: #1a1a1a; }
+    .formula-italic { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 18px; font-style: italic; fill: #1a1a1a; }
+    .subscript { font-size: 12px; }
+    .superscript { font-size: 12px; }
+    .mathbb { font-family: 'Times New Roman', serif; font-size: 18px; font-weight: bold; fill: #1a1a1a; }
+    .sqrt { font-size: 40px; }
+  </style>
+
+  <!-- η < √(ε_max / (E[δ²] · |E|)) -->
+  <text x="10" y="50" class="formula-italic">η</text>
+  <text x="25" y="50" class="formula"> &lt; </text>
+
+  <!-- Square root symbol -->
+  <text x="50" y="60" class="sqrt">√</text>
+  <line x1="75" y1="20" x2="250" y2="20" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- Fraction inside sqrt -->
+  <line x1="95" y1="45" x2="230" y2="45" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- Numerator: ε_max -->
+  <text x="140" y="38" class="formula-italic">ε</text>
+  <text x="152" y="42" class="formula subscript">max</text>
+
+  <!-- Denominator: E[δ²] · |E| -->
+  <text x="95" y="68" class="mathbb">E</text>
+  <text x="110" y="68" class="formula">[</text>
+  <text x="118" y="68" class="formula-italic">δ</text>
+  <text x="130" y="58" class="formula superscript">2</text>
+  <text x="140" y="68" class="formula">]</text>
+  <text x="152" y="68" class="formula"> · </text>
+  <text x="170" y="68" class="formula">|</text>
+  <text x="177" y="68" class="formula-italic">E</text>
+  <text x="190" y="68" class="formula">|</text>
+</svg>

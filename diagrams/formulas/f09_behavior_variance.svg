@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 80" width="450" height="80">
+  <style>
+    .formula { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 16px; fill: #1a1a1a; }
+    .formula-italic { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 16px; font-style: italic; fill: #1a1a1a; }
+    .subscript { font-size: 11px; }
+    .sum { font-size: 26px; }
+    .var { font-size: 18px; font-style: italic; }
+  </style>
+
+  <!-- BV = (1/|C|) Σ Var_emb({o : input(o) ∈ c}) -->
+  <text x="10" y="45" class="formula var">BV</text>
+  <text x="38" y="45" class="formula"> = </text>
+
+  <!-- 1/|C| -->
+  <line x1="60" y1="40" x2="95" y2="40" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="70" y="28" class="formula">1</text>
+  <text x="62" y="60" class="formula">|</text>
+  <text x="70" y="60" class="formula-italic">C</text>
+  <text x="83" y="60" class="formula">|</text>
+
+  <!-- Sigma -->
+  <text x="105" y="50" class="formula sum">Σ</text>
+  <text x="108" y="68" class="formula subscript">c∈C</text>
+
+  <!-- Var_emb -->
+  <text x="140" y="45" class="formula">Var</text>
+  <text x="175" y="52" class="formula subscript">emb</text>
+
+  <text x="200" y="45" class="formula">({</text>
+  <text x="218" y="45" class="formula-italic">o</text>
+  <text x="232" y="45" class="formula"> : input(</text>
+  <text x="300" y="45" class="formula-italic">o</text>
+  <text x="315" y="45" class="formula">) ∈ </text>
+  <text x="348" y="45" class="formula-italic">c</text>
+  <text x="360" y="45" class="formula">})</text>
+</svg>

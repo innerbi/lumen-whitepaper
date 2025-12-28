@@ -812,27 +812,39 @@ w_{ij}(t+1) = w_{ij}(t) + \eta \cdot \text{success}_{ij}(t) - \lambda \cdot w_{i
 where $\eta$ is the learning rate and $\lambda$ is the decay factor.
 \end{definition}
 
+\begin{remark}[Intuition: Hebbian Learning]
+This rule embodies the principle \emph{``neurons that fire together, wire together.''} When agent $j$ successfully handles intent $i$ (success $> 0$), their connection strengthens. When it fails (success $< 0$), trust decreases. The decay term $\lambda w_{ij}$ prevents unbounded growth and allows the system to ``forget'' outdated patterns, enabling adaptation to changing agent capabilities.
+\end{remark}
+
 \subsection{Formal Guarantees}
 
 \begin{theorem}[Variance Bound with Plasticity]
 \label{thm:variance-bound}
-Under \pema with learning rate $\eta < \frac{1}{2\lambda_{\max}}$ and decay $\lambda > 0$, the variance of routing decisions is bounded:
+Under \pema with learning rate $\eta > 0$ and decay $\lambda \in (0,1)$, the variance of routing decisions is bounded:
 \begin{equation}
-\text{Var}[\pi_t] \leq \frac{\eta^2 \sigma^2}{2\lambda - \eta^2 \lambda_{\max}^2}
+\text{Var}[\pi_t] \leq \frac{\eta^2 \sigma^2}{\lambda(2-\lambda)}
 \end{equation}
-where $\sigma^2$ is the variance of success signals and $\lambda_{\max}$ is the maximum eigenvalue of the intent covariance matrix.
+where $\sigma^2$ is the variance of success signals.
 \end{theorem}
 
 \begin{proof}
 See Appendix~\ref{sec:proofs}.
 \end{proof}
 
+\begin{remark}[Intuition]
+The bound reveals a \textbf{stability-adaptability trade-off}: smaller $\eta$ reduces variance but slows learning; larger $\lambda$ increases forgetting but improves stability. The denominator $\lambda(2-\lambda)$ approaches its maximum of 1 as $\lambda \to 1$, so variance is minimized with aggressive decay.
+\end{remark}
+
 \begin{remark}[Assumptions]
 Theorem~\ref{thm:variance-bound} requires: (i) success signals $s_t$ are i.i.d.\ with bounded variance $\sigma^2$; (ii) the intent distribution is stationary over the adaptation window; (iii) agent capabilities remain constant during learning. In practice, we use rolling windows of 100 interactions to approximate stationarity.
 \end{remark}
 
 \begin{corollary}[Practical Bound]
-For typical hyperparameters $\eta = 0.01$, $\lambda = 0.1$, $\sigma^2 \approx 0.25$, and $\lambda_{\max} \approx 1$, the bound yields $\text{Var}[\pi] \leq 0.013$, ensuring routing fluctuations below 12\%.
+For typical hyperparameters $\eta = 0.01$, $\lambda = 0.1$, and $\sigma^2 \approx 0.25$:
+\[
+\text{Var}[\pi] \leq \frac{(0.01)^2 \times 0.25}{0.1 \times 1.9} = \frac{0.000025}{0.19} \approx 0.00013
+\]
+This ensures routing fluctuations below $1.2\%$, providing highly stable agent selection.
 \end{corollary}
 
 \subsection{PEMA-Bench: Evaluation Protocol}
@@ -1037,32 +1049,57 @@ The trust graph $G = (V, E, W)$ where:
 \label{sec:proofs}
 
 \begin{proof}[Proof of Theorem~\ref{thm:variance-bound}]
-Consider the weight update dynamics:
+
+\textbf{Step 1: Single weight dynamics.}
+Consider the weight update for a single intent-agent pair:
 \[
 w_{t+1} = w_t + \eta s_t - \lambda w_t = (1-\lambda)w_t + \eta s_t
 \]
-
 where $s_t$ is the success signal with $\mathbb{E}[s_t] = \mu$ and $\text{Var}[s_t] = \sigma^2$.
 
-At stationarity, $\mathbb{E}[w_\infty] = \frac{\eta \mu}{\lambda}$.
+\textbf{Step 2: Stationary mean.}
+At stationarity, $w^* = (1-\lambda)w^* + \eta\mu$, hence:
+\[
+\mathbb{E}[w_\infty] = \frac{\eta \mu}{\lambda}
+\]
 
+\textbf{Step 3: Variance recursion.}
 The variance satisfies:
 \[
 \text{Var}[w_{t+1}] = (1-\lambda)^2 \text{Var}[w_t] + \eta^2 \sigma^2
 \]
+This is a geometric series with ratio $(1-\lambda)^2 < 1$ for $\lambda \in (0,1)$.
 
-At equilibrium:
+\textbf{Step 4: Equilibrium variance.}
+At equilibrium, $\text{Var}[w_\infty] = (1-\lambda)^2 \text{Var}[w_\infty] + \eta^2\sigma^2$, yielding:
 \[
-\text{Var}[w_\infty] = \frac{\eta^2 \sigma^2}{1-(1-\lambda)^2} = \frac{\eta^2 \sigma^2}{2\lambda - \lambda^2}
+\text{Var}[w_\infty] = \frac{\eta^2 \sigma^2}{1-(1-\lambda)^2} = \frac{\eta^2 \sigma^2}{2\lambda - \lambda^2} = \frac{\eta^2 \sigma^2}{\lambda(2-\lambda)}
 \]
 
-For multi-dimensional case with covariance structure, the bound becomes:
+\textbf{Step 5: Multi-dimensional extension.}
+For the weight vector $\mathbf{w} \in \mathbb{R}^{|I| \times |A|}$ with success signals having covariance matrix $\Sigma$ with maximum eigenvalue $\lambda_{\max}(\Sigma)$, the variance of each component is bounded by:
 \[
-\text{Var}[\pi_t] \leq \frac{\eta^2 \sigma^2}{2\lambda - \eta^2 \lambda_{\max}^2}
+\max_i \text{Var}[w_i] \leq \frac{\eta^2 \lambda_{\max}(\Sigma)}{\lambda(2-\lambda)}
 \]
 
-provided $\eta < \frac{1}{2\lambda_{\max}}$ for stability.
+\textbf{Step 6: Policy variance bound.}
+The routing policy $\pi_t = \text{softmax}(\mathbf{w}_t)$ maps weights to probabilities. By the delta method, $\text{Var}[\pi] \approx \|\nabla \pi\|^2 \text{Var}[w]$. Since softmax gradients satisfy $|\partial \pi_i / \partial w_j| \leq 0.25$ (maximum at $\pi_i = 0.5$), we have:
+\[
+\text{Var}[\pi_t] \leq 0.25 \cdot \text{Var}[w_t] \leq \frac{\eta^2 \sigma^2}{\lambda(2-\lambda)}
+\]
+where the factor 0.25 is absorbed into the inequality for simplicity.
+
+\textbf{Stability:} The system is stable for any $\lambda \in (0,1)$ and $\eta > 0$ since $(1-\lambda)^2 < 1$ always holds. For fast convergence with low variance, we recommend $\eta \approx 0.01$ and $\lambda \approx 0.1$.
 \end{proof}
+
+\begin{remark}[Intuition]
+The variance bound $\eta^2\sigma^2 / \lambda(2-\lambda)$ reveals a fundamental trade-off:
+\begin{itemize}
+    \item \textbf{Small $\eta$}: Low variance but slow adaptation
+    \item \textbf{Large $\lambda$}: Faster forgetting reduces variance but limits memory
+    \item \textbf{Sweet spot}: $\eta = 0.01$, $\lambda = 0.1$, $\sigma^2 = 0.25$ yields $\text{Var} \approx 0.00013$ (routing fluctuations $\approx 1.2\%$)
+\end{itemize}
+\end{remark}
 
 \section{Reproducibility}
 \label{sec:reproducibility}

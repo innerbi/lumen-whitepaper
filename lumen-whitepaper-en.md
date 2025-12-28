@@ -2110,18 +2110,35 @@ We apply the Hebbian principle ("neurons that fire together wire together") to t
 
 **Definition 11.2 (Hebbian Update Rule)**. Given an episode where agents $A_i$ and $A_j$ collaborated sequentially with outcome $o$:
 
-$$W_{ij}^{(t+1)} = W_{ij}^{(t)} + \eta \cdot \delta(o) \cdot c_{ij}$$
+<p align="center">
+  <img src="diagrams/formulas/f01_hebbian_update.svg" alt="Hebbian Rule" width="400">
+</p>
 
 where:
 - $\delta(o)$: reinforcement signal derived from outcome ($\delta > 0$ for success, $\delta < 0$ for failure)
 - $c_{ij}$: contribution of edge $(i,j)$ to result (default 1.0, can be estimated with attribution)
 - $\eta$: learning rate
+- $\lambda \in (0,1)$: decay factor (gradual forgetting)
+
+> [!TIP] **Intuition: Hebbian Rule**
+> *"Neurons that fire together, wire together."*
+>
+> Applied to agents: if A→B collaborate and the outcome is successful (δ > 0), their connection strengthens.
+> If they fail (δ < 0), trust decreases. This is reinforcement learning at the *connection* level, not individual agents.
 
 **Proposition 11.1 (Hebbian Convergence)**. With decay $\lambda \in (0,1)$ and i.i.d. outcomes, weights converge to a stationary distribution:
 
-$$W_{ij}^* = \frac{\eta \cdot \mathbb{E}[\delta \cdot c_{ij}]}{1 - (1-\lambda)}$$
+<p align="center">
+  <img src="diagrams/formulas/f02_stationary_weight.svg" alt="Stationary Weight" width="250">
+</p>
 
 *Proof sketch*: The update with decay is $W^{(t+1)} = (1-\lambda)W^{(t)} + \eta\delta c$. At steady state, $W^* = (1-\lambda)W^* + \eta\mathbb{E}[\delta c]$, hence $W^* = \eta\mathbb{E}[\delta c]/\lambda$. ∎
+
+> [!NOTE] **Intuition: Hebbian Convergence**
+> Weights converge to a value proportional to the "average success" of collaboration ($\mathbb{E}[\delta \cdot c]$).
+> - **Large η** → higher weights, faster adaptation
+> - **Large λ** → stronger decay, lower equilibrium weights
+> - If $\mathbb{E}[\delta] > 0$ (more successes than failures), weight grows; if $\mathbb{E}[\delta] < 0$, it decreases.
 
 ### 10.2.3 Types of Plasticity
 
@@ -2139,8 +2156,9 @@ PEMA defines three levels of plasticity with different granularity:
 for (source, target) in episode_path:
     current_weight = trust_graph.get_weight(source, target)
     delta = compute_delta(outcome)  # +0.5 success, -0.3 failure
-    new_weight = current_weight + learning_rate * delta
-    new_weight = clip(new_weight * (1 - decay), min=0.01, max=1.0)
+    # W^(t+1) = (1-λ)W^(t) + η·δ
+    new_weight = (1 - decay) * current_weight + learning_rate * delta
+    new_weight = clip(new_weight, min=0.01, max=1.0)
     trust_graph.set_weight(source, target, new_weight)
 ```
 
@@ -2172,6 +2190,18 @@ where $I = \{$`QUERY_DAX`, `DOCUMENT`, `REPORT`, `GENERAL`$\}$ is the set of int
 
 $$W^{(i)}_{jk} = \mathcal{M}_S(i, (j,k))$$
 
+> [!NOTE] **Intuition: Memory by Intent**
+>
+> Imagine a company where the same employee excels at technical tasks but is mediocre at customer service.
+> Structural memory **learns this separately**:
+>
+> ```
+> DAXAgent for QUERY_DAX:    W = 0.92  (highly reliable)
+> DAXAgent for DOCUMENT:     W = 0.12  (not their strength)
+> ```
+>
+> The router learns to direct each query type to the most suitable agent.
+
 **Rationale**: An agent may be highly reliable for one task type but less so for another. For example, `DAXAgent` may have $W^{(QUERY\_DAX)}_{Router \to DAX} = 0.92$ but $W^{(DOCUMENT)}_{Router \to DAX} = 0.12$. This specialization enables optimal context-based routing.
 
 <p align="center">
@@ -2190,9 +2220,9 @@ def update_structural_memory(intent: str, episode_path: List[Tuple], outcome: fl
         key = f"pema:trust:{intent}:{source}:{target}"
         current_weight = redis.hget("pema:structural_memory", key) or 0.5
 
-        # Hebbian update
-        new_weight = current_weight + LEARNING_RATE * delta
-        new_weight = max(0.01, min(1.0, new_weight * (1 - DECAY)))
+        # Hebbian update: W^(t+1) = (1-λ)W^(t) + η·δ
+        new_weight = (1 - DECAY) * current_weight + LEARNING_RATE * delta
+        new_weight = max(0.01, min(1.0, new_weight))
 
         redis.hset("pema:structural_memory", key, new_weight)
 ```
@@ -2205,19 +2235,47 @@ A plastic system must maintain **bounded predictability**—behavior variance mu
 
 **Theorem 10.1 (Variance Bound with Plasticity)**. Let $A_P$ be a plastic system where each agent $a$ has a contract with maximum variance $\sigma^2_{max,a}$. Then:
 
-$$\text{Var}[\pi_P(s, g)] \leq \sum_{a \in A} W_a \cdot \sigma^2_{max,a} + \epsilon_{\gamma}$$
+<p align="center">
+  <img src="diagrams/formulas/f03_variance_bound.svg" alt="Variance Bound" width="400">
+</p>
 
 where $\epsilon_{\gamma}$ is the additional variance term introduced by plasticity, bounded by:
 
-$$\epsilon_{\gamma} \leq \eta^2 \cdot \mathbb{E}[\delta^2] \cdot |E|$$
+<p align="center">
+  <img src="diagrams/formulas/f04_plasticity_variance.svg" alt="Plasticity Variance" width="250">
+</p>
 
 *Proof sketch*: Total variance is the weighted sum of individual variances (by conditional agent independence given state). Plasticity introduces additional variance proportional to the square of learning rate and expected magnitude of deltas. Reducing $\eta$ reduces $\epsilon_{\gamma}$ at the cost of slower learning. ∎
 
+> [!IMPORTANT] **Interpretation: Variance Bound**
+>
+> This theorem guarantees that system "unpredictability" is **bounded** by two components:
+>
+> | Component | Formula | Meaning |
+> |-----------|---------|---------|
+> | **Intrinsic variance** | $\sum W_a \cdot \sigma^2_a$ | Each agent contributes variance proportional to its weight |
+> | **Learning variance** | $\epsilon_\gamma \propto \eta^2$ | Small if η is small |
+>
+> **Practical implication**: Using $\eta \approx 0.1$ keeps the system stable ($\epsilon_\gamma$ low) while allowing gradual adaptation.
+
 **Corollary 11.1 (Stability Condition)**. The system is stable if:
 
-$$\eta < \sqrt{\frac{\epsilon_{max}}{\mathbb{E}[\delta^2] \cdot |E|}}$$
+<p align="center">
+  <img src="diagrams/formulas/f05_stability_condition.svg" alt="Stability Condition" width="250">
+</p>
 
 where $\epsilon_{max}$ is the maximum tolerable additional variance.
+
+> [!WARNING] **Computing Maximum η**
+>
+> For a system with:
+> - 10 edges ($|E| = 10$)
+> - Reinforcement variance $\mathbb{E}[\delta^2] = 0.25$ (δ ∈ {-0.5, +0.5})
+> - Tolerance $\epsilon_{max} = 0.05$
+>
+> Maximum learning rate is: $\eta_{max} = \sqrt{0.05 / (0.25 \times 10)} = \sqrt{0.02} \approx 0.14$
+>
+> **Recommendation**: Use $\eta = 0.1$ to leave a safety margin.
 
 ## 10.4 PEMA Evaluation Metrics (PEMA-Bench)
 
@@ -2227,13 +2285,27 @@ PEMA-Bench introduces **9 metrics** organized in three dimensions, addressing a 
 
 **Definition 11.3 (Adaptation Rate)**. Episodes required to recover baseline performance after stress:
 
-$$AR = \min\{k : \bar{P}_{[t_{stress}+k, t_{stress}+k+w]} \geq 0.95 \cdot \bar{P}_{baseline}\}$$
+<p align="center">
+  <img src="diagrams/formulas/f06_adaptation_rate.svg" alt="Adaptation Rate" width="450">
+</p>
+
+**Definition 11.2.1 (Plasticity Efficiency)**:
+
+<p align="center">
+  <img src="diagrams/formulas/f07_plasticity_efficiency.svg" alt="Plasticity Efficiency" width="350">
+</p>
+
+**Definition 11.2.2 (Consolidation Stability)**:
+
+<p align="center">
+  <img src="diagrams/formulas/f08_consolidation_stability.svg" alt="Consolidation Stability" width="220">
+</p>
 
 | Metric | Formula | Interpretation | Target |
 |--------|---------|----------------|--------|
-| **AR** (Adaptation Rate) | See above | Lower = faster adaptation | AR < 20 eps |
-| **PE** (Plasticity Efficiency) | $\frac{\Delta P}{1.0|M_w| + 2.5|M_s| + 1.5|M_p|}$ | Improvement per weighted mutation | PE > 0.5 |
-| **CS** (Consolidation Stability) | $1 - \frac{\sigma^2_{post}}{\sigma^2_{during}}$ | CS→1: successful consolidation | CS > 0.7 |
+| **AR** (Adaptation Rate) | See Def. 11.2 | Lower = faster adaptation | AR < 20 eps |
+| **PE** (Plasticity Efficiency) | See Def. 11.2.1 | Improvement per weighted mutation | PE > 0.5 |
+| **CS** (Consolidation Stability) | See Def. 11.2.2 | CS→1: successful consolidation | CS > 0.7 |
 
 *Note: Weights (1.0, 2.5, 1.5) reflect relative impact of weight, structure, and prompt mutations respectively.*
 
@@ -2241,21 +2313,31 @@ $$AR = \min\{k : \bar{P}_{[t_{stress}+k, t_{stress}+k+w]} \geq 0.95 \cdot \bar{P
 
 **Definition 11.4 (Behavior Variance)**. Expected output variance within semantic clusters:
 
-$$BV = \frac{1}{|C|} \sum_{c \in C} \text{Var}_{emb}(\{o : input(o) \in c\})$$
+<p align="center">
+  <img src="diagrams/formulas/f09_behavior_variance.svg" alt="Behavior Variance" width="400">
+</p>
 
 where $C$ is an input clustering by semantic similarity (HDBSCAN, $\tau = 0.92$).
 
+**Definition 11.4.1 (Contract Compliance)**:
+
+<p align="center">
+  <img src="diagrams/formulas/f10_contract_compliance.svg" alt="Contract Compliance" width="380">
+</p>
+
 | Metric | Formula | Interpretation | Target |
 |--------|---------|----------------|--------|
-| **BV** (Behavior Variance) | See above | Lower = more consistent | BV < 0.1 |
-| **CC** (Contract Compliance) | $\frac{|\{e: Pre(e) \land Post(e) \land Inv(e)\}|}{|E|}$ | % meeting contracts | CC > 95% |
+| **BV** (Behavior Variance) | See Def. 11.4 | Lower = more consistent | BV < 0.1 |
+| **CC** (Contract Compliance) | See Def. 11.4.1 | % meeting contracts | CC > 95% |
 | **VR** (Violation Rate) | Violations / Episode | Theoretical bounds exceeded | VR < 0.01 |
 
 ### 10.4.3 Structural Metrics
 
 **Definition 11.5 (Topology Entropy)**. Normalized entropy of weight distribution:
 
-$$TE = \frac{-\sum_{e \in E} p_e \log p_e}{\log|E|}, \quad p_e = \frac{W(e)}{\sum_{e'} W(e')}$$
+<p align="center">
+  <img src="diagrams/formulas/f11_topology_entropy.svg" alt="Topology Entropy" width="500">
+</p>
 
 | Metric | Formula | Interpretation | Target |
 |--------|---------|----------------|--------|
@@ -2463,10 +2545,14 @@ Let $S$ be an agentic system and $Q = \{q_1, q_2, ..., q_n\}$ a set of user quer
    $$TRT(q) = t_{last\_token} - t_{query\_received}$$
 
 3. **Routing Precision (RP)**:
-   $$RP = \frac{|Q_{correctly\_routed}|}{|Q|}$$
+   <p align="center">
+     <img src="diagrams/formulas/f12_routing_precision.svg" alt="Routing Precision" width="280">
+   </p>
 
 4. **Token Efficiency (TE)**:
-   $$TE(q) = \frac{tokens_{output}}{tokens_{input} + tokens_{reasoning}}$$
+   <p align="center">
+     <img src="diagrams/formulas/f13_token_efficiency.svg" alt="Token Efficiency" width="350">
+   </p>
 
 5. **Resolution Rate (RR)**:
    $$RR = \frac{|Q_{resolved\_without\_escalation}|}{|Q|}$$
@@ -3284,9 +3370,9 @@ $$Var[\pi_P | W] \leq \sum_j W_j \cdot \sigma^2_{max,j}$$
 
 The structural adaptation term $\gamma$ introduces additional variance. By the Hebbian update rule (Definition 11.2):
 
-$$W_{ij}^{(t+1)} = W_{ij}^{(t)} + \eta \cdot \delta(o) \cdot c_{ij}$$
+$$W_{ij}^{(t+1)} = (1-\lambda) \cdot W_{ij}^{(t)} + \eta \cdot \delta(o) \cdot c_{ij}$$
 
-This term's variance depends on learning rate $\eta$ and reinforcement variance $\delta(o)$:
+This term's variance depends on learning rate $\eta$, decay $\lambda$, and reinforcement variance $\delta(o)$:
 
 $$Var[E[\pi_P | W]] \leq \eta^2 \cdot Var[\delta] \cdot \mathbb{E}[c^2] =: \epsilon_\gamma$$
 

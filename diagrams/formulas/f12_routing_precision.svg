@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" width="300" height="80">
+  <style>
+    .formula { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 18px; fill: #1a1a1a; }
+    .formula-italic { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 18px; font-style: italic; fill: #1a1a1a; }
+    .subscript { font-size: 11px; }
+    .var { font-size: 18px; font-style: italic; }
+  </style>
+
+  <!-- RP = |Q_correctly_routed| / |Q| -->
+  <text x="10" y="45" class="formula var">RP</text>
+  <text x="38" y="45" class="formula"> = </text>
+
+  <!-- Fraction line -->
+  <line x1="65" y1="40" x2="250" y2="40" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- Numerator -->
+  <text x="85" y="28" class="formula">|</text>
+  <text x="93" y="28" class="formula-italic">Q</text>
+  <text x="108" y="33" class="formula subscript">correctly_routed</text>
+  <text x="205" y="28" class="formula">|</text>
+
+  <!-- Denominator -->
+  <text x="140" y="62" class="formula">|</text>
+  <text x="148" y="62" class="formula-italic">Q</text>
+  <text x="163" y="62" class="formula">|</text>
+</svg>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 80" width="380" height="80">
+  <style>
+    .formula { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 16px; fill: #1a1a1a; }
+    .formula-italic { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 16px; font-style: italic; fill: #1a1a1a; }
+    .subscript { font-size: 10px; }
+    .var { font-size: 18px; font-style: italic; }
+  </style>
+
+  <!-- TE(q) = tokens_output / (tokens_input + tokens_reasoning) -->
+  <text x="10" y="45" class="formula var">TE</text>
+  <text x="32" y="45" class="formula">(</text>
+  <text x="40" y="45" class="formula-italic">q</text>
+  <text x="52" y="45" class="formula">) = </text>
+
+  <!-- Fraction line -->
+  <line x1="85" y1="40" x2="350" y2="40" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- Numerator -->
+  <text x="175" y="28" class="formula">tokens</text>
+  <text x="225" y="33" class="formula subscript">output</text>
+
+  <!-- Denominator -->
+  <text x="95" y="62" class="formula">tokens</text>
+  <text x="145" y="67" class="formula subscript">input</text>
+  <text x="180" y="62" class="formula"> + tokens</text>
+  <text x="270" y="67" class="formula subscript">reasoning</text>
+</svg>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 80" width="380" height="80">
+  <style>
+    .formula { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 18px; fill: #1a1a1a; }
+    .formula-italic { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 18px; font-style: italic; fill: #1a1a1a; }
+    .subscript { font-size: 12px; }
+    .var { font-size: 18px; font-style: italic; }
+  </style>
+
+  <!-- PE = ΔP / (1.0|M_w| + 2.5|M_s| + 1.5|M_p|) -->
+  <text x="10" y="45" class="formula var">PE</text>
+  <text x="38" y="45" class="formula"> = </text>
+
+  <!-- Fraction line -->
+  <line x1="70" y1="40" x2="360" y2="40" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- Numerator: ΔP -->
+  <text x="200" y="28" class="formula">Δ</text>
+  <text x="218" y="28" class="formula-italic">P</text>
+
+  <!-- Denominator -->
+  <text x="75" y="62" class="formula">1.0|</text>
+  <text x="115" y="62" class="formula-italic">M</text>
+  <text x="132" y="68" class="formula subscript">w</text>
+  <text x="145" y="62" class="formula">| + 2.5|</text>
+  <text x="205" y="62" class="formula-italic">M</text>
+  <text x="222" y="68" class="formula subscript">s</text>
+  <text x="235" y="62" class="formula">| + 1.5|</text>
+  <text x="295" y="62" class="formula-italic">M</text>
+  <text x="312" y="68" class="formula subscript">p</text>
+  <text x="325" y="62" class="formula">|</text>
+</svg>

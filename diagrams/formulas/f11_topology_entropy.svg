@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 90" width="550" height="90">
+  <style>
+    .formula { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 16px; fill: #1a1a1a; }
+    .formula-italic { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 16px; font-style: italic; fill: #1a1a1a; }
+    .subscript { font-size: 11px; }
+    .sum { font-size: 24px; }
+    .var { font-size: 18px; font-style: italic; }
+  </style>
+
+  <!-- TE = (-Σ p_e log p_e) / log|E|,   p_e = W(e) / Σ W(e') -->
+  <text x="10" y="50" class="formula var">TE</text>
+  <text x="38" y="50" class="formula"> = </text>
+
+  <!-- Main fraction line -->
+  <line x1="60" y1="45" x2="230" y2="45" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- Numerator: -Σ p_e log p_e -->
+  <text x="68" y="32" class="formula">−</text>
+  <text x="82" y="35" class="formula sum">Σ</text>
+  <text x="85" y="20" class="formula subscript">e∈E</text>
+  <text x="112" y="32" class="formula-italic">p</text>
+  <text x="123" y="38" class="formula subscript">e</text>
+  <text x="135" y="32" class="formula"> log </text>
+  <text x="175" y="32" class="formula-italic">p</text>
+  <text x="186" y="38" class="formula subscript">e</text>
+
+  <!-- Denominator: log|E| -->
+  <text x="115" y="68" class="formula">log|</text>
+  <text x="155" y="68" class="formula-italic">E</text>
+  <text x="168" y="68" class="formula">|</text>
+
+  <!-- Comma separator -->
+  <text x="240" y="50" class="formula">,</text>
+
+  <!-- p_e definition -->
+  <text x="270" y="50" class="formula-italic">p</text>
+  <text x="281" y="57" class="formula subscript">e</text>
+  <text x="295" y="50" class="formula"> = </text>
+
+  <!-- Second fraction -->
+  <line x1="325" y1="45" x2="450" y2="45" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- Numerator: W(e) -->
+  <text x="365" y="32" class="formula-italic">W</text>
+  <text x="382" y="32" class="formula">(</text>
+  <text x="390" y="32" class="formula-italic">e</text>
+  <text x="402" y="32" class="formula">)</text>
+
+  <!-- Denominator: Σ W(e') -->
+  <text x="340" y="68" class="formula sum">Σ</text>
+  <text x="345" y="82" class="formula subscript">e'</text>
+  <text x="370" y="68" class="formula-italic">W</text>
+  <text x="387" y="68" class="formula">(</text>
+  <text x="395" y="68" class="formula-italic">e'</text>
+  <text x="410" y="68" class="formula">)</text>
+</svg>

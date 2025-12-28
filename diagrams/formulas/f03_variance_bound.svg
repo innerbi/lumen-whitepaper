@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 70" width="480" height="70">
+  <style>
+    .formula { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 18px; fill: #1a1a1a; }
+    .formula-italic { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 18px; font-style: italic; fill: #1a1a1a; }
+    .subscript { font-size: 12px; }
+    .superscript { font-size: 12px; }
+    .sum { font-size: 28px; }
+  </style>
+
+  <!-- Var[π_P(s,g)] ≤ Σ W_a · σ²_{max,a} + ε_γ -->
+  <text x="10" y="40" class="formula">Var[</text>
+  <text x="50" y="40" class="formula-italic">π</text>
+  <text x="62" y="47" class="formula subscript">P</text>
+  <text x="72" y="40" class="formula">(</text>
+  <text x="80" y="40" class="formula-italic">s</text>
+  <text x="90" y="40" class="formula">,</text>
+  <text x="98" y="40" class="formula-italic">g</text>
+  <text x="110" y="40" class="formula">)] ≤ </text>
+
+  <!-- Sigma -->
+  <text x="150" y="45" class="formula sum">Σ</text>
+  <text x="155" y="60" class="formula subscript">a∈A</text>
+
+  <!-- W_a · σ²_{max,a} -->
+  <text x="180" y="40" class="formula-italic">W</text>
+  <text x="196" y="47" class="formula subscript">a</text>
+  <text x="208" y="40" class="formula"> · </text>
+  <text x="225" y="40" class="formula-italic">σ</text>
+  <text x="237" y="30" class="formula superscript">2</text>
+  <text x="248" y="47" class="formula subscript">max,a</text>
+
+  <text x="290" y="40" class="formula"> + </text>
+  <text x="315" y="40" class="formula-italic">ε</text>
+  <text x="328" y="47" class="formula subscript">γ</text>
+</svg>

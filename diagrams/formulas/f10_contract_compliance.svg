@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 80" width="420" height="80">
+  <style>
+    .formula { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 16px; fill: #1a1a1a; }
+    .formula-italic { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 16px; font-style: italic; fill: #1a1a1a; }
+    .var { font-size: 18px; font-style: italic; }
+  </style>
+
+  <!-- CC = |{e: Pre(e) ∧ Post(e) ∧ Inv(e)}| / |E| -->
+  <text x="10" y="45" class="formula var">CC</text>
+  <text x="38" y="45" class="formula"> = </text>
+
+  <!-- Fraction line -->
+  <line x1="65" y1="40" x2="375" y2="40" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- Numerator -->
+  <text x="70" y="28" class="formula">|{</text>
+  <text x="90" y="28" class="formula-italic">e</text>
+  <text x="102" y="28" class="formula"> : Pre(</text>
+  <text x="155" y="28" class="formula-italic">e</text>
+  <text x="167" y="28" class="formula">) ∧ Post(</text>
+  <text x="240" y="28" class="formula-italic">e</text>
+  <text x="252" y="28" class="formula">) ∧ Inv(</text>
+  <text x="315" y="28" class="formula-italic">e</text>
+  <text x="327" y="28" class="formula">)}|</text>
+
+  <!-- Denominator -->
+  <text x="200" y="62" class="formula">|</text>
+  <text x="208" y="62" class="formula-italic">E</text>
+  <text x="222" y="62" class="formula">|</text>
+</svg>

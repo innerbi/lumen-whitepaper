@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 70" width="520" height="70">
+  <style>
+    .formula { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 16px; fill: #1a1a1a; }
+    .formula-italic { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 16px; font-style: italic; fill: #1a1a1a; }
+    .subscript { font-size: 11px; }
+    .superscript { font-size: 11px; }
+    .var { font-size: 18px; font-style: italic; }
+  </style>
+
+  <!-- AR = min{k : P̄_{[t+k, t+k+w]} ≥ 0.95 · P̄_baseline} -->
+  <text x="10" y="40" class="formula var">AR</text>
+  <text x="38" y="40" class="formula"> = min{</text>
+  <text x="95" y="40" class="formula-italic">k</text>
+  <text x="108" y="40" class="formula"> : </text>
+
+  <text x="125" y="40" class="formula-italic">P̄</text>
+  <text x="140" y="47" class="formula subscript">[t</text>
+  <text x="150" y="47" class="formula subscript">stress</text>
+  <text x="180" y="47" class="formula subscript">+k, t</text>
+  <text x="205" y="47" class="formula subscript">stress</text>
+  <text x="235" y="47" class="formula subscript">+k+w]</text>
+
+  <text x="275" y="40" class="formula"> ≥ 0.95 · </text>
+
+  <text x="355" y="40" class="formula-italic">P̄</text>
+  <text x="370" y="47" class="formula subscript">baseline</text>
+
+  <text x="420" y="40" class="formula">}</text>
+</svg>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 80" width="250" height="80">
+  <style>
+    .formula { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 18px; fill: #1a1a1a; }
+    .formula-italic { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 18px; font-style: italic; fill: #1a1a1a; }
+    .subscript { font-size: 11px; }
+    .superscript { font-size: 11px; }
+    .var { font-size: 18px; font-style: italic; }
+  </style>
+
+  <!-- CS = 1 - σ²_post / σ²_during -->
+  <text x="10" y="45" class="formula var">CS</text>
+  <text x="38" y="45" class="formula"> = 1 − </text>
+
+  <!-- Fraction line -->
+  <line x1="100" y1="40" x2="220" y2="40" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- Numerator: σ²_post -->
+  <text x="135" y="28" class="formula-italic">σ</text>
+  <text x="148" y="18" class="formula superscript">2</text>
+  <text x="160" y="32" class="formula subscript">post</text>
+
+  <!-- Denominator: σ²_during -->
+  <text x="125" y="62" class="formula-italic">σ</text>
+  <text x="138" y="52" class="formula superscript">2</text>
+  <text x="150" y="66" class="formula subscript">during</text>
+</svg>

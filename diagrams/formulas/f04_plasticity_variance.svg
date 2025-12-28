@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 50" width="300" height="50">
+  <style>
+    .formula { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 18px; fill: #1a1a1a; }
+    .formula-italic { font-family: 'Times New Roman', 'STIX Two Math', serif; font-size: 18px; font-style: italic; fill: #1a1a1a; }
+    .subscript { font-size: 12px; }
+    .superscript { font-size: 12px; }
+    .mathbb { font-family: 'Times New Roman', serif; font-size: 18px; font-weight: bold; fill: #1a1a1a; }
+  </style>
+
+  <!-- ε_γ ≤ η² · E[δ²] · |E| -->
+  <text x="10" y="30" class="formula-italic">ε</text>
+  <text x="22" y="37" class="formula subscript">γ</text>
+
+  <text x="35" y="30" class="formula"> ≤ </text>
+
+  <text x="60" y="30" class="formula-italic">η</text>
+  <text x="72" y="20" class="formula superscript">2</text>
+
+  <text x="85" y="30" class="formula"> · </text>
+
+  <text x="100" y="30" class="mathbb">E</text>
+  <text x="115" y="30" class="formula">[</text>
+  <text x="122" y="30" class="formula-italic">δ</text>
+  <text x="134" y="20" class="formula superscript">2</text>
+  <text x="145" y="30" class="formula">]</text>
+
+  <text x="155" y="30" class="formula"> · </text>
+
+  <text x="175" y="30" class="formula">|</text>
+  <text x="182" y="30" class="formula-italic">E</text>
+  <text x="195" y="30" class="formula">|</text>
+</svg>
