@@ -1277,7 +1277,7 @@ Una capacidad especial de Lumen: indexa valores de dimensiones de modelos Power 
 
 **Definición 3.1 (Gap Detection)**: Sea Q una query y C = {c₁, c₂, ..., cₙ} el corpus de chunks. El sistema genera un "chunk ideal" c* que respondería Q perfectamente. Se detecta un gap cuando:
 
-$$\max_{c_i \in C} \text{similarity}(c^*, c_i) < \theta$$
+<p align="center"><img src="diagrams/formulas/f_max_c_i_in_c_text_similar_21b2de66.svg" alt="formula"></p>
 
 **Mecanismo**:
 
@@ -2395,13 +2395,13 @@ PEMA se diferencia explícitamente de enfoques relacionados:
 
 El marco PEMA asume las siguientes condiciones, que consideramos razonables en escenarios de BI empresarial:
 
-**A1** (Observabilidad de Resultados): La función de refuerzo $\delta(o)$ es observable después de cada interacción. Esto requiere un mecanismo de feedback explícito (rating de usuario) o implícito (detección de re-consultas, abandono).
+**A1** (Observabilidad de Resultados): La función de refuerzo <img src="diagrams/formulas/f_delta_o_53cf1498.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> es observable después de cada interacción. Esto requiere un mecanismo de feedback explícito (rating de usuario) o implícito (detección de re-consultas, abandono).
 
-**A2** (Estacionariedad Local): La distribución de consultas $p(q)$ es localmente estacionaria durante períodos de adaptación. Cambios abruptos de distribución (ej: reestructuración organizacional) requieren período de re-estabilización con tasas de aprendizaje elevadas.
+**A2** (Estacionariedad Local): La distribución de consultas <img src="diagrams/formulas/f_p_q_a34619d1.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> es localmente estacionaria durante períodos de adaptación. Cambios abruptos de distribución (ej: reestructuración organizacional) requieren período de re-estabilización con tasas de aprendizaje elevadas.
 
-**A3** (Independencia de Agentes): Las capacidades de agentes $\{a_j\}$ son independientes entre sí. La especialización de un agente no afecta las capacidades intrínsecas de otros (aunque sí afecta la selección vía pesos).
+**A3** (Independencia de Agentes): Las capacidades de agentes <img src="diagrams/formulas/f_a_j_1e30c03d.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> son independientes entre sí. La especialización de un agente no afecta las capacidades intrínsecas de otros (aunque sí afecta la selección vía pesos).
 
-**A4** (Acotación de Pesos): Los pesos de confianza $W_{ij} \in [0, 1]$ están acotados, evitando divergencia. Esto se garantiza mediante normalización softmax o clipping.
+**A4** (Acotación de Pesos): Los pesos de confianza <img src="diagrams/formulas/f_w_ij_in_0_1_e39cbe33.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> están acotados, evitando divergencia. Esto se garantiza mediante normalización softmax o clipping.
 
 Bajo estos supuestos, derivamos las garantías teóricas presentadas en la Sección 11.3.
 
@@ -2411,12 +2411,12 @@ Extendemos la definición de sistema agéntico (Definición 1.1) para incluir pl
 
 **Definición 11.1 (Sistema Agéntico Plástico)**. Un sistema agéntico plástico es una tupla:
 
-$$A_P = (S, O, G, \pi, M, \alpha, \gamma, W, \eta)$$
+<p align="center"><img src="diagrams/formulas/f_a_p_s_o_g_pi_m_alpha_eba89d2f.svg" alt="formula"></p>
 
 donde los primeros seis elementos son idénticos a la Definición 1.1, y adicionamos:
-- $W: E \rightarrow [0,1]$: función de pesos sobre aristas $E$ del grafo de agentes
-- $\gamma: W \times H \times O \rightarrow W'$: **función de plasticidad** que actualiza pesos basada en historial $H$ y outcomes $O$
-- $\eta \in (0,1)$: tasa de aprendizaje
+- <img src="diagrams/formulas/f_w_e_rightarrow_0_1_3800a2ed.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">: función de pesos sobre aristas <img src="diagrams/formulas/f_e_3a3ea00c.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> del grafo de agentes
+- <img src="diagrams/formulas/f_gamma_w_times_h_times_o_r_e38c7118.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">: **función de plasticidad** que actualiza pesos basada en historial <img src="diagrams/formulas/f_h_c1d9f50f.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> y outcomes <img src="diagrams/formulas/f_o_f1862177.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">
+- <img src="diagrams/formulas/f_eta_in_0_1_d2fe29bf.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">: tasa de aprendizaje
 
 **Condición de Plasticidad (Condición 4)**. Un sistema exhibe plasticidad estructural si:
 
@@ -2428,17 +2428,17 @@ Es decir, los pesos evolucionan en función de la experiencia acumulada.
 
 Aplicamos el principio Hebbiano ("neurons that fire together wire together") al contexto multi-agente:
 
-**Definición 11.2 (Regla de Actualización Hebbiana)**. Dado un episodio donde los agentes $A_i$ y $A_j$ colaboraron secuencialmente con outcome $o$:
+**Definición 11.2 (Regla de Actualización Hebbiana)**. Dado un episodio donde los agentes <img src="diagrams/formulas/f_a_i_693a3b97.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> y <img src="diagrams/formulas/f_a_j_6daefbe0.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> colaboraron secuencialmente con outcome <img src="diagrams/formulas/f_o_d9567975.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">:
 
 <p align="center">
   <img src="diagrams/formulas/f01_hebbian_update.svg" alt="Regla Hebbiana" width="400">
 </p>
 
 donde:
-- $\delta(o)$: señal de refuerzo derivada del outcome ($\delta > 0$ para éxito, $\delta < 0$ para fallo)
-- $c_{ij}$: contribución de la arista $(i,j)$ al resultado (por defecto 1.0, puede estimarse con attribution)
-- $\eta$: tasa de aprendizaje
-- $\lambda \in (0,1)$: factor de decay (olvido gradual)
+- <img src="diagrams/formulas/f_delta_o_53cf1498.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">: señal de refuerzo derivada del outcome (<img src="diagrams/formulas/f_delta_0_65b1b5bb.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> para éxito, <img src="diagrams/formulas/f_delta_0_e007a4b0.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> para fallo)
+- <img src="diagrams/formulas/f_c_ij_98b138f9.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">: contribución de la arista <img src="diagrams/formulas/f_i_j_5270ae67.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> al resultado (por defecto 1.0, puede estimarse con attribution)
+- <img src="diagrams/formulas/f_eta_ffe9f913.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">: tasa de aprendizaje
+- <img src="diagrams/formulas/f_lambda_in_0_1_5715e471.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">: factor de decay (olvido gradual)
 
 > [!TIP] **Intuición: Regla Hebbiana**
 > *"Las neuronas que disparan juntas, se conectan más fuerte."*
@@ -2446,19 +2446,19 @@ donde:
 > Aplicado a agentes: si A→B colaboran y el resultado es exitoso (δ > 0), su conexión se refuerza.
 > Si fallan (δ < 0), la confianza disminuye. Es aprendizaje por refuerzo a nivel de *conexiones*, no de agentes individuales.
 
-**Proposición 11.1 (Convergencia Hebbiana)**. Con decay $\lambda \in (0,1)$ y outcomes i.i.d., los pesos convergen a una distribución estacionaria:
+**Proposición 11.1 (Convergencia Hebbiana)**. Con decay <img src="diagrams/formulas/f_lambda_in_0_1_5715e471.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> y outcomes i.i.d., los pesos convergen a una distribución estacionaria:
 
 <p align="center">
   <img src="diagrams/formulas/f02_stationary_weight.svg" alt="Peso estacionario" width="250">
 </p>
 
-*Sketch de demostración*: La actualización con decay es $W^{(t+1)} = (1-\lambda)W^{(t)} + \eta\delta c$. En estado estacionario, $W^* = (1-\lambda)W^* + \eta\mathbb{E}[\delta c]$, de donde $W^* = \eta\mathbb{E}[\delta c]/\lambda$. ∎
+*Sketch de demostración*: La actualización con decay es <img src="diagrams/formulas/f_w_t_1_1_lambda_w_t_bbefeeba.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">. En estado estacionario, <img src="diagrams/formulas/f_w_1_lambda_w_eta_ma_0bdf4974.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">, de donde <img src="diagrams/formulas/f_w_eta_mathbb_e_delta_c_0b0d4178.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">. ∎
 
 > [!NOTE] **Intuición: Convergencia Hebbiana**
-> Los pesos convergen a un valor proporcional al "éxito promedio" de la colaboración ($\mathbb{E}[\delta \cdot c]$).
+> Los pesos convergen a un valor proporcional al "éxito promedio" de la colaboración (<img src="diagrams/formulas/f_mathbb_e_delta_cdot_c_5ff4d6b9.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">).
 > - **η grande** → pesos más altos, adaptación más rápida
 > - **λ grande** → decay más fuerte, pesos de equilibrio más bajos
-> - Si $\mathbb{E}[\delta] > 0$ (más éxitos que fallos), el peso crece; si $\mathbb{E}[\delta] < 0$, decrece.
+> - Si <img src="diagrams/formulas/f_mathbb_e_delta_0_59f049d7.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> (más éxitos que fallos), el peso crece; si <img src="diagrams/formulas/f_mathbb_e_delta_0_43d7a163.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">, decrece.
 
 ### 10.2.3 Tipos de Plasticidad
 
@@ -2466,7 +2466,7 @@ PEMA define tres niveles de plasticidad con diferente granularidad:
 
 | Nivel | Tipo | Mecanismo | Frecuencia | Impacto |
 |-------|------|-----------|------------|---------|
-| **L1** | Pesos | Actualización Hebbiana de $W_{ij}$ | Cada episodio | Bajo |
+| **L1** | Pesos | Actualización Hebbiana de <img src="diagrams/formulas/f_w_ij_3c81d2fb.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> | Cada episodio | Bajo |
 | **L2** | Estructura | Neurogenesis (crear aristas) / Poda (eliminar aristas) | Cada N episodios | Medio |
 | **L3** | Prompts | Patches aprendidos a instrucciones de agentes | Por patrón de error | Alto |
 
@@ -2484,7 +2484,7 @@ for (source, target) in episode_path:
 
 **Plasticidad L2 (Estructura)**:
 - **Neurogenesis**: Crear nueva arista cuando dos agentes nunca conectados colaboran exitosamente
-- **Poda**: Eliminar arista cuando $W_{ij} < \theta_{prune}$ por $N$ episodios consecutivos
+- **Poda**: Eliminar arista cuando <img src="diagrams/formulas/f_w_ij_theta_prune_37755b91.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> por <img src="diagrams/formulas/f_n_8d9c307c.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> episodios consecutivos
 
 **Plasticidad L3 (Prompts)**:
 - Agregar contexto aprendido a instrucciones del agente basado en patrones de error recurrentes
@@ -2501,15 +2501,15 @@ El **Trust Graph** es la estructura que almacena y gestiona las relaciones de co
 
 ### 10.2.5 Memoria Estructural: Indexación por Intent
 
-Un aspecto fundamental de PEMA es que los pesos de confianza $W_{ij}$ están **indexados por el tipo de intención (intent)** detectado en cada consulta. Esto permite que el sistema aprenda patrones de colaboración específicos para cada categoría de tarea.
+Un aspecto fundamental de PEMA es que los pesos de confianza <img src="diagrams/formulas/f_w_ij_3c81d2fb.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> están **indexados por el tipo de intención (intent)** detectado en cada consulta. Esto permite que el sistema aprenda patrones de colaboración específicos para cada categoría de tarea.
 
 **Definición 11.6 (Memoria Estructural)**. La memoria estructural es una función:
 
-$$\mathcal{M}_S: I \times E \rightarrow [0,1]$$
+<p align="center"><img src="diagrams/formulas/f_mathcal_m_s_i_times_e_rig_24266538.svg" alt="formula"></p>
 
-donde $I = \{$`QUERY_DAX`, `DOCUMENT`, `REPORT`, `GENERAL`$\}$ es el conjunto de intents y $E$ es el conjunto de aristas entre agentes. Cada intent $i \in I$ mantiene su propia matriz de pesos:
+donde <img src="diagrams/formulas/f_i_98593f57.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">`QUERY_DAX`, `DOCUMENT`, `REPORT`, `GENERAL`<img src="diagrams/formulas/f__4641d03f.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> es el conjunto de intents y <img src="diagrams/formulas/f_e_3a3ea00c.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> es el conjunto de aristas entre agentes. Cada intent <img src="diagrams/formulas/f_i_in_i_6fa78e29.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> mantiene su propia matriz de pesos:
 
-$$W^{(i)}_{jk} = \mathcal{M}_S(i, (j,k))$$
+<p align="center"><img src="diagrams/formulas/f_w_i_jk_mathcal_m_s_i_91da127c.svg" alt="formula"></p>
 
 > [!NOTE] **Intuición: Memoria por Intent**
 >
@@ -2523,7 +2523,7 @@ $$W^{(i)}_{jk} = \mathcal{M}_S(i, (j,k))$$
 >
 > El router aprende a dirigir cada tipo de consulta al agente más adecuado.
 
-**Rationale**: Un agente puede ser altamente confiable para un tipo de tarea pero menos para otro. Por ejemplo, `DAXAgent` puede tener $W^{(QUERY\_DAX)}_{Router \to DAX} = 0.92$ pero $W^{(DOCUMENT)}_{Router \to DAX} = 0.12$. Esta especialización permite routing óptimo por contexto.
+**Rationale**: Un agente puede ser altamente confiable para un tipo de tarea pero menos para otro. Por ejemplo, `DAXAgent` puede tener <img src="diagrams/formulas/f_w_query_dax_router_to_d_6b307ec5.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> pero <img src="diagrams/formulas/f_w_document_router_to_dax_014562e1.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">. Esta especialización permite routing óptimo por contexto.
 
 <p align="center">
   <img src="diagrams/10_pema_structural_memory.svg" alt="Memoria Estructural PEMA" width="700">
@@ -2555,19 +2555,19 @@ Esta indexación por intent constituye la **Memoria Estructural** del sistema—
 
 Un sistema plástico debe mantener **predictibilidad acotada**—la varianza del comportamiento debe permanecer dentro de límites controlados incluso mientras el sistema aprende.
 
-**Teorema 10.1 (Bound de Varianza con Plasticidad)**. Sea $A_P$ un sistema plástico donde cada agente $a$ tiene contrato con varianza máxima $\sigma^2_{max,a}$. Entonces:
+**Teorema 10.1 (Bound de Varianza con Plasticidad)**. Sea <img src="diagrams/formulas/f_a_p_599d351d.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> un sistema plástico donde cada agente <img src="diagrams/formulas/f_a_0cc175b9.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> tiene contrato con varianza máxima <img src="diagrams/formulas/f_sigma_2_max_a_839f74f9.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">. Entonces:
 
 <p align="center">
   <img src="diagrams/formulas/f03_variance_bound.svg" alt="Bound de Varianza" width="400">
 </p>
 
-donde $\epsilon_{\gamma}$ es el término de varianza adicional introducido por la plasticidad, acotado por:
+donde <img src="diagrams/formulas/f_epsilon_gamma_26c38352.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> es el término de varianza adicional introducido por la plasticidad, acotado por:
 
 <p align="center">
   <img src="diagrams/formulas/f04_plasticity_variance.svg" alt="Varianza de Plasticidad" width="250">
 </p>
 
-*Sketch de demostración*: La varianza total es la suma ponderada de varianzas individuales (por independencia condicional de agentes dado el estado). La plasticidad introduce varianza adicional proporcional al cuadrado de la tasa de aprendizaje y la magnitud esperada de los deltas. Reducir $\eta$ reduce $\epsilon_{\gamma}$ a costo de aprendizaje más lento. ∎
+*Sketch de demostración*: La varianza total es la suma ponderada de varianzas individuales (por independencia condicional de agentes dado el estado). La plasticidad introduce varianza adicional proporcional al cuadrado de la tasa de aprendizaje y la magnitud esperada de los deltas. Reducir <img src="diagrams/formulas/f_eta_ffe9f913.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> reduce <img src="diagrams/formulas/f_epsilon_gamma_26c38352.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> a costo de aprendizaje más lento. ∎
 
 > [!IMPORTANT] **Interpretación: Bound de Varianza**
 >
@@ -2575,10 +2575,10 @@ donde $\epsilon_{\gamma}$ es el término de varianza adicional introducido por l
 >
 > | Componente | Fórmula | Significado |
 > |------------|---------|-------------|
-> | **Varianza intrínseca** | $\sum W_a \cdot \sigma^2_a$ | Cada agente aporta varianza proporcional a su peso |
-> | **Varianza de aprendizaje** | $\epsilon_\gamma \propto \eta^2$ | Pequeña si η es pequeño |
+> | **Varianza intrínseca** | <img src="diagrams/formulas/f_sum_w_a_cdot_sigma_2_a_52322d43.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> | Cada agente aporta varianza proporcional a su peso |
+> | **Varianza de aprendizaje** | <img src="diagrams/formulas/f_epsilon_gamma_propto_eta_2_bdd2386c.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> | Pequeña si η es pequeño |
 >
-> **Implicación práctica**: Usar $\eta \approx 0.1$ mantiene el sistema estable ($\epsilon_\gamma$ bajo) mientras permite adaptación gradual.
+> **Implicación práctica**: Usar <img src="diagrams/formulas/f_eta_approx_0_1_8082997c.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> mantiene el sistema estable (<img src="diagrams/formulas/f_epsilon_gamma_2d3a3ebb.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> bajo) mientras permite adaptación gradual.
 
 **Corolario 11.1 (Condición de Estabilidad)**. El sistema es estable si:
 
@@ -2586,18 +2586,18 @@ donde $\epsilon_{\gamma}$ es el término de varianza adicional introducido por l
   <img src="diagrams/formulas/f05_stability_condition.svg" alt="Condición de Estabilidad" width="250">
 </p>
 
-donde $\epsilon_{max}$ es la varianza adicional máxima tolerable.
+donde <img src="diagrams/formulas/f_epsilon_max_5a52e274.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> es la varianza adicional máxima tolerable.
 
 > [!WARNING] **Cálculo de η máximo**
 >
 > Para un sistema con:
-> - 10 aristas ($|E| = 10$)
-> - Varianza de refuerzo $\mathbb{E}[\delta^2] = 0.25$ (δ ∈ {-0.5, +0.5})
-> - Tolerancia $\epsilon_{max} = 0.05$
+> - 10 aristas (<img src="diagrams/formulas/f_e_10_4390f219.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">)
+> - Varianza de refuerzo <img src="diagrams/formulas/f_mathbb_e_delta_2_0_25_1fadae0e.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> (δ ∈ {-0.5, +0.5})
+> - Tolerancia <img src="diagrams/formulas/f_epsilon_max_0_05_d4a3d567.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">
 >
-> El learning rate máximo es: $\eta_{max} = \sqrt{0.05 / (0.25 \times 10)} = \sqrt{0.02} \approx 0.14$
+> El learning rate máximo es: <img src="diagrams/formulas/f_eta_max_sqrt_0_05_0_2_33010316.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">
 >
-> **Recomendación**: Usar $\eta = 0.1$ deja margen de seguridad.
+> **Recomendación**: Usar <img src="diagrams/formulas/f_eta_0_1_289fdd60.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> deja margen de seguridad.
 
 ## 10.4 Métricas de Evaluación PEMA (PEMA-Bench)
 
@@ -2639,7 +2639,7 @@ PEMA-Bench introduce **9 métricas** organizadas en tres dimensiones, abordando 
   <img src="diagrams/formulas/f09_behavior_variance.svg" alt="Behavior Variance" width="400">
 </p>
 
-donde $C$ es un clustering de inputs por similitud semántica (HDBSCAN, $\tau = 0.92$).
+donde <img src="diagrams/formulas/f_c_0d61f837.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> es un clustering de inputs por similitud semántica (HDBSCAN, <img src="diagrams/formulas/f_tau_0_92_b61e7a6d.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">).
 
 **Definición 11.4.1 (Contract Compliance)**:
 
@@ -2761,9 +2761,9 @@ Implementación del protocolo de benchmark de 5 fases con:
 ### 10.7.4 Meta-Aprendizaje de Hiperparámetros
 
 Optimización automática de:
-- Tasa de aprendizaje $\eta$
-- Tasa de decay $\lambda$
-- Umbrales de poda $\theta_{prune}$
+- Tasa de aprendizaje <img src="diagrams/formulas/f_eta_ffe9f913.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">
+- Tasa de decay <img src="diagrams/formulas/f_lambda_c6a6eb61.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">
+- Umbrales de poda <img src="diagrams/formulas/f_theta_prune_4f584727.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">
 
 ### Trabajo Futuro
 
@@ -2858,13 +2858,13 @@ Estas métricas alinean con estándares de evaluación en sistemas de diálogo o
 
 **Definición 12.1** (Métricas de Rendimiento del Sistema Agéntico)
 
-Sea $S$ un sistema agéntico y $Q = \{q_1, q_2, ..., q_n\}$ un conjunto de consultas de usuario. Definimos:
+Sea <img src="diagrams/formulas/f_s_5dbc98dc.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> un sistema agéntico y <img src="diagrams/formulas/f_q_q_1_q_2_q_n_a7264e5e.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> un conjunto de consultas de usuario. Definimos:
 
 1. **Tiempo de Primera Respuesta (TFR)**:
-   $$TFR(q) = t_{first\_token} - t_{query\_received}$$
+   <p align="center"><img src="diagrams/formulas/tfr.svg" alt="TFR formula" height="20"></p>
 
 2. **Tiempo Total de Respuesta (TTR)**:
-   $$TTR(q) = t_{last\_token} - t_{query\_received}$$
+   <p align="center"><img src="diagrams/formulas/ttr.svg" alt="TTR formula" height="20"></p>
 
 3. **Precisión de Routing (PR)**:
    <p align="center">
@@ -2877,7 +2877,7 @@ Sea $S$ un sistema agéntico y $Q = \{q_1, q_2, ..., q_n\}$ un conjunto de consu
    </p>
 
 5. **Tasa de Resolución (TR)**:
-   $$TR = \frac{|Q_{resolved\_without\_escalation}|}{|Q|}$$
+   <p align="center"><img src="diagrams/formulas/f_tr_frac_q_resolved_witho_38359cd6.svg" alt="formula"></p>
 
 ## 5.2 Resultados Experimentales
 
@@ -2890,7 +2890,7 @@ El Two-Layer Routing Pattern fue evaluado con 1,247 consultas categorizadas:
 | **Precisión** | 78.3% | 94.7% | 96.2% |
 | **Latencia (p50)** | 2ms | 245ms | 89ms |
 | **Latencia (p95)** | 5ms | 512ms | 267ms |
-| **Costo por query** | $0 | $0.003 | $0.001 |
+| **Costo por query** | <img src="diagrams/formulas/f_0_52e8b44c.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">0.003 | $0.001 |
 
 **Observación**: El sistema combinado logra alta precisión mientras minimiza costos al resolver el 72% de queries en la primera capa (keywords).
 
@@ -2910,7 +2910,7 @@ Evaluación del Persisted Memory Pattern sobre 4 semanas:
 | 3 | 523 | 5.8 KB | 84% | +23ms |
 | 4 | 612 | 7.2 KB | 89% | +31ms |
 
-**Proposición 12.1**: El sistema de memoria persistida alcanza un equilibrio óptimo cuando $context\_size \leq 10KB$, manteniendo latencia adicional bajo 50ms y hit rate superior a 85%.
+**Proposición 12.1**: El sistema de memoria persistida alcanza un equilibrio óptimo cuando <img src="diagrams/formulas/f_context_size_leq_10kb_1bed2662.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">, manteniendo latencia adicional bajo 50ms y hit rate superior a 85%.
 
 ### 5.2.3 Rendimiento del Patrón Agent-as-Tool
 
@@ -3374,12 +3374,12 @@ El sistema de plasticidad estructural PEMA introduce vectores de ataque específ
 
 #### Defensas Implementadas
 
-1. **Decay Temporal Obligatorio**: $\lambda \geq 0.01$ garantiza que pesos antiguos pierdan influencia, limitando persistencia de ataques.
+1. **Decay Temporal Obligatorio**: <img src="diagrams/formulas/f_lambda_geq_0_01_252b57d1.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> garantiza que pesos antiguos pierdan influencia, limitando persistencia de ataques.
 
-2. **Bounds Estrictos**: $W_{ij} \in [0.1, 0.9]$ evita que cualquier agente sea completamente favorecido o excluido.
+2. **Bounds Estrictos**: <img src="diagrams/formulas/f_w_ij_in_0_1_0_9_8a7848af.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> evita que cualquier agente sea completamente favorecido o excluido.
 
 3. **Smoothing de Actualizaciones**: Promediado exponencial suaviza picos anómalos:
-   $$W_{ij}^{smooth} = \beta W_{ij}^{new} + (1-\beta) W_{ij}^{old}, \quad \beta = 0.3$$
+   <p align="center"><img src="diagrams/formulas/f_w_ij_smooth_beta_w_ij_83c1452a.svg" alt="formula"></p>
 
 4. **Auditoría de Cambios**: Log inmutable de todas las actualizaciones de pesos permite detección post-hoc.
 
@@ -3597,18 +3597,18 @@ Este apéndice contiene las demostraciones formales de las proposiciones enuncia
 Sea L un Large Language Model con parámetros θ ∈ Θ, donde θ es fijo después del entrenamiento.
 
 La función de política de L está determinada por sus parámetros:
-$$\pi_L(s, g) = f_\theta(s, g)$$
+<p align="center"><img src="diagrams/formulas/f_pi_l_s_g_f_theta_s_g_05e2ec3a.svg" alt="formula"></p>
 
 donde f_θ es la función computada por la red neuronal con parámetros θ.
 
 La Condición 3 de agencia funcional requiere que exista una función de adaptación α tal que cuando M(a, s) ≠ s' (predicción incorrecta del modelo de resultados), α actualice π:
-$$\alpha: \pi \rightarrow \pi' \text{ tal que } \pi'(s, g) \neq \pi(s, g)$$
+<p align="center"><img src="diagrams/formulas/f_alpha_pi_rightarrow_pi_fac81899.svg" alt="formula"></p>
 
 Para L, modificar π requiere modificar θ:
-$$\pi'_L = f_{\theta'} \Rightarrow \theta' \neq \theta$$
+<p align="center"><img src="diagrams/formulas/f_pi_l_f_theta_rightarr_eec3c3e1.svg" alt="formula"></p>
 
 Sin embargo, durante la fase de inferencia (runtime), θ es inmutable:
-$$\frac{\partial \theta}{\partial t} = 0 \quad \forall t \text{ durante inferencia}$$
+<p align="center"><img src="diagrams/formulas/f_frac_partial_theta_partia_1eeec1f3.svg" alt="formula"></p>
 
 Por lo tanto, no puede existir una función α que modifique π en tiempo de ejecución.
 
@@ -3625,7 +3625,7 @@ Sea C_eff la capacidad efectiva del sistema, definida como la cantidad de inform
 **Caso 1: Sin memoria externa**
 
 El sistema solo tiene acceso a W (working memory). Por definición:
-$$C_{eff} \leq |W|$$
+<p align="center"><img src="diagrams/formulas/f_c_eff_leq_w_8f62b71f.svg" alt="formula"></p>
 
 donde |W| está limitada por la ventana de contexto del LLM (típicamente 8K-200K tokens).
 
@@ -3641,18 +3641,18 @@ En cada paso t, el sistema puede:
 Si r tiene complejidad O(log |M_ext|) o O(1) (mediante índices), el sistema puede acceder eficientemente a |M_ext| información en tiempo constante o logarítmico.
 
 Por lo tanto:
-$$C_{eff} = |W| + \text{información accesible vía } r$$
+<p align="center"><img src="diagrams/formulas/f_c_eff_w_text_informac_8bd0e1bd.svg" alt="formula"></p>
 
 Como |M_ext| puede crecer indefinidamente y r permite acceso eficiente:
-$$\lim_{|M_{ext}| \to \infty} C_{eff} = \infty$$
+<p align="center"><img src="diagrams/formulas/f_lim_m_ext_to_infty_c_6fde1760.svg" alt="formula"></p>
 
 siempre que r sea eficiente (complejidad sublineal en |M_ext|). ∎
 
 ## B.3 Demostración Expandida del Teorema 10.1 (PEMA)
 
-**Teorema 10.1 (Bound de Varianza con Plasticidad)**. *Sea $A_P$ un sistema agéntico plástico según Definición 11.1. Bajo los supuestos A1-A4, la varianza de la política adaptativa está acotada:*
+**Teorema 10.1 (Bound de Varianza con Plasticidad)**. *Sea <img src="diagrams/formulas/f_a_p_599d351d.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> un sistema agéntico plástico según Definición 11.1. Bajo los supuestos A1-A4, la varianza de la política adaptativa está acotada:*
 
-$$Var[\pi_P(s,g)] \leq \sum_a W_a \cdot \sigma^2_{max,a} + \epsilon_\gamma$$
+<p align="center"><img src="diagrams/formulas/f_var_pi_p_s_g_leq_sum_a_w_33298ec9.svg" alt="formula"></p>
 
 **Demostración Completa.**
 
@@ -3660,63 +3660,63 @@ $$Var[\pi_P(s,g)] \leq \sum_a W_a \cdot \sigma^2_{max,a} + \epsilon_\gamma$$
 
 Por el supuesto A3 (independencia de agentes), la política conjunta del sistema plástico se descompone como suma ponderada:
 
-$$\pi_P(s,g) = \sum_{j=1}^{n} W_j \cdot \pi_j(s,g)$$
+<p align="center"><img src="diagrams/formulas/f_pi_p_s_g_sum_j_1_n_w_e5bc5791.svg" alt="formula"></p>
 
-donde $W_j$ es el peso de confianza normalizado del agente $j$, y $\pi_j$ es la política individual del agente.
+donde <img src="diagrams/formulas/f_w_j_2c0e2174.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> es el peso de confianza normalizado del agente <img src="diagrams/formulas/f_j_363b122c.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">, y <img src="diagrams/formulas/f_pi_j_68df4fed.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> es la política individual del agente.
 
 *Paso 2 (Aplicación de la Ley de Varianza Total)*:
 
-Particionamos la varianza condicionando en los pesos $W$:
+Particionamos la varianza condicionando en los pesos <img src="diagrams/formulas/f_w_61e9c06e.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">:
 
-$$Var[\pi_P] = E[Var[\pi_P | W]] + Var[E[\pi_P | W]]$$
+<p align="center"><img src="diagrams/formulas/f_var_pi_p_e_var_pi_p_w_04e73867.svg" alt="formula"></p>
 
 El primer término captura varianza intrínseca de los agentes; el segundo captura varianza por la adaptación de pesos.
 
 *Paso 3 (Acotación de Varianza Condicional)*:
 
-Dado que los pesos $W$ evolucionan lentamente (por A2, estacionariedad local), tratamos $W$ como localmente constante:
+Dado que los pesos <img src="diagrams/formulas/f_w_61e9c06e.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> evolucionan lentamente (por A2, estacionariedad local), tratamos <img src="diagrams/formulas/f_w_61e9c06e.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> como localmente constante:
 
-$$Var[\pi_P | W] = Var\left[\sum_j W_j \cdot \pi_j\right]$$
+<p align="center"><img src="diagrams/formulas/f_var_pi_p_w_var_left_sum_30b28aab.svg" alt="formula"></p>
 
 Por A3 (independencia), las covarianzas cruzadas son cero:
 
-$$Var[\pi_P | W] = \sum_j W_j^2 \cdot Var[\pi_j]$$
+<p align="center"><img src="diagrams/formulas/f_var_pi_p_w_sum_j_w_j_2_3e9f86bf.svg" alt="formula"></p>
 
-Cada agente tiene varianza máxima acotada por contrato: $Var[\pi_j] \leq \sigma^2_{max,j}$.
+Cada agente tiene varianza máxima acotada por contrato: <img src="diagrams/formulas/f_var_pi_j_leq_sigma_2_max_10867cd6.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">.
 
-Por A4 (acotación de pesos), $W_j \in [0,1]$, lo que implica $W_j^2 \leq W_j$:
+Por A4 (acotación de pesos), <img src="diagrams/formulas/f_w_j_in_0_1_f814bafd.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">, lo que implica <img src="diagrams/formulas/f_w_j_2_leq_w_j_5a7456bb.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">:
 
-$$Var[\pi_P | W] \leq \sum_j W_j \cdot \sigma^2_{max,j}$$
+<p align="center"><img src="diagrams/formulas/f_var_pi_p_w_leq_sum_j_w_j_1f36016e.svg" alt="formula"></p>
 
 *Paso 4 (Acotación de Varianza de Adaptación)*:
 
-El término de adaptación estructural $\gamma$ introduce varianza adicional. Por la regla de actualización Hebbiana (Definición 11.2):
+El término de adaptación estructural <img src="diagrams/formulas/f_gamma_ae539dfc.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> introduce varianza adicional. Por la regla de actualización Hebbiana (Definición 11.2):
 
-$$W_{ij}^{(t+1)} = (1-\lambda) \cdot W_{ij}^{(t)} + \eta \cdot \delta(o) \cdot c_{ij}$$
+<p align="center"><img src="diagrams/formulas/f_w_ij_t_1_1_lambda_8fc67ca7.svg" alt="formula"></p>
 
-La varianza de este término depende de la tasa de aprendizaje $\eta$, el decay $\lambda$, y la varianza de los refuerzos $\delta(o)$:
+La varianza de este término depende de la tasa de aprendizaje <img src="diagrams/formulas/f_eta_ffe9f913.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">, el decay <img src="diagrams/formulas/f_lambda_c6a6eb61.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">, y la varianza de los refuerzos <img src="diagrams/formulas/f_delta_o_53cf1498.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">:
 
-$$Var[E[\pi_P | W]] \leq \eta^2 \cdot Var[\delta] \cdot \mathbb{E}[c^2] =: \epsilon_\gamma$$
+<p align="center"><img src="diagrams/formulas/f_var_e_pi_p_w_leq_eta_2_c2e28271.svg" alt="formula"></p>
 
-Notamos que $\epsilon_\gamma \to 0$ cuando $\eta \to 0$ (régimen de aprendizaje lento).
+Notamos que <img src="diagrams/formulas/f_epsilon_gamma_to_0_0f3345d3.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> cuando <img src="diagrams/formulas/f_eta_to_0_5a4babd2.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> (régimen de aprendizaje lento).
 
 *Paso 5 (Combinación de Términos)*:
 
 Sustituyendo los resultados de pasos 3 y 4 en el paso 2:
 
-$$Var[\pi_P] = E[Var[\pi_P | W]] + Var[E[\pi_P | W]]$$
-$$\leq E\left[\sum_j W_j \cdot \sigma^2_{max,j}\right] + \epsilon_\gamma$$
-$$= \sum_j \mathbb{E}[W_j] \cdot \sigma^2_{max,j} + \epsilon_\gamma$$
+<p align="center"><img src="diagrams/formulas/f_var_pi_p_e_var_pi_p_w_04e73867.svg" alt="formula"></p>
+<p align="center"><img src="diagrams/formulas/f_leq_e_left_sum_j_w_j_cdot_9091e46a.svg" alt="formula"></p>
+<p align="center"><img src="diagrams/formulas/f_sum_j_mathbb_e_w_j_cdot_aa99c19a.svg" alt="formula"></p>
 
-Renombrando $W_a := \mathbb{E}[W_j]$ para cada agente $a$:
+Renombrando <img src="diagrams/formulas/f_w_a_mathbb_e_w_j_bad83f45.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> para cada agente <img src="diagrams/formulas/f_a_0cc175b9.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">:
 
-$$Var[\pi_P(s,g)] \leq \sum_a W_a \cdot \sigma^2_{max,a} + \epsilon_\gamma \quad \blacksquare$$
+<p align="center"><img src="diagrams/formulas/f_var_pi_p_s_g_leq_sum_a_w_d3a73453.svg" alt="formula"></p>
 
-**Corolario B.3.1 (Estabilidad Asintótica)**: En el límite $\eta \to 0$, $\epsilon_\gamma \to 0$, y la varianza converge al promedio ponderado de varianzas individuales:
+**Corolario B.3.1 (Estabilidad Asintótica)**: En el límite <img src="diagrams/formulas/f_eta_to_0_5a4babd2.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">, <img src="diagrams/formulas/f_epsilon_gamma_to_0_0f3345d3.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">, y la varianza converge al promedio ponderado de varianzas individuales:
 
-$$\lim_{\eta \to 0} Var[\pi_P] = \sum_a W_a^* \cdot \sigma^2_{max,a}$$
+<p align="center"><img src="diagrams/formulas/f_lim_eta_to_0_var_pi_p_3691f74c.svg" alt="formula"></p>
 
-donde $W_a^*$ son los pesos estacionarios dados por Proposición 11.1.
+donde <img src="diagrams/formulas/f_w_a_5beabcfe.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> son los pesos estacionarios dados por Proposición 11.1.
 
 ---
 
