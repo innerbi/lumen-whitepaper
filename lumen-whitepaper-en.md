@@ -2194,13 +2194,13 @@ PEMA explicitly differentiates from related approaches:
 
 The PEMA framework assumes the following conditions, which we consider reasonable in enterprise BI scenarios:
 
-**A1** (Outcome Observability): The reinforcement function <img src="diagrams/formulas/f_delta_o_53cf1498.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> is observable after each interaction. This requires explicit feedback mechanism (user rating) or implicit (re-query detection, abandonment).
+**A1** (Outcome Observability): The reinforcement function <img src="diagrams/formulas/f_delta_o_53cf1498.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> is observable after each interaction. This requires explicit feedback mechanism (user rating) or implicit (re-query detection, abandonment).
 
-**A2** (Local Stationarity): The query distribution <img src="diagrams/formulas/f_p_q_a34619d1.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> is locally stationary during adaptation periods. Abrupt distribution changes (e.g., organizational restructuring) require re-stabilization period with elevated learning rates.
+**A2** (Local Stationarity): The query distribution <img src="diagrams/formulas/f_p_q_a34619d1.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> is locally stationary during adaptation periods. Abrupt distribution changes (e.g., organizational restructuring) require re-stabilization period with elevated learning rates.
 
-**A3** (Agent Independence): Agent capabilities <img src="diagrams/formulas/f_a_j_1e30c03d.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> are independent of each other. One agent's specialization doesn't affect others' intrinsic capabilities (though it does affect selection via weights).
+**A3** (Agent Independence): Agent capabilities <img src="diagrams/formulas/f_a_j_1e30c03d.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> are independent of each other. One agent's specialization doesn't affect others' intrinsic capabilities (though it does affect selection via weights).
 
-**A4** (Weight Boundedness): Trust weights <img src="diagrams/formulas/f_w_ij_in_0_1_e39cbe33.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> are bounded, avoiding divergence. This is guaranteed via softmax normalization or clipping.
+**A4** (Weight Boundedness): Trust weights <img src="diagrams/formulas/f_w_ij_in_0_1_e39cbe33.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> are bounded, avoiding divergence. This is guaranteed via softmax normalization or clipping.
 
 Under these assumptions, we derive the theoretical guarantees presented in Section 11.3.
 
@@ -2213,13 +2213,13 @@ We extend the agentic system definition (Definition 1.1) to include plasticity:
 <p align="center"><img src="diagrams/formulas/f_a_p_s_o_g_pi_m_alpha_eba89d2f.svg" alt="formula"></p>
 
 where the first six elements are identical to Definition 1.1, and we add:
-- <img src="diagrams/formulas/f_w_e_rightarrow_0_1_3800a2ed.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">: weight function over edges <img src="diagrams/formulas/f_e_3a3ea00c.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> of the agent graph
-- <img src="diagrams/formulas/f_gamma_w_times_h_times_o_r_e38c7118.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">: **plasticity function** that updates weights based on history <img src="diagrams/formulas/f_h_c1d9f50f.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> and outcomes <img src="diagrams/formulas/f_o_f1862177.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">
-- <img src="diagrams/formulas/f_eta_in_0_1_d2fe29bf.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">: learning rate
+- <img src="diagrams/formulas/f_w_e_rightarrow_0_1_3800a2ed.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">: weight function over edges <img src="diagrams/formulas/f_e_3a3ea00c.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> of the agent graph
+- <img src="diagrams/formulas/f_gamma_w_times_h_times_o_r_e38c7118.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">: **plasticity function** that updates weights based on history <img src="diagrams/formulas/f_h_c1d9f50f.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> and outcomes <img src="diagrams/formulas/f_o_f1862177.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">
+- <img src="diagrams/formulas/f_eta_in_0_1_d2fe29bf.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">: learning rate
 
 **Plasticity Condition (Condition 4)**. A system exhibits structural plasticity if:
 
-$$\exists t_1, t_2: W_{t_1} \neq W_{t_2} \land \gamma(W_{t_1}, H_{[t_1,t_2]}, O_{[t_1,t_2]}) = W_{t_2}$$
+<p align="center"><img src="diagrams/formulas/f_structural_plasticity_def.svg" alt="Structural Plasticity Definition"></p>
 
 That is, weights evolve as a function of accumulated experience.
 
@@ -2227,17 +2227,17 @@ That is, weights evolve as a function of accumulated experience.
 
 We apply the Hebbian principle ("neurons that fire together wire together") to the multi-agent context:
 
-**Definition 11.2 (Hebbian Update Rule)**. Given an episode where agents <img src="diagrams/formulas/f_a_i_693a3b97.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> and <img src="diagrams/formulas/f_a_j_6daefbe0.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> collaborated sequentially with outcome <img src="diagrams/formulas/f_o_d9567975.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">:
+**Definition 11.2 (Hebbian Update Rule)**. Given an episode where agents <img src="diagrams/formulas/f_a_i_693a3b97.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> and <img src="diagrams/formulas/f_a_j_6daefbe0.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> collaborated sequentially with outcome <img src="diagrams/formulas/f_o_d9567975.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">:
 
 <p align="center">
   <img src="diagrams/formulas/f01_hebbian_update.svg" alt="Hebbian Rule" width="400">
 </p>
 
 where:
-- <img src="diagrams/formulas/f_delta_o_53cf1498.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">: reinforcement signal derived from outcome (<img src="diagrams/formulas/f_delta_0_65b1b5bb.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> for success, <img src="diagrams/formulas/f_delta_0_e007a4b0.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> for failure)
-- <img src="diagrams/formulas/f_c_ij_98b138f9.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">: contribution of edge <img src="diagrams/formulas/f_i_j_5270ae67.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> to result (default 1.0, can be estimated with attribution)
-- <img src="diagrams/formulas/f_eta_ffe9f913.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">: learning rate
-- <img src="diagrams/formulas/f_lambda_in_0_1_5715e471.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">: decay factor (gradual forgetting)
+- <img src="diagrams/formulas/f_delta_o_53cf1498.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">: reinforcement signal derived from outcome (<img src="diagrams/formulas/f_delta_0_65b1b5bb.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> for success, <img src="diagrams/formulas/f_delta_0_e007a4b0.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> for failure)
+- <img src="diagrams/formulas/f_c_ij_98b138f9.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">: contribution of edge <img src="diagrams/formulas/f_i_j_5270ae67.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> to result (default 1.0, can be estimated with attribution)
+- <img src="diagrams/formulas/f_eta_ffe9f913.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">: learning rate
+- <img src="diagrams/formulas/f_lambda_in_0_1_5715e471.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">: decay factor (gradual forgetting)
 
 > [!TIP] **Intuition: Hebbian Rule**
 > *"Neurons that fire together, wire together."*
@@ -2245,19 +2245,19 @@ where:
 > Applied to agents: if A→B collaborate and the outcome is successful (δ > 0), their connection strengthens.
 > If they fail (δ < 0), trust decreases. This is reinforcement learning at the *connection* level, not individual agents.
 
-**Proposition 11.1 (Hebbian Convergence)**. With decay <img src="diagrams/formulas/f_lambda_in_0_1_5715e471.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> and i.i.d. outcomes, weights converge to a stationary distribution:
+**Proposition 11.1 (Hebbian Convergence)**. With decay <img src="diagrams/formulas/f_lambda_in_0_1_5715e471.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> and i.i.d. outcomes, weights converge to a stationary distribution:
 
 <p align="center">
   <img src="diagrams/formulas/f02_stationary_weight.svg" alt="Stationary Weight" width="250">
 </p>
 
-*Proof sketch*: The update with decay is <img src="diagrams/formulas/f_w_t_1_1_lambda_w_t_bbefeeba.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">. At steady state, <img src="diagrams/formulas/f_w_1_lambda_w_eta_ma_0bdf4974.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">, hence <img src="diagrams/formulas/f_w_eta_mathbb_e_delta_c_0b0d4178.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">. ∎
+*Proof sketch*: The update with decay is <img src="diagrams/formulas/f_w_t_1_1_lambda_w_t_bbefeeba.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">. At steady state, <img src="diagrams/formulas/f_w_1_lambda_w_eta_ma_0bdf4974.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">, hence <img src="diagrams/formulas/f_w_eta_mathbb_e_delta_c_0b0d4178.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">. ∎
 
 > [!NOTE] **Intuition: Hebbian Convergence**
-> Weights converge to a value proportional to the "average success" of collaboration (<img src="diagrams/formulas/f_mathbb_e_delta_cdot_c_5ff4d6b9.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">).
+> Weights converge to a value proportional to the "average success" of collaboration (<img src="diagrams/formulas/f_mathbb_e_delta_cdot_c_5ff4d6b9.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">).
 > - **Large η** → higher weights, faster adaptation
 > - **Large λ** → stronger decay, lower equilibrium weights
-> - If <img src="diagrams/formulas/f_mathbb_e_delta_0_59f049d7.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> (more successes than failures), weight grows; if <img src="diagrams/formulas/f_mathbb_e_delta_0_43d7a163.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">, it decreases.
+> - If <img src="diagrams/formulas/f_mathbb_e_delta_0_59f049d7.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> (more successes than failures), weight grows; if <img src="diagrams/formulas/f_mathbb_e_delta_0_43d7a163.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">, it decreases.
 
 ### 10.2.3 Types of Plasticity
 
@@ -2265,7 +2265,7 @@ PEMA defines three levels of plasticity with different granularity:
 
 | Level | Type | Mechanism | Frequency | Impact |
 |-------|------|-----------|-----------|--------|
-| **L1** | Weights | Hebbian update of <img src="diagrams/formulas/f_w_ij_3c81d2fb.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> | Each episode | Low |
+| **L1** | Weights | Hebbian update of <img src="diagrams/formulas/f_w_ij_3c81d2fb.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> | Each episode | Low |
 | **L2** | Structure | Neurogenesis (create edges) / Pruning (remove edges) | Every N episodes | Medium |
 | **L3** | Prompts | Learned patches to agent instructions | Per error pattern | High |
 
@@ -2283,7 +2283,7 @@ for (source, target) in episode_path:
 
 **L2 Plasticity (Structure)**:
 - **Neurogenesis**: Create new edge when two never-connected agents collaborate successfully
-- **Pruning**: Remove edge when <img src="diagrams/formulas/f_w_ij_theta_prune_37755b91.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> for <img src="diagrams/formulas/f_n_8d9c307c.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> consecutive episodes
+- **Pruning**: Remove edge when <img src="diagrams/formulas/f_w_ij_theta_prune_37755b91.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> for <img src="diagrams/formulas/f_n_8d9c307c.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> consecutive episodes
 
 **L3 Plasticity (Prompts)**:
 - Add learned context to agent instructions based on recurring error patterns
@@ -2299,13 +2299,13 @@ The **Trust Graph** is the structure that stores and manages trust relationships
 
 ### 10.2.5 Structural Memory: Indexing by Intent
 
-A fundamental aspect of PEMA is that trust weights <img src="diagrams/formulas/f_w_ij_3c81d2fb.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> are **indexed by the intent type** detected in each query. This allows the system to learn collaboration patterns specific to each task category.
+A fundamental aspect of PEMA is that trust weights <img src="diagrams/formulas/f_w_ij_3c81d2fb.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> are **indexed by the intent type** detected in each query. This allows the system to learn collaboration patterns specific to each task category.
 
 **Definition 11.6 (Structural Memory)**. Structural memory is a function:
 
 <p align="center"><img src="diagrams/formulas/f_mathcal_m_s_i_times_e_rig_24266538.svg" alt="formula"></p>
 
-where <img src="diagrams/formulas/f_i_98593f57.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">`QUERY_DAX`, `DOCUMENT`, `REPORT`, `GENERAL`<img src="diagrams/formulas/f__4641d03f.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> is the set of intents and <img src="diagrams/formulas/f_e_3a3ea00c.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> is the set of edges between agents. Each intent <img src="diagrams/formulas/f_i_in_i_6fa78e29.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> maintains its own weight matrix:
+where <img src="diagrams/formulas/f_i_98593f57.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">`QUERY_DAX`, `DOCUMENT`, `REPORT`, `GENERAL`<img src="diagrams/formulas/f__4641d03f.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> is the set of intents and <img src="diagrams/formulas/f_e_3a3ea00c.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> is the set of edges between agents. Each intent <img src="diagrams/formulas/f_i_in_i_6fa78e29.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> maintains its own weight matrix:
 
 <p align="center"><img src="diagrams/formulas/f_w_i_jk_mathcal_m_s_i_91da127c.svg" alt="formula"></p>
 
@@ -2321,7 +2321,7 @@ where <img src="diagrams/formulas/f_i_98593f57.svg" alt="formula" style="vertica
 >
 > The router learns to direct each query type to the most suitable agent.
 
-**Rationale**: An agent may be highly reliable for one task type but less so for another. For example, `DAXAgent` may have <img src="diagrams/formulas/f_w_query_dax_router_to_d_6b307ec5.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> but <img src="diagrams/formulas/f_w_document_router_to_dax_014562e1.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">. This specialization enables optimal context-based routing.
+**Rationale**: An agent may be highly reliable for one task type but less so for another. For example, `DAXAgent` may have <img src="diagrams/formulas/f_w_query_dax_router_to_d_6b307ec5.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> but <img src="diagrams/formulas/f_w_document_router_to_dax_014562e1.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">. This specialization enables optimal context-based routing.
 
 <p align="center">
   <img src="diagrams/10_pema_structural_memory_en.svg" alt="PEMA Structural Memory" width="700">
@@ -2352,19 +2352,19 @@ This intent-based indexing constitutes the system's **Structural Memory**—the 
 
 A plastic system must maintain **bounded predictability**—behavior variance must remain within controlled limits even while the system learns.
 
-**Theorem 10.1 (Variance Bound with Plasticity)**. Let <img src="diagrams/formulas/f_a_p_599d351d.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> be a plastic system where each agent <img src="diagrams/formulas/f_a_0cc175b9.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> has a contract with maximum variance <img src="diagrams/formulas/f_sigma_2_max_a_839f74f9.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">. Then:
+**Theorem 10.1 (Variance Bound with Plasticity)**. Let <img src="diagrams/formulas/f_a_p_599d351d.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> be a plastic system where each agent <img src="diagrams/formulas/f_a_0cc175b9.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> has a contract with maximum variance <img src="diagrams/formulas/f_sigma_2_max_a_839f74f9.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">. Then:
 
 <p align="center">
   <img src="diagrams/formulas/f03_variance_bound.svg" alt="Variance Bound" width="400">
 </p>
 
-where <img src="diagrams/formulas/f_epsilon_gamma_26c38352.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> is the additional variance term introduced by plasticity, bounded by:
+where <img src="diagrams/formulas/f_epsilon_gamma_26c38352.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> is the additional variance term introduced by plasticity, bounded by:
 
 <p align="center">
   <img src="diagrams/formulas/f04_plasticity_variance.svg" alt="Plasticity Variance" width="250">
 </p>
 
-*Proof sketch*: Total variance is the weighted sum of individual variances (by conditional agent independence given state). Plasticity introduces additional variance proportional to the square of learning rate and expected magnitude of deltas. Reducing <img src="diagrams/formulas/f_eta_ffe9f913.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> reduces <img src="diagrams/formulas/f_epsilon_gamma_26c38352.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> at the cost of slower learning. ∎
+*Proof sketch*: Total variance is the weighted sum of individual variances (by conditional agent independence given state). Plasticity introduces additional variance proportional to the square of learning rate and expected magnitude of deltas. Reducing <img src="diagrams/formulas/f_eta_ffe9f913.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> reduces <img src="diagrams/formulas/f_epsilon_gamma_26c38352.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> at the cost of slower learning. ∎
 
 > [!IMPORTANT] **Interpretation: Variance Bound**
 >
@@ -2372,10 +2372,10 @@ where <img src="diagrams/formulas/f_epsilon_gamma_26c38352.svg" alt="formula" st
 >
 > | Component | Formula | Meaning |
 > |-----------|---------|---------|
-> | **Intrinsic variance** | <img src="diagrams/formulas/f_sum_w_a_cdot_sigma_2_a_52322d43.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> | Each agent contributes variance proportional to its weight |
-> | **Learning variance** | <img src="diagrams/formulas/f_epsilon_gamma_propto_eta_2_bdd2386c.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> | Small if η is small |
+> | **Intrinsic variance** | <img src="diagrams/formulas/f_sum_w_a_cdot_sigma_2_a_52322d43.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> | Each agent contributes variance proportional to its weight |
+> | **Learning variance** | <img src="diagrams/formulas/f_epsilon_gamma_propto_eta_2_bdd2386c.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> | Small if η is small |
 >
-> **Practical implication**: Using <img src="diagrams/formulas/f_eta_approx_0_1_8082997c.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> keeps the system stable (<img src="diagrams/formulas/f_epsilon_gamma_2d3a3ebb.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> low) while allowing gradual adaptation.
+> **Practical implication**: Using <img src="diagrams/formulas/f_eta_approx_0_1_8082997c.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> keeps the system stable (<img src="diagrams/formulas/f_epsilon_gamma_2d3a3ebb.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> low) while allowing gradual adaptation.
 
 **Corollary 11.1 (Stability Condition)**. The system is stable if:
 
@@ -2383,18 +2383,18 @@ where <img src="diagrams/formulas/f_epsilon_gamma_26c38352.svg" alt="formula" st
   <img src="diagrams/formulas/f05_stability_condition.svg" alt="Stability Condition" width="250">
 </p>
 
-where <img src="diagrams/formulas/f_epsilon_max_5a52e274.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> is the maximum tolerable additional variance.
+where <img src="diagrams/formulas/f_epsilon_max_5a52e274.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> is the maximum tolerable additional variance.
 
 > [!WARNING] **Computing Maximum η**
 >
 > For a system with:
-> - 10 edges (<img src="diagrams/formulas/f_e_10_4390f219.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">)
-> - Reinforcement variance <img src="diagrams/formulas/f_mathbb_e_delta_2_0_25_1fadae0e.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> (δ ∈ {-0.5, +0.5})
-> - Tolerance <img src="diagrams/formulas/f_epsilon_max_0_05_d4a3d567.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">
+> - 10 edges (<img src="diagrams/formulas/f_e_10_4390f219.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">)
+> - Reinforcement variance <img src="diagrams/formulas/f_mathbb_e_delta_2_0_25_1fadae0e.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> (δ ∈ {-0.5, +0.5})
+> - Tolerance <img src="diagrams/formulas/f_epsilon_max_0_05_d4a3d567.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">
 >
-> Maximum learning rate is: <img src="diagrams/formulas/f_eta_max_sqrt_0_05_0_2_33010316.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">
+> Maximum learning rate is: <img src="diagrams/formulas/f_eta_max_sqrt_0_05_0_2_33010316.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">
 >
-> **Recommendation**: Use <img src="diagrams/formulas/f_eta_0_1_289fdd60.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> to leave a safety margin.
+> **Recommendation**: Use <img src="diagrams/formulas/f_eta_0_1_289fdd60.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> to leave a safety margin.
 
 ## 10.4 PEMA Evaluation Metrics (PEMA-Bench)
 
@@ -2436,7 +2436,7 @@ PEMA-Bench introduces **9 metrics** organized in three dimensions, addressing a 
   <img src="diagrams/formulas/f09_behavior_variance.svg" alt="Behavior Variance" width="400">
 </p>
 
-where <img src="diagrams/formulas/f_c_0d61f837.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> is an input clustering by semantic similarity (HDBSCAN, <img src="diagrams/formulas/f_tau_0_92_b61e7a6d.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">).
+where <img src="diagrams/formulas/f_c_0d61f837.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> is an input clustering by semantic similarity (HDBSCAN, <img src="diagrams/formulas/f_tau_0_92_b61e7a6d.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">).
 
 **Definition 11.4.1 (Contract Compliance)**:
 
@@ -2558,9 +2558,9 @@ Implementation of 5-phase benchmark protocol with:
 ### 10.7.4 Hyperparameter Meta-Learning
 
 Automatic optimization of:
-- Learning rate <img src="diagrams/formulas/f_eta_ffe9f913.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">
-- Decay rate <img src="diagrams/formulas/f_lambda_c6a6eb61.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">
-- Pruning thresholds <img src="diagrams/formulas/f_theta_prune_4f584727.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">
+- Learning rate <img src="diagrams/formulas/f_eta_ffe9f913.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">
+- Decay rate <img src="diagrams/formulas/f_lambda_c6a6eb61.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">
+- Pruning thresholds <img src="diagrams/formulas/f_theta_prune_4f584727.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">
 
 ### Future Work
 
@@ -2655,7 +2655,7 @@ These metrics align with evaluation standards in task-oriented dialogue systems 
 
 **Definition 12.1** (Agentic System Performance Metrics)
 
-Let <img src="diagrams/formulas/f_s_5dbc98dc.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> be an agentic system and <img src="diagrams/formulas/f_q_q_1_q_2_q_n_a7264e5e.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> a set of user queries. We define:
+Let <img src="diagrams/formulas/f_s_5dbc98dc.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> be an agentic system and <img src="diagrams/formulas/f_q_q_1_q_2_q_n_a7264e5e.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> a set of user queries. We define:
 
 1. **Time to First Response (TFR)**:
    $$TFR(q) = t_{first\_token} - t_{query\_received}$$
@@ -2687,7 +2687,7 @@ The Two-Layer Routing Pattern was evaluated with 1,247 categorized queries:
 | **Accuracy** | 78.3% | 94.7% | 96.2% |
 | **Latency (p50)** | 2ms | 245ms | 89ms |
 | **Latency (p95)** | 5ms | 512ms | 267ms |
-| **Cost per query** | <img src="diagrams/formulas/f_0_52e8b44c.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">0.003 | $0.001 |
+| **Cost per query** | <img src="diagrams/formulas/f_0_52e8b44c.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">0.003 | $0.001 |
 
 **Observation**: The combined system achieves high accuracy while minimizing costs by resolving 72% of queries in the first layer (keywords).
 
@@ -2707,7 +2707,7 @@ Evaluation of Persisted Memory Pattern over 4 weeks:
 | 3 | 523 | 5.8 KB | 84% | +23ms |
 | 4 | 612 | 7.2 KB | 89% | +31ms |
 
-**Proposition 12.1**: The persisted memory system reaches optimal balance when <img src="diagrams/formulas/f_context_size_leq_10kb_1bed2662.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">, maintaining additional latency under 50ms and hit rate above 85%.
+**Proposition 12.1**: The persisted memory system reaches optimal balance when <img src="diagrams/formulas/f_context_size_leq_10kb_1bed2662.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">, maintaining additional latency under 50ms and hit rate above 85%.
 
 ### 5.2.3 Agent-as-Tool Pattern Performance
 
@@ -3171,9 +3171,9 @@ The PEMA structural plasticity system introduces specific attack vectors that mu
 
 #### Implemented Defenses
 
-1. **Mandatory Temporal Decay**: <img src="diagrams/formulas/f_lambda_geq_0_01_252b57d1.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> guarantees old weights lose influence, limiting attack persistence.
+1. **Mandatory Temporal Decay**: <img src="diagrams/formulas/f_lambda_geq_0_01_252b57d1.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> guarantees old weights lose influence, limiting attack persistence.
 
-2. **Strict Bounds**: <img src="diagrams/formulas/f_w_ij_in_0_1_0_9_8a7848af.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> prevents any agent from being completely favored or excluded.
+2. **Strict Bounds**: <img src="diagrams/formulas/f_w_ij_in_0_1_0_9_8a7848af.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> prevents any agent from being completely favored or excluded.
 
 3. **Update Smoothing**: Exponential averaging smooths anomalous spikes:
    <p align="center"><img src="diagrams/formulas/f_w_ij_smooth_beta_w_ij_83c1452a.svg" alt="formula"></p>
@@ -3447,7 +3447,7 @@ provided r is efficient (sublinear complexity in |M_ext|). ∎
 
 ## B.3 Expanded Proof of Theorem 10.1 (PEMA)
 
-**Theorem 10.1 (Variance Bound with Plasticity)**. *Let <img src="diagrams/formulas/f_a_p_599d351d.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> be a plastic agentic system per Definition 11.1. Under assumptions A1-A4, the adaptive policy variance is bounded:*
+**Theorem 10.1 (Variance Bound with Plasticity)**. *Let <img src="diagrams/formulas/f_a_p_599d351d.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> be a plastic agentic system per Definition 11.1. Under assumptions A1-A4, the adaptive policy variance is bounded:*
 
 <p align="center"><img src="diagrams/formulas/f_var_pi_p_s_g_leq_sum_a_w_33298ec9.svg" alt="formula"></p>
 
@@ -3459,11 +3459,11 @@ By assumption A3 (agent independence), the plastic system's joint policy decompo
 
 <p align="center"><img src="diagrams/formulas/f_pi_p_s_g_sum_j_1_n_w_e5bc5791.svg" alt="formula"></p>
 
-where <img src="diagrams/formulas/f_w_j_2c0e2174.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> is the normalized trust weight of agent <img src="diagrams/formulas/f_j_363b122c.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">, and <img src="diagrams/formulas/f_pi_j_68df4fed.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> is the individual agent's policy.
+where <img src="diagrams/formulas/f_w_j_2c0e2174.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> is the normalized trust weight of agent <img src="diagrams/formulas/f_j_363b122c.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">, and <img src="diagrams/formulas/f_pi_j_68df4fed.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> is the individual agent's policy.
 
 *Step 2 (Application of Total Variance Law)*:
 
-We partition variance conditioning on weights <img src="diagrams/formulas/f_w_61e9c06e.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">:
+We partition variance conditioning on weights <img src="diagrams/formulas/f_w_61e9c06e.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">:
 
 <p align="center"><img src="diagrams/formulas/f_var_pi_p_e_var_pi_p_w_04e73867.svg" alt="formula"></p>
 
@@ -3471,7 +3471,7 @@ The first term captures intrinsic agent variance; the second captures variance f
 
 *Step 3 (Conditional Variance Bound)*:
 
-Since weights <img src="diagrams/formulas/f_w_61e9c06e.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> evolve slowly (by A2, local stationarity), we treat <img src="diagrams/formulas/f_w_61e9c06e.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> as locally constant:
+Since weights <img src="diagrams/formulas/f_w_61e9c06e.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> evolve slowly (by A2, local stationarity), we treat <img src="diagrams/formulas/f_w_61e9c06e.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> as locally constant:
 
 <p align="center"><img src="diagrams/formulas/f_var_pi_p_w_var_left_sum_30b28aab.svg" alt="formula"></p>
 
@@ -3479,23 +3479,23 @@ By A3 (independence), cross-covariances are zero:
 
 <p align="center"><img src="diagrams/formulas/f_var_pi_p_w_sum_j_w_j_2_3e9f86bf.svg" alt="formula"></p>
 
-Each agent has maximum variance bounded by contract: <img src="diagrams/formulas/f_var_pi_j_leq_sigma_2_max_10867cd6.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">.
+Each agent has maximum variance bounded by contract: <img src="diagrams/formulas/f_var_pi_j_leq_sigma_2_max_10867cd6.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">.
 
-By A4 (weight boundedness), <img src="diagrams/formulas/f_w_j_in_0_1_f814bafd.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">, implying <img src="diagrams/formulas/f_w_j_2_leq_w_j_5a7456bb.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">:
+By A4 (weight boundedness), <img src="diagrams/formulas/f_w_j_in_0_1_f814bafd.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">, implying <img src="diagrams/formulas/f_w_j_2_leq_w_j_5a7456bb.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">:
 
 <p align="center"><img src="diagrams/formulas/f_var_pi_p_w_leq_sum_j_w_j_1f36016e.svg" alt="formula"></p>
 
 *Step 4 (Adaptation Variance Bound)*:
 
-The structural adaptation term <img src="diagrams/formulas/f_gamma_ae539dfc.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> introduces additional variance. By the Hebbian update rule (Definition 11.2):
+The structural adaptation term <img src="diagrams/formulas/f_gamma_ae539dfc.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> introduces additional variance. By the Hebbian update rule (Definition 11.2):
 
 <p align="center"><img src="diagrams/formulas/f_w_ij_t_1_1_lambda_8fc67ca7.svg" alt="formula"></p>
 
-This term's variance depends on learning rate <img src="diagrams/formulas/f_eta_ffe9f913.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">, decay <img src="diagrams/formulas/f_lambda_c6a6eb61.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">, and reinforcement variance <img src="diagrams/formulas/f_delta_o_53cf1498.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">:
+This term's variance depends on learning rate <img src="diagrams/formulas/f_eta_ffe9f913.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">, decay <img src="diagrams/formulas/f_lambda_c6a6eb61.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">, and reinforcement variance <img src="diagrams/formulas/f_delta_o_53cf1498.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">:
 
 <p align="center"><img src="diagrams/formulas/f_var_e_pi_p_w_leq_eta_2_c2e28271.svg" alt="formula"></p>
 
-Note that <img src="diagrams/formulas/f_epsilon_gamma_to_0_0f3345d3.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> when <img src="diagrams/formulas/f_eta_to_0_5a4babd2.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> (slow learning regime).
+Note that <img src="diagrams/formulas/f_epsilon_gamma_to_0_0f3345d3.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> when <img src="diagrams/formulas/f_eta_to_0_5a4babd2.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> (slow learning regime).
 
 *Step 5 (Term Combination)*:
 
@@ -3505,15 +3505,15 @@ Substituting results from steps 3 and 4 into step 2:
 <p align="center"><img src="diagrams/formulas/f_leq_e_left_sum_j_w_j_cdot_9091e46a.svg" alt="formula"></p>
 <p align="center"><img src="diagrams/formulas/f_sum_j_mathbb_e_w_j_cdot_aa99c19a.svg" alt="formula"></p>
 
-Renaming <img src="diagrams/formulas/f_w_a_mathbb_e_w_j_bad83f45.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> for each agent <img src="diagrams/formulas/f_a_0cc175b9.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">:
+Renaming <img src="diagrams/formulas/f_w_a_mathbb_e_w_j_bad83f45.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> for each agent <img src="diagrams/formulas/f_a_0cc175b9.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">:
 
 <p align="center"><img src="diagrams/formulas/f_var_pi_p_s_g_leq_sum_a_w_d3a73453.svg" alt="formula"></p>
 
-**Corollary B.3.1 (Asymptotic Stability)**: In the limit <img src="diagrams/formulas/f_eta_to_0_5a4babd2.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">, <img src="diagrams/formulas/f_epsilon_gamma_to_0_0f3345d3.svg" alt="formula" style="vertical-align: middle; height: 1.2em;">, and variance converges to the weighted average of individual variances:
+**Corollary B.3.1 (Asymptotic Stability)**: In the limit <img src="diagrams/formulas/f_eta_to_0_5a4babd2.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">, <img src="diagrams/formulas/f_epsilon_gamma_to_0_0f3345d3.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">, and variance converges to the weighted average of individual variances:
 
 <p align="center"><img src="diagrams/formulas/f_lim_eta_to_0_var_pi_p_3691f74c.svg" alt="formula"></p>
 
-where <img src="diagrams/formulas/f_w_a_5beabcfe.svg" alt="formula" style="vertical-align: middle; height: 1.2em;"> are stationary weights given by Proposition 11.1.
+where <img src="diagrams/formulas/f_w_a_5beabcfe.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> are stationary weights given by Proposition 11.1.
 
 ---
 
