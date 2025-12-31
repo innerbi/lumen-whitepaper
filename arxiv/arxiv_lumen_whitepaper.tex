@@ -76,7 +76,7 @@
 % ============================================================================
 
 \newcommand{\lumen}{\textsc{Lumen}\xspace}
-\newcommand{\pema}{\textsc{PEMA}\xspace}
+\newcommand{\map}{\textsc{MAP}\xspace}
 \newcommand{\sgrag}{\textsc{SG-RAG}\xspace}
 
 % Code style
@@ -130,11 +130,11 @@
 % ----------------------------------------------------------------------------
 
 \begin{abstract}
-This paper presents \lumen, a multi-agent agentic AI platform designed for Business Intelligence environments. We introduce three main contributions: (1) \textbf{Functional Agency}, a formal framework defining the necessary and sufficient conditions for agentic behavior in production systems; (2) \textbf{\pema} (Plastic Evolving Multi-Agent), a novel architecture that applies Hebbian learning principles for dynamic inter-agent routing with formal convergence guarantees; and (3) a catalog of \textbf{12 reusable design patterns} for constructing robust enterprise AI systems.
+This paper presents \lumen, a multi-agent agentic AI platform designed for Business Intelligence environments. We introduce three main contributions: (1) \textbf{Functional Agency}, a formal framework defining the necessary and sufficient conditions for agentic behavior in production systems; (2) \textbf{\map} (Multiagent Plasticity), a novel architecture that applies Hebbian learning principles for dynamic inter-agent routing with formal convergence guarantees; and (3) a catalog of \textbf{12 reusable design patterns} for constructing robust enterprise AI systems.
 
 The platform integrates semantic routing, multi-layer RAG with gap detection (\sgrag), and anti-hallucination patterns, achieving 94\% task success rate in production environments while maintaining sub-2-second latency for 85\% of queries. Our empirical evaluation across three enterprise deployments demonstrates significant improvements in both efficiency (40\% cost reduction via hybrid routing) and reliability (hallucination reduction from 12\% to 0.3\%).
 
-Beyond the technical implementation, we formalize the theoretical foundations of multi-agent coordination, including Theorem 10.1 establishing variance bounds under plasticity, and propose PEMA-Bench, a standardized evaluation protocol for adaptive multi-agent systems. All architectural patterns and core implementations are open-source, enabling reproducibility and community extension.
+Beyond the technical implementation, we formalize the theoretical foundations of multi-agent coordination, including Theorem 10.1 establishing variance bounds under plasticity, and propose MAP-Bench, a standardized evaluation protocol for adaptive multi-agent systems. All architectural patterns and core implementations are open-source, enabling reproducibility and community extension.
 
 \vspace{0.5em}
 \noindent\textbf{Keywords:} Multi-agent systems, Agentic AI, Business Intelligence, RAG, Design Patterns, Hebbian Learning, LLM Orchestration
@@ -241,7 +241,7 @@ To test this hypothesis, we present:
 \begin{enumerate}
     \item \textbf{Functional Agency Framework}: Formal definitions and necessary conditions for production agentic systems (Definition~\ref{def:functional-agency})
 
-    \item \textbf{\pema Architecture}: Hebbian learning for inter-agent routing with convergence guarantees (Section~\ref{sec:pema})
+    \item \textbf{\map Architecture}: Hebbian learning for inter-agent routing with convergence guarantees (Section~\ref{sec:map})
 
     \item \textbf{Design Pattern Catalog}: 12 reusable patterns for enterprise AI (throughout the document)
 
@@ -256,7 +256,7 @@ The document is organized in three parts:
 
 \textbf{Part I: Foundations} (Sections 1--2) establishes the theoretical foundations, including the formal definition of agency, taxonomy of multi-agent architectures, and analysis of when multi-agent systems are appropriate.
 
-\textbf{Part II: Architecture} (Sections 3--4 and Capabilities 1--10) details the complete \lumen implementation, from routing patterns to the \pema learning system.
+\textbf{Part II: Architecture} (Sections 3--4 and Capabilities 1--10) details the complete \lumen implementation, from routing patterns to the \map learning system.
 
 \textbf{Part III: Evaluation} (Sections 5--6) presents empirical results, discussion of limitations, and future directions.
 
@@ -356,7 +356,7 @@ Swarm systems exhibit coordination through local rules without central control. 
     \label{fig:meta-learning}
 \end{figure}
 
-Meta-learning systems include a meta-agent that observes agent performance and adjusts routing strategies~\cite{wu2023autogen,hong2023metagpt}. This is the basis for our \pema architecture.
+Meta-learning systems include a meta-agent that observes agent performance and adjusts routing strategies~\cite{wu2023autogen,hong2023metagpt}. This is the basis for our \map architecture.
 
 \subsubsection{Additional Architectures}
 
@@ -434,7 +434,7 @@ A critical gap in previous work is \textbf{structural adaptation}. Existing appr
 
 \textbf{MetaGPT}~\cite{hong2023metagpt}: Multi-agent framework with well-defined roles but fixed topology that doesn't learn from experiences.
 
-\textbf{Difference with MARL}: Multi-Agent Reinforcement Learning operates on policies learned end-to-end via gradients, requiring millions of training interactions. \pema operates on pre-trained agents (LLMs), adjusting only \textit{inter-agent trust weights} via local Hebbian rules---allowing adaptation with orders of magnitude less data.
+\textbf{Difference with MARL}: Multi-Agent Reinforcement Learning operates on policies learned end-to-end via gradients, requiring millions of training interactions. \map operates on pre-trained agents (LLMs), adjusting only \textit{inter-agent trust weights} via local Hebbian rules---allowing adaptation with orders of magnitude less data.
 
 \subsection{Comparative Positioning}
 
@@ -781,24 +781,24 @@ Implementation combines two complementary approaches:
     \item \textbf{Historical analysis}: All interactions persisted to SQL database with full conversation context, enabling behavioral analysis, pattern detection, and continuous improvement of routing decisions
 \end{itemize}
 
-\section{Capability 10: PEMA --- Plastic Evolving Multi-Agent}
-\label{sec:pema}
+\section{Capability 10: MAP --- Multiagent Plasticity}
+\label{sec:map}
 
 \subsection{Motivation}
 
-Static routing rules cannot adapt to changing usage patterns. \pema addresses this through Hebbian learning principles~\cite{hebb1949organization} applied to agent coordination.
+Static routing rules cannot adapt to changing usage patterns. \map addresses this through Hebbian learning principles~\cite{hebb1949organization} applied to agent coordination.
 
 \begin{figure}[H]
     \centering
-    \includesvg[width=0.85\textwidth]{10_pema_evolucion_en}
-    \caption{Evolution from static to plastic systems in \pema}
-    \label{fig:pema-evolution}
+    \includesvg[width=0.85\textwidth]{10_map_evolucion_en}
+    \caption{Evolution from static to plastic systems in \map}
+    \label{fig:map-evolution}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includesvg[width=0.85\textwidth]{10_pema_trust_graph_en}
-    \caption{Trust graph structure in \pema}
+    \includesvg[width=0.85\textwidth]{10_map_trust_graph_en}
+    \caption{Trust graph structure in \map}
     \label{fig:trust-graph}
 \end{figure}
 
@@ -820,7 +820,7 @@ This rule embodies the principle \emph{``neurons that fire together, wire togeth
 
 \begin{theorem}[Variance Bound with Plasticity]
 \label{thm:variance-bound}
-Under \pema with learning rate $\eta > 0$ and decay $\lambda \in (0,1)$, the variance of routing decisions is bounded:
+Under \map with learning rate $\eta > 0$ and decay $\lambda \in (0,1)$, the variance of routing decisions is bounded:
 \begin{equation}
 \text{Var}[\pi_t] \leq \frac{\eta^2 \sigma^2}{\lambda(2-\lambda)}
 \end{equation}
@@ -847,9 +847,9 @@ For typical hyperparameters $\eta = 0.01$, $\lambda = 0.1$, and $\sigma^2 \appro
 This ensures routing fluctuations below $1.2\%$, providing highly stable agent selection.
 \end{corollary}
 
-\subsection{PEMA-Bench: Evaluation Protocol}
+\subsection{MAP-Bench: Evaluation Protocol}
 
-We propose PEMA-Bench with 9 metrics across 3 dimensions:
+We propose MAP-Bench with 9 metrics across 3 dimensions:
 
 \begin{table}[H]
 \centering
@@ -873,8 +873,8 @@ We propose PEMA-Bench with 9 metrics across 3 dimensions:
     & Hierarchy Depth & $2$--$4$ levels \\
 \bottomrule
 \end{tabular}
-\caption{PEMA-Bench metrics and targets}
-\label{tab:pema-bench}
+\caption{MAP-Bench metrics and targets}
+\label{tab:map-bench}
 \end{table}
 
 % ============================================================================
@@ -924,7 +924,7 @@ Single-agent RAG & $82.1 \pm 2.8\%$ & $2.1 \pm 0.4$s & $8.4 \pm 1.6$s \\
 \textbf{Configuration} & \textbf{Success Rate} & \textbf{$\Delta$ vs Full} \\
 \midrule
 Full \lumen & 94\% & --- \\
-Without \pema & 89\% & -5\% \\
+Without \map & 89\% & -5\% \\
 Without \sgrag & 85\% & -9\% \\
 Without Two-Layer Routing & 91\% & -3\% \\
 Without HallucinationGuard & 88\% & -6\% \\
@@ -996,7 +996,7 @@ This paper presented \lumen, a multi-agent agentic AI platform for Business Inte
 \begin{enumerate}
     \item \textbf{Functional Agency Framework}: Formal definitions establishing necessary conditions for production agentic systems
 
-    \item \textbf{\pema Architecture}: Hebbian learning for adaptive agent routing with provable convergence bounds
+    \item \textbf{\map Architecture}: Hebbian learning for adaptive agent routing with provable convergence bounds
 
     \item \textbf{Design Pattern Catalog}: 12 reusable patterns for enterprise AI systems
 \end{enumerate}
@@ -1011,9 +1011,9 @@ Empirical evaluation across three enterprise deployments demonstrated:
 \subsection{Future Work}
 
 \begin{enumerate}
-    \item Extension of \pema to cross-organization learning
+    \item Extension of \map to cross-organization learning
     \item Integration of formal verification for safety-critical applications
-    \item Development of domain-specific PEMA-Bench variants
+    \item Development of domain-specific MAP-Bench variants
 \end{enumerate}
 
 % ============================================================================

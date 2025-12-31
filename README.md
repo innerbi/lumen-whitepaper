@@ -14,9 +14,9 @@
 
 This work presents a **comprehensive and generalizable framework for the design and construction of multi-agent systems** based on Large Language Models (LLMs). The work addresses theoretical foundations, architectural patterns, and essential capabilities that these systems must implement across any application domain.
 
-### Main Contribution: PEMA
+### Main Contribution: MAP
 
-**PEMA (Plastic Evolving Multi-Agent)**: A theoretical extension that provides **structural plasticity** to multi-agent systems. While LLM parameters remain fixed post-training, PEMA allows the coordination topology between agents to evolve dynamically through Hebbian learning.
+**MAP (Multiagent Plasticity)**: A theoretical extension that provides **structural plasticity** to multi-agent systems. While LLM parameters remain fixed post-training, MAP allows the coordination topology between agents to evolve dynamically through Hebbian learning.
 
 ### Key Results
 
@@ -55,7 +55,7 @@ This work presents a **comprehensive and generalizable framework for the design 
 7. Security
 8. Scalability
 9. Observability
-10. **Plasticity and Continuous Learning (PEMA)** ← Main Contribution
+10. **Plasticity and Continuous Learning (MAP)** ← Main Contribution
 
 ### Part IV: Evaluation and Discussion
 - Evaluation Results
@@ -66,7 +66,7 @@ This work presents a **comprehensive and generalizable framework for the design 
 
 ## Keywords
 
-Multi-Agent Systems, Structural Plasticity, Hebbian Learning, LLM, Functional Agency, Generative AI, PEMA, Agentic AI
+Multi-Agent Systems, Structural Plasticity, Hebbian Learning, LLM, Functional Agency, Generative AI, MAP, Agentic AI
 
 ---
 

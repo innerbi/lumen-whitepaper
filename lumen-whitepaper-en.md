@@ -35,14 +35,14 @@ This work presents a **comprehensive and generalizable framework for the design 
 
 **Problem**: Isolated Large Language Models (LLMs) are insufficient for complex enterprise applications due to hallucinations, lack of access to real data, absence of persistent memory, and context limitations. Architectures combining multiple specialized agents with structured access to data sources are required. This problem is transversal across multiple domains: administration, operations, process automation, data intelligence, and others.
 
-**Main Novelty**: This work introduces **PEMA (Plastic Evolving Multi-Agent)**, a theoretical extension that provides **structural plasticity** to multi-agent systems. While LLM parameters θ remain fixed post-training, PEMA allows the *coordination topology between agents* to evolve dynamically through Hebbian learning—solving what we term the *adaptation barrier*.
+**Main Novelty**: This work introduces **MAP (Multiagent Plasticity)**, a theoretical extension that provides **structural plasticity** to multi-agent systems. While LLM parameters θ remain fixed post-training, MAP allows the *coordination topology between agents* to evolve dynamically through Hebbian learning—solving what we term the *adaptation barrier*.
 
-**Approach**: We propose a **domain-independent** reference framework for multi-agent systems that includes: (1) theoretical foundations of functional agency, (2) taxonomy of multi-agent architectures, (3) PEMA theoretical framework adding structural plasticity to the system, (4) ten essential capabilities, and (5) reusable design patterns. Each capability is presented with **general theory** applicable to any domain, illustrated with Lumen as a case study.
+**Approach**: We propose a **domain-independent** reference framework for multi-agent systems that includes: (1) theoretical foundations of functional agency, (2) taxonomy of multi-agent architectures, (3) MAP theoretical framework adding structural plasticity to the system, (4) ten essential capabilities, and (5) reusable design patterns. Each capability is presented with **general theory** applicable to any domain, illustrated with Lumen as a case study.
 
 **Contributions** (hierarchized by novelty):
 
 **🔬 Main Contribution (Theoretical)**:
-- **PEMA (Plastic Evolving Multi-Agent)**: Extension of the functional agency framework with **structural plasticity** inspired by neuroscientific principles. First formalization of Hebbian learning for inter-agent trust weights, with theoretical guarantees of bounded predictability (Theorem 10.1) and benchmark protocol for plastic systems. *This contribution opens a new research line in adaptive multi-agent systems.*
+- **MAP (Multiagent Plasticity)**: Extension of the functional agency framework with **structural plasticity** inspired by neuroscientific principles. First formalization of Hebbian learning for inter-agent trust weights, with theoretical guarantees of bounded predictability (Theorem 10.1) and benchmark protocol for plastic systems. *This contribution opens a new research line in adaptive multi-agent systems.*
 
 **📐 Secondary Contributions (Methodological)**:
 1. **Functional Agency Theoretical Framework**: Rigorous formalization of necessary conditions (Definitions 1.1-1.5) for genuine agentic behavior—universally applicable
@@ -57,9 +57,9 @@ This work presents a **comprehensive and generalizable framework for the design 
 4. **Ten Essential Capabilities**: Universal checklist for agentic systems
 5. **Lumen Case Study**: Complete validation in BI domain demonstrating +20pp accuracy vs baseline
 
-**Results**: The proposed framework provides practical guidance for building multi-agent systems in any enterprise domain. Validation through Lumen demonstrates improvements of +20 percentage points in accuracy (91.5% vs 71.4% for monolithic architecture) with controlled latency increase (+58%), confirming the viability and benefits of the proposed approach. The PEMA extension provides theoretical foundations for adaptive systems with stability guarantees.
+**Results**: The proposed framework provides practical guidance for building multi-agent systems in any enterprise domain. Validation through Lumen demonstrates improvements of +20 percentage points in accuracy (91.5% vs 71.4% for monolithic architecture) with controlled latency increase (+58%), confirming the viability and benefits of the proposed approach. The MAP extension provides theoretical foundations for adaptive systems with stability guarantees.
 
-**Keywords**: Multi-Agent Systems, **Adaptation Barrier**, **Structural Plasticity**, Hebbian Learning, LLM, Functional Agency, Generative AI, PEMA
+**Keywords**: Multi-Agent Systems, **Adaptation Barrier**, **Structural Plasticity**, Hebbian Learning, LLM, Functional Agency, Generative AI, MAP
 
 ---
 
@@ -83,7 +83,7 @@ This work presents a **comprehensive and generalizable framework for the design 
 - [Capability 7: Security](#capability-7-security)
 - [Capability 8: Scalability](#capability-8-scalability)
 - [Capability 9: Observability](#capability-9-observability)
-- [Capability 10: Plasticity and Continuous Learning (PEMA)](#capability-10-plasticity-and-continuous-learning-pema) ← **MAIN CONTRIBUTION**
+- [Capability 10: Plasticity and Continuous Learning (MAP)](#capability-10-plasticity-and-continuous-learning-map) ← **MAIN CONTRIBUTION**
 
 ### Part IV: Evaluation and Discussion
 - [Chapter 5: Evaluation](#chapter-5-evaluation)
@@ -206,7 +206,7 @@ Agents require multiple types of memory:
 | **Episodic Memory** | Indexed past experiences | Long-term |
 | **Semantic Memory** | Domain knowledge | Permanent |
 | **Procedural Memory** | Learned execution patterns | Permanent |
-| **Structural Memory** | Inter-agent trust weights (PEMA) | Adaptive |
+| **Structural Memory** | Inter-agent trust weights (MAP) | Adaptive |
 
 ### 1.3.3 Tools
 
@@ -503,14 +503,14 @@ Minimalist approach with simple agents that emerge complex behavior:
 </tr>
 </table>
 
-> **Note: Swarm vs Blackboard vs PEMA**
+> **Note: Swarm vs Blackboard vs MAP**
 >
 > It's important to distinguish three related but distinct concepts:
 > - **Swarm** (this section): *Architecture* where homogeneous agents communicate peer-to-peer and behavior emerges from local interactions. No central state or coordinator.
 > - **Blackboard** (Section 2.3.4): *Coordination pattern* where heterogeneous agents read/write to a shared central state. Compatible with multiple architectures.
-> - **PEMA** (Chapter 11): *Plasticity mechanism* that can be applied to any architecture, allowing trust weights between agents to evolve through Hebbian learning.
+> - **MAP** (Chapter 11): *Plasticity mechanism* that can be applied to any architecture, allowing trust weights between agents to evolve through Hebbian learning.
 >
-> In practice, a system could combine Swarm architecture with Blackboard coordination and PEMA plasticity.
+> In practice, a system could combine Swarm architecture with Blackboard coordination and MAP plasticity.
 
 ### 2.2.3 Meta-Learning Architecture
 
@@ -528,7 +528,7 @@ Separates task learning from meta-learning (learning to learn). **Magentic-One**
 </tr>
 </table>
 
-> **Connection with PEMA**: Meta-learning is the theoretical precursor to the structural plasticity proposed in PEMA (Chapter 11). While traditional meta-learning operates on *model parameters*, PEMA extends the concept to *inter-agent trust weights*, allowing the coordination topology to evolve adaptively. This represents a higher level of adaptation: not just "learning to learn," but "learning to collaborate."
+> **Connection with MAP**: Meta-learning is the theoretical precursor to the structural plasticity proposed in MAP (Chapter 11). While traditional meta-learning operates on *model parameters*, MAP extends the concept to *inter-agent trust weights*, allowing the coordination topology to evolve adaptively. This represents a higher level of adaptation: not just "learning to learn," but "learning to collaborate."
 
 ### 2.2.4 Modular Architecture
 
@@ -809,14 +809,14 @@ A critical area that previous works don't address is **structural adaptation** o
 - **MADDPG** (Lowe et al., 2017): Multi-Agent Deep Deterministic Policy Gradient allows centralized policies during training with decentralized execution.
 - **QMIX** (Rashid et al., 2018): Factorizes the joint Q-function allowing implicit coordination.
 
-*Difference with PEMA*: MARL operates on policies learned end-to-end via gradients, requiring millions of training interactions. PEMA operates on pre-trained agents (LLMs), adjusting only the *inter-agent trust weights* via local Hebbian rules—allowing adaptation with orders of magnitude less data and without base model retraining.
+*Difference with MAP*: MARL operates on policies learned end-to-end via gradients, requiring millions of training interactions. MAP operates on pre-trained agents (LLMs), adjusting only the *inter-agent trust weights* via local Hebbian rules—allowing adaptation with orders of magnitude less data and without base model retraining.
 
 **Critical analysis**: None of these works addresses the **adaptation barrier**—the inability of multi-agent systems to modify their coordination patterns based on observed results. All assume that the optimal topology can be designed a priori, ignoring that:
 1. Performance of specific collaborations varies with context
 2. New effective collaboration patterns can emerge with use
 3. The "institutional memory" of which combinations work is lost between sessions
 
-This gap motivates this work's main contribution: **PEMA (Plastic Evolving Multi-Agent)**, which formalizes how inter-agent trust weights can evolve through Hebbian learning, with theoretical stability guarantees (Theorem 10.1).
+This gap motivates this work's main contribution: **MAP (Multiagent Plasticity)**, which formalizes how inter-agent trust weights can evolve through Hebbian learning, with theoretical stability guarantees (Theorem 10.1).
 
 ## 3.3 Positioning and Comparative Analysis
 
@@ -857,7 +857,7 @@ This work fills these gaps through:
 
 4. **Specialized Agents**: Pre-built and tested DAXAgent, DocumentAgent, ReportAgent.
 
-5. **Structural Plasticity (PEMA)**: First formalization of Hebbian learning for inter-agent trust weights, with theoretical stability guarantees.
+5. **Structural Plasticity (MAP)**: First formalization of Hebbian learning for inter-agent trust weights, with theoretical stability guarantees.
 
 ---
 
@@ -875,7 +875,7 @@ This work fills these gaps through:
 | Parallel Architecture | 2.2.10 | Embedding parallel, concurrent queries | Cap. 8 |
 | Reflexive Architecture | 2.2.11 | Self-critique in DAXAgent | Cap. 3 |
 | Memory (agency requirement) | 1.2 | Persisted Memory in SQL Server | Cap. 1 |
-| Structural Plasticity (PEMA) | 3.2 | Adaptive trust weights | Cap. 10 |
+| Structural Plasticity (MAP) | 3.2 | Adaptive trust weights | Cap. 10 |
 
 *Lumen is not just an implementation—it's a laboratory where each capability validates a theoretical principle. The following 10 capabilities demonstrate the practical applicability of the framework.*
 
@@ -918,7 +918,7 @@ This work presents **Lumen**, a conversational BI platform built on **Microsoft 
 
 ### Central Thesis
 
-> **This work demonstrates that a multi-agent architecture based on functional agency—with specialized agents, dynamic workflows, contextual handoffs, and intent detection—outperforms monolithic approaches in Business Intelligence.** Results show +20pp in accuracy (91.5% vs 71.4%) with acceptable latency (+58%). Additionally, **PEMA** (Plastic Evolving Multi-Agent) is introduced, a theoretical framework for multi-agent systems with structural plasticity inspired by Hebbian principles, allowing relationships between agents to evolve with experience.
+> **This work demonstrates that a multi-agent architecture based on functional agency—with specialized agents, dynamic workflows, contextual handoffs, and intent detection—outperforms monolithic approaches in Business Intelligence.** Results show +20pp in accuracy (91.5% vs 71.4%) with acceptable latency (+58%). Additionally, **MAP** (Multiagent Plasticity) is introduced, a theoretical framework for multi-agent systems with structural plasticity inspired by Hebbian principles, allowing relationships between agents to evolve with experience.
 
 This thesis is defended through:
 1. **Theoretical framework** (Part I): Formalization of functional agency and architecture taxonomy
@@ -964,7 +964,7 @@ This whitepaper is organized by **capabilities**. Each section presents:
 
 ## Transition to Technical Capabilities
 
-*With the general architecture and specialized agents defined, the following sections detail each of the **ten technical capabilities** that constitute the complete implementation of Lumen. Each capability represents an empirically validated design pattern, from memory and context management (Capability 1) to structural plasticity via PEMA (Capability 10). These capabilities are independent but complementary—a system can implement a subset according to its specific requirements.*
+*With the general architecture and specialized agents defined, the following sections detail each of the **ten technical capabilities** that constitute the complete implementation of Lumen. Each capability represents an empirically validated design pattern, from memory and context management (Capability 1) to structural plasticity via MAP (Capability 10). These capabilities are independent but complementary—a system can implement a subset according to its specific requirements.*
 
 ---
 
@@ -994,7 +994,7 @@ Memory is fundamental for agents to maintain coherence and learn from previous i
 
 *Proof sketch*: Let C_eff be the system's effective capacity. Without external memory, C_eff ≤ |W| (limited by context window). With external memory M_ext = E ∪ S ∪ P and a retrieval function r: Query → M_ext with O(log n) or O(1) complexity via indices, the system can access arbitrarily sized information. At each step, W contains the relevant retrieved information, allowing reasoning over knowledge much larger than |W|. Therefore, C_eff → ∞ if |M_ext| → ∞ and r is efficient. ∎
 
-> **Connection with PEMA**: Episodic memory E provides the history H that PEMA uses for Hebbian learning (Chapter 11). Specifically, E records which agents participated in each interaction and their results, allowing calculation of reinforcement δ(o) for updating trust weights W_ij. Without persistent memory, structural plasticity would be impossible—the system couldn't "remember" which collaborations were successful.
+> **Connection with MAP**: Episodic memory E provides the history H that MAP uses for Hebbian learning (Chapter 11). Specifically, E records which agents participated in each interaction and their results, allowing calculation of reinforcement δ(o) for updating trust weights W_ij. Without persistent memory, structural plasticity would be impossible—the system couldn't "remember" which collaborations were successful.
 
 ### The Limited Context Problem
 
@@ -1105,7 +1105,7 @@ Combines rule-based and LLM to optimize cost/accuracy:
 1. **Layer 1 (Keywords)**: Fast rules for obvious cases
 2. **Layer 2 (LLM)**: Classification for ambiguous cases
 
-> **Connection with PEMA**: The routing strategies described use **static weights**. PEMA (Chapter 11) extends these approaches by allowing weights to evolve through Hebbian learning. For example, if DAXAgent consistently resolves type X queries better than those initially routed to GeneralAgent, the weight W_{DAX,X} would automatically increase. This transforms routing from manual configuration to a **self-optimizing** system.
+> **Connection with MAP**: The routing strategies described use **static weights**. MAP (Chapter 11) extends these approaches by allowing weights to evolve through Hebbian learning. For example, if DAXAgent consistently resolves type X queries better than those initially routed to GeneralAgent, the weight W_{DAX,X} would automatically increase. This transforms routing from manual configuration to a **self-optimizing** system.
 
 ## Implementation in Lumen
 
@@ -1204,7 +1204,7 @@ Lumen uses Weaviate as vector database with hybrid search:
 gap_priority(G) = frequency(G) × recency(G) × user_importance(G)
 ```
 
-**Connection with PEMA**: Extends plasticity to knowledge. The system not only learns which agents work better (inter-agent trust weights), but what knowledge it lacks (gap weights). Bidirectional plasticity: structure + content.
+**Connection with MAP**: Extends plasticity to knowledge. The system not only learns which agents work better (inter-agent trust weights), but what knowledge it lacks (gap weights). Bidirectional plasticity: structure + content.
 
 <p align="center">
   <img src="diagrams/C3_rag_lumen_en.svg" alt="RAG in LUMEN" width="700">
@@ -1445,7 +1445,7 @@ The agent dynamically decides which pool to use based on context size (>50K char
 | **Working Memory** | `AgentThread` (MS Agent Framework) | Session |
 | **Persisted Memory** | `persisted_memory` field → Database | Permanent |
 | **Semantic Memory** | Weaviate (embeddings) | Permanent |
-| **Structural Memory** | W_ij trust matrix (PEMA) | Adaptive |
+| **Structural Memory** | W_ij trust matrix (MAP) | Adaptive |
 
 #### MCP Integration
 
@@ -2131,11 +2131,11 @@ Available via endpoint `/sessions/current/statistics`.
 
 ---
 
-*The nine previous capabilities—from memory and routing to security and observability—constitute the infrastructure necessary for a functional multi-agent system. However, they all share a limitation: they operate on a static topology. The next capability, PEMA, represents the "closing of the circle": it uses observability to feed a learning mechanism that allows the system itself to evolve structurally based on accumulated experience.*
+*The nine previous capabilities—from memory and routing to security and observability—constitute the infrastructure necessary for a functional multi-agent system. However, they all share a limitation: they operate on a static topology. The next capability, MAP, represents the "closing of the circle": it uses observability to feed a learning mechanism that allows the system itself to evolve structurally based on accumulated experience.*
 
 ---
 
-# Capability 10: Plasticity and Continuous Learning (PEMA)
+# Capability 10: Plasticity and Continuous Learning (MAP)
 
 This capability represents the **main theoretical contribution** of this work: extending the functional agency framework to incorporate **structural plasticity**, enabling multi-agent systems to dynamically adapt their relationships and behaviors based on accumulated experience.
 
@@ -2148,14 +2148,14 @@ The multi-agent systems described in previous chapters present a fundamental lim
 - New query patterns may require different agent combinations
 - Repeated errors on a route should reduce its future use
 
-**Solution**: We introduce **PEMA (Plastic Evolving Multi-Agent)**, a theoretical framework that extends functional agency with structural plasticity inspired by neuroscientific principles.
+**Solution**: We introduce **MAP (Multiagent Plasticity)**, a theoretical framework that extends functional agency with structural plasticity inspired by neuroscientific principles.
 
 <p align="center">
-  <img src="diagrams/10_pema_evolucion_en.svg" alt="Evolution from Static to Plastic" width="700">
+  <img src="diagrams/10_map_evolucion_en.svg" alt="Evolution from Static to Plastic" width="700">
 <br><em>Figure 45: Evolution from Static to Plastic Architectures</em>
 </p>
 
-## 10.2 PEMA Theoretical Framework
+## 10.2 MAP Theoretical Framework
 
 The concept of structural plasticity has deep roots in computational neuroscience. Beyond the classical Hebbian principle (Hebb, 1949), recent works have formalized plasticity mechanisms in artificial networks:
 
@@ -2163,11 +2163,11 @@ The concept of structural plasticity has deep roots in computational neuroscienc
 - **Synaptic Intelligence** (Zenke et al., 2017): Measures synapse importance online during training, enabling selective protection of critical connections.
 - **Dynamic Sparse Training** (Mocanu et al., 2018): Enables connection growth and pruning during training, maintaining constant sparsity.
 
-PEMA adapts these principles to the multi-agent context, where "synaptic weights" represent trust between agents rather than neural network parameters. This adaptation allows the system to evolve its coordination structure based on operational experience.
+MAP adapts these principles to the multi-agent context, where "synaptic weights" represent trust between agents rather than neural network parameters. This adaptation allows the system to evolve its coordination structure based on operational experience.
 
 ### 10.2.0 Differentiation from Related Work
 
-PEMA explicitly differentiates from related approaches:
+MAP explicitly differentiates from related approaches:
 
 | Framework | Trust Mechanism | Topology | Prompt Adapt. | Learning |
 |-----------|-----------------|----------|---------------|----------|
@@ -2176,23 +2176,23 @@ PEMA explicitly differentiates from related approaches:
 | **MetaGPT** [Hong et al., 2024] | None | Fixed | Post-project | Offline |
 | **DRF** | UCB Reputation | Predefined | None | Bandit |
 | **AutoGen** [Wu et al., 2023] | Per-conversation | Static | None | None |
-| **PEMA** | **Hebbian** | **Evolved** | **Real-time** | **Continuous** |
+| **MAP** | **Hebbian** | **Evolved** | **Real-time** | **Continuous** |
 
 **Key differentiators:**
 
-- **vs. DyLAN**: DyLAN's importance scores are calculated per-domain, not accumulating collaboration history. PEMA implements "fire together, wire together"—trust strengthens with repeated successful collaboration.
+- **vs. DyLAN**: DyLAN's importance scores are calculated per-domain, not accumulating collaboration history. MAP implements "fire together, wire together"—trust strengthens with repeated successful collaboration.
 
-- **vs. GTD**: Graph diffusion generates per-task topologies; PEMA *evolves* the topology through accumulated experience.
+- **vs. GTD**: Graph diffusion generates per-task topologies; MAP *evolves* the topology through accumulated experience.
 
-- **vs. MetaGPT**: Prompt modification occurs post-project; PEMA applies patches in *real-time* during execution.
+- **vs. MetaGPT**: Prompt modification occurs post-project; MAP applies patches in *real-time* during execution.
 
 - **vs. DRF**: UCB reputation is stateless between sessions; Hebbian weights persist and accumulate.
 
-> **Novel Contribution**: PEMA is the first framework combining Hebbian trust dynamics, structural neurogenesis/pruning, and real-time prompt patching for LLM-based multi-agent systems.
+> **Novel Contribution**: MAP is the first framework combining Hebbian trust dynamics, structural neurogenesis/pruning, and real-time prompt patching for LLM-based multi-agent systems.
 
 ### Formal Assumptions
 
-The PEMA framework assumes the following conditions, which we consider reasonable in enterprise BI scenarios:
+The MAP framework assumes the following conditions, which we consider reasonable in enterprise BI scenarios:
 
 **A1** (Outcome Observability): The reinforcement function <img src="diagrams/formulas/f_delta_o_53cf1498.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> is observable after each interaction. This requires explicit feedback mechanism (user rating) or implicit (re-query detection, abandonment).
 
@@ -2261,7 +2261,7 @@ where:
 
 ### 10.2.3 Types of Plasticity
 
-PEMA defines three levels of plasticity with different granularity:
+MAP defines three levels of plasticity with different granularity:
 
 | Level | Type | Mechanism | Frequency | Impact |
 |-------|------|-----------|-----------|--------|
@@ -2293,13 +2293,13 @@ for (source, target) in episode_path:
 The **Trust Graph** is the structure that stores and manages trust relationships:
 
 <p align="center">
-  <img src="diagrams/10_pema_trust_graph_en.svg" alt="Trust Graph" width="700">
-<br><em>Figure 46: PEMA Trust Graph</em>
+  <img src="diagrams/10_map_trust_graph_en.svg" alt="Trust Graph" width="700">
+<br><em>Figure 46: MAP Trust Graph</em>
 </p>
 
 ### 10.2.5 Structural Memory: Indexing by Intent
 
-A fundamental aspect of PEMA is that trust weights <img src="diagrams/formulas/f_w_ij_3c81d2fb.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> are **indexed by the intent type** detected in each query. This allows the system to learn collaboration patterns specific to each task category.
+A fundamental aspect of MAP is that trust weights <img src="diagrams/formulas/f_w_ij_3c81d2fb.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> are **indexed by the intent type** detected in each query. This allows the system to learn collaboration patterns specific to each task category.
 
 **Definition 11.6 (Structural Memory)**. Structural memory is a function:
 
@@ -2324,8 +2324,8 @@ where <img src="diagrams/formulas/f_i_98593f57.svg" alt="formula" style="vertica
 **Rationale**: An agent may be highly reliable for one task type but less so for another. For example, `DAXAgent` may have <img src="diagrams/formulas/f_w_query_dax_router_to_d_6b307ec5.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> but <img src="diagrams/formulas/f_w_document_router_to_dax_014562e1.svg" alt="formula" style="vertical-align: middle; height: 1.5em;">. This specialization enables optimal context-based routing.
 
 <p align="center">
-  <img src="diagrams/10_pema_structural_memory_en.svg" alt="PEMA Structural Memory" width="700">
-<br><em>Figure 47: PEMA Structural Memory</em>
+  <img src="diagrams/10_map_structural_memory_en.svg" alt="MAP Structural Memory" width="700">
+<br><em>Figure 47: MAP Structural Memory</em>
 </p>
 
 **Hebbian Update Algorithm by Intent**:
@@ -2336,14 +2336,14 @@ def update_structural_memory(intent: str, episode_path: List[Tuple], outcome: fl
     delta = compute_delta(outcome)  # +δ success, -δ failure
 
     for (source, target) in episode_path:
-        key = f"pema:trust:{intent}:{source}:{target}"
-        current_weight = redis.hget("pema:structural_memory", key) or 0.5
+        key = f"map:trust:{intent}:{source}:{target}"
+        current_weight = redis.hget("map:structural_memory", key) or 0.5
 
         # Hebbian update: W^(t+1) = (1-λ)W^(t) + η·δ
         new_weight = (1 - DECAY) * current_weight + LEARNING_RATE * delta
         new_weight = max(0.01, min(1.0, new_weight))
 
-        redis.hset("pema:structural_memory", key, new_weight)
+        redis.hset("map:structural_memory", key, new_weight)
 ```
 
 This intent-based indexing constitutes the system's **Structural Memory**—the fifth memory type (see Memory Types Table in Section 6.1). Unlike other memories that store semantic content, Structural Memory stores **learned collaboration patterns** between agents.
@@ -2396,9 +2396,9 @@ where <img src="diagrams/formulas/f_epsilon_max_5a52e274.svg" alt="formula" styl
 >
 > **Recommendation**: Use <img src="diagrams/formulas/f_eta_0_1_289fdd60.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> to leave a safety margin.
 
-## 10.4 PEMA Evaluation Metrics (PEMA-Bench)
+## 10.4 MAP Evaluation Metrics (MAP-Bench)
 
-PEMA-Bench introduces **9 metrics** organized in three dimensions, addressing a significant gap in adaptive systems evaluation: no previous benchmark jointly measures adaptation + predictability + structure.
+MAP-Bench introduces **9 metrics** organized in three dimensions, addressing a significant gap in adaptive systems evaluation: no previous benchmark jointly measures adaptation + predictability + structure.
 
 ### 10.4.1 Adaptation Metrics
 
@@ -2464,18 +2464,18 @@ where <img src="diagrams/formulas/f_c_0d61f837.svg" alt="formula" style="vertica
 | **PR** (Pruning Rate) | Prunes / Episode | Removal rate | Context-dep. |
 | **NR** (Neurogenesis Rate) | Creations / Episode | Creation rate | Context-dep. |
 
-## 10.5 PEMA Benchmark Protocol
+## 10.5 MAP Benchmark Protocol
 
 The evaluation protocol consists of five phases:
 
 <p align="center">
-  <img src="diagrams/10_pema_benchmark_protocol_en.svg" alt="PEMA Benchmark Protocol" width="700">
-<br><em>Figure 48: PEMA Benchmark Protocol</em>
+  <img src="diagrams/10_map_benchmark_protocol_en.svg" alt="MAP Benchmark Protocol" width="700">
+<br><em>Figure 48: MAP Benchmark Protocol</em>
 </p>
 
 ## 10.6 Implementation in Lumen (Case Study)
 
-PEMA implementation in Lumen is **partially realized** for L1 Plasticity (weights), with L2 and L3 identified as future work.
+MAP implementation in Lumen is **partially realized** for L1 Plasticity (weights), with L2 and L3 identified as future work.
 
 ### 10.6.1 Current State: Static Trust Weights
 
@@ -2491,12 +2491,12 @@ AGENT_TRUST_WEIGHTS = {
 }
 ```
 
-### 10.6.2 Proposal: Evolution Toward PEMA
+### 10.6.2 Proposal: Evolution Toward MAP
 
 The proposed evolution introduces the dynamic Trust Graph:
 
 ```python
-# PEMA proposal (dynamic)
+# MAP proposal (dynamic)
 class TrustGraph:
     def __init__(self, redis_client, learning_rate=0.1, decay=0.01):
         self.redis = redis_client
@@ -2517,17 +2517,17 @@ class TrustGraph:
 
 ### 10.6.3 Integration with Microsoft Agent Framework
 
-PEMA integrates with Agent Framework through extensions:
+MAP integrates with Agent Framework through extensions:
 
-| Original Component | PEMA Extension |
+| Original Component | MAP Extension |
 |--------------------|----------------|
 | `ChatCompletionAgent` | `PlasticAgent` with trust weights |
 | `AgentGroupChat` | `PlasticAgentGroupChat` with feedback loop |
 | `SelectionStrategy` | `TrustBasedSelectionStrategy` |
 
-## 10.7 Future Work: Complete PEMA Implementation
+## 10.7 Future Work: Complete MAP Implementation
 
-Complete PEMA implementation constitutes an **open research direction**. Pending components include:
+Complete MAP implementation constitutes an **open research direction**. Pending components include:
 
 ### 10.7.1 L2 Plasticity: Structural Mutations
 
@@ -3156,9 +3156,9 @@ Frequency: 2% of interactions included images
 
 These cases informed future work directions described in Chapter 7.
 
-### 6.4.5 Security Considerations for PEMA
+### 6.4.5 Security Considerations for MAP
 
-The PEMA structural plasticity system introduces specific attack vectors that must be considered in production implementations.
+The MAP structural plasticity system introduces specific attack vectors that must be considered in production implementations.
 
 #### Potential Adversarial Attacks
 
@@ -3186,7 +3186,7 @@ The PEMA structural plasticity system introduces specific attack vectors that mu
 - **Adaptability/security trade-off**: Stronger defenses reduce legitimate adaptation speed
 - **Reactive detection**: Some defenses detect but don't prevent attacks
 
-*Future work should include formal red-teaming of the PEMA system.*
+*Future work should include formal red-teaming of the MAP system.*
 
 ## 6.5 Critical Reflection
 
@@ -3282,7 +3282,7 @@ This work presents three types of contributions to the field of multi-agent syst
 
 | Contribution | Description | Section |
 |--------------|-------------|---------|
-| **PEMA Framework** | First formalization of structural plasticity in multi-agent systems, with Hebbian learning mechanism and convergence guarantees | 3.2, Ch. 10 |
+| **MAP Framework** | First formalization of structural plasticity in multi-agent systems, with Hebbian learning mechanism and convergence guarantees | 3.2, Ch. 10 |
 | **Architecture Taxonomy** | Exhaustive classification of 11 multi-agent architectures with trade-off analysis | 2.2 |
 | **Functional Agency Model** | Formalization of three necessary and sufficient conditions for agentic behavior | 1.2 |
 
@@ -3299,7 +3299,7 @@ This work presents three types of contributions to the field of multi-agent syst
 gap_priority(G) = frequency(G) × recency(G) × user_importance(G)
 ```
 
-**Connection with PEMA**: Extends structural plasticity to knowledge—the system not only learns which agents work better (trust weights), but what knowledge it lacks (gap weights).
+**Connection with MAP**: Extends structural plasticity to knowledge—the system not only learns which agents work better (trust weights), but what knowledge it lacks (gap weights).
 
 *Note: Patterns like Tool System and Agent-as-Tool are implementations of established industry techniques.*
 
@@ -3445,7 +3445,7 @@ As |M_ext| can grow indefinitely and r enables efficient access:
 
 provided r is efficient (sublinear complexity in |M_ext|). ∎
 
-## B.3 Expanded Proof of Theorem 10.1 (PEMA)
+## B.3 Expanded Proof of Theorem 10.1 (MAP)
 
 **Theorem 10.1 (Variance Bound with Plasticity)**. *Let <img src="diagrams/formulas/f_a_p_599d351d.svg" alt="formula" style="vertical-align: middle; height: 1.5em;"> be a plastic agentic system per Definition 11.1. Under assumptions A1-A4, the adaptive policy variance is bounded:*
 
