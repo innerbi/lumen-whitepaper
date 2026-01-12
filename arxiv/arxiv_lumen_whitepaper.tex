@@ -1,5 +1,5 @@
 % Arquitectura Multi-Agente con IA Generativa: Plasticidad de la Estructura
-% ArXiv Submission - December 2025
+% ArXiv Submission - January 2026
 \documentclass[11pt,a4paper]{article}
 
 % ============================================================================
@@ -116,7 +116,7 @@
     Buenos Aires, Argentina
 }
 
-\date{December 2025}
+\date{January 2026}
 
 % ============================================================================
 % DOCUMENT
@@ -194,11 +194,11 @@ The term ``agent'' has been used loosely in the AI community, often referring to
 A system $\mathcal{A}$ exhibits \textbf{functional agency} if and only if it satisfies three conditions:
 
 \begin{enumerate}
-    \item \textbf{Perception-Action Loop}: $\mathcal{A}$ maintains a continuous cycle $\mathcal{P}: \mathcal{E} \rightarrow \mathcal{S}$ and $\mathcal{A}: \mathcal{S} \rightarrow \mathcal{E}$ where $\mathcal{E}$ is the environment and $\mathcal{S}$ is the internal state space.
+    \item \textbf{Perception-Action Loop}: $\mathcal{A}$ maintains a continuous cycle with perception function $p: \mathcal{E} \rightarrow \mathcal{S}$ and action function $\alpha: \mathcal{S} \rightarrow \mathcal{E}$ where $\mathcal{E}$ is the environment and $\mathcal{S}$ is the internal state space.
 
     \item \textbf{Goal-Directed Behavior}: There exists an objective function $\mathcal{O}: \mathcal{S} \times \mathcal{E} \rightarrow \mathbb{R}$ that $\mathcal{A}$ actively seeks to maximize.
 
-    \item \textbf{Adaptive Autonomy}: $\mathcal{A}$ can modify its strategy $\pi: \mathcal{S} \rightarrow \mathcal{A}$ based on accumulated experience without explicit reprogramming.
+    \item \textbf{Adaptive Autonomy}: $\mathcal{A}$ can modify its policy $\pi: \mathcal{S} \rightarrow \mathbb{A}$ based on accumulated experience without explicit reprogramming, where $\mathbb{A}$ is the action space.
 \end{enumerate}
 \end{definition}
 
@@ -577,13 +577,24 @@ Traditional RAG systems~\cite{lewis2020retrieval,gao2023retrieval} fail silently
 
 \subsubsection{Gap Detection Algorithm}
 
-The core innovation of \sgrag lies in its \textbf{speculative gap detection}, which identifies when the knowledge base lacks sufficient information to answer a query. A gap is detected when:
+The core innovation of \sgrag lies in its \textbf{speculative gap detection}, which identifies when the knowledge base lacks sufficient information to answer a query.
+
+\begin{definition}[Entity Coverage]
+\label{def:entity-coverage}
+The \textbf{coverage function} measures the fraction of query entities present in retrieved documents:
+\begin{equation}
+\text{coverage}(q, D) = \frac{|\text{entities}(q) \cap \text{entities}(D)|}{|\text{entities}(q)|}
+\end{equation}
+where $\text{entities}(\cdot)$ extracts named entities (measures, dimensions, business terms) via NER.
+\end{definition}
+
+A gap is detected when:
 
 \begin{equation}
 \text{Gap}(q, D) = \mathbb{1}\left[\max_{d \in D} \text{sim}(q, d) < \tau_{\text{conf}} \lor \text{coverage}(q, D) < \tau_{\text{cov}}\right]
 \end{equation}
 
-where $q$ is the query, $D$ is the document corpus, $\tau_{\text{conf}} = 0.75$ is the confidence threshold, and $\tau_{\text{cov}}$ is the coverage threshold.
+where $q$ is the query, $D$ is the document corpus, $\tau_{\text{conf}} = 0.75$ is the confidence threshold, and $\tau_{\text{cov}} = 0.5$ is the entity coverage threshold.
 
 \textbf{Gap detection criteria:}
 \begin{enumerate}
@@ -819,13 +830,13 @@ This rule embodies the principle \emph{``neurons that fire together, wire togeth
 
 \subsection{Formal Guarantees}
 
-\begin{theorem}[Variance Bound with Plasticity]
+\begin{theorem}[Weight Variance Bound with Plasticity]
 \label{thm:variance-bound}
-Under \map with learning rate $\eta > 0$ and decay $\lambda \in (0,1)$, the variance of routing decisions is bounded:
+Under \map with learning rate $\eta > 0$ and decay $\lambda \in (0,1)$, the equilibrium variance of trust weights is bounded:
 \begin{equation}
-\text{Var}[\pi_t] \leq \frac{\eta^2 \sigma^2}{\lambda(2-\lambda)}
+\text{Var}[w_{ij}] \leq \frac{\eta^2 \sigma^2}{\lambda(2-\lambda)}
 \end{equation}
-where $\sigma^2$ is the variance of success signals.
+where $\sigma^2$ is the variance of success signals, assumed i.i.d.\ with bounded second moment.
 \end{theorem}
 
 \begin{proof}
@@ -840,12 +851,21 @@ The bound reveals a \textbf{stability-adaptability trade-off}: smaller $\eta$ re
 Theorem~\ref{thm:variance-bound} requires: (i) success signals $s_t$ are i.i.d.\ with bounded variance $\sigma^2$; (ii) the intent distribution is stationary over the adaptation window; (iii) agent capabilities remain constant during learning. In practice, we use rolling windows of 100 interactions to approximate stationarity.
 \end{remark}
 
+\begin{corollary}[Policy Variance Bound]
+\label{cor:policy-variance}
+The routing policy $\pi_t = \text{softmax}(\mathbf{w}_t)$ satisfies:
+\begin{equation}
+\text{Var}[\pi_t] \leq \frac{\eta^2 \sigma^2}{8 \cdot \lambda(2-\lambda)}
+\end{equation}
+since softmax gradients satisfy $\sum_j (\partial \pi_i / \partial w_j)^2 \leq 2\pi_i^2(1-\pi_i)^2 \leq 0.125$ (maximum at $\pi_i = 0.5$), and by the delta method $\text{Var}[\pi] \leq 0.125 \cdot \text{Var}[w]$.
+\end{corollary}
+
 \begin{corollary}[Practical Bound]
 For typical hyperparameters $\eta = 0.01$, $\lambda = 0.1$, and $\sigma^2 \approx 0.25$:
 \[
-\text{Var}[\pi] \leq \frac{(0.01)^2 \times 0.25}{0.1 \times 1.9} = \frac{0.000025}{0.19} \approx 0.00013
+\text{Var}[w] \leq \frac{(0.01)^2 \times 0.25}{0.1 \times 1.9} = \frac{0.000025}{0.19} \approx 0.00013
 \]
-This ensures routing fluctuations below $1.2\%$, providing highly stable agent selection.
+This yields $\text{Var}[\pi] \leq 0.125 \times 0.00013 \approx 1.6 \times 10^{-5}$, ensuring routing fluctuations below $0.4\%$ (one standard deviation), providing highly stable agent selection.
 \end{corollary}
 
 \subsection{MAP-Bench: Evaluation Protocol}
@@ -1027,13 +1047,13 @@ Empirical evaluation across three enterprise deployments demonstrated:
 \label{sec:formal-definitions}
 
 \begin{definition}[Agent]
-An agent $\alpha$ is a tuple $(\mathcal{S}, \mathcal{A}, \mathcal{T}, \pi, \rho)$ where:
+An agent $\mathcal{A}$ is a tuple $(\mathcal{S}, \mathbb{A}, \mathcal{T}, \pi, \rho)$ where:
 \begin{itemize}
     \item $\mathcal{S}$: State space
-    \item $\mathcal{A}$: Action space
+    \item $\mathbb{A}$: Action space
     \item $\mathcal{T}$: Tool set
-    \item $\pi: \mathcal{S} \rightarrow \mathcal{A}$: Policy function
-    \item $\rho: \mathcal{S} \times \mathcal{A} \rightarrow \mathcal{S}$: Transition function
+    \item $\pi: \mathcal{S} \rightarrow \mathbb{A}$: Policy function
+    \item $\rho: \mathcal{S} \times \mathbb{A} \rightarrow \mathcal{S}$: Transition function
 \end{itemize}
 \end{definition}
 
@@ -1078,19 +1098,39 @@ At equilibrium, $\text{Var}[w_\infty] = (1-\lambda)^2 \text{Var}[w_\infty] + \et
 \]
 
 \textbf{Step 5: Multi-dimensional extension.}
-For the weight vector $\mathbf{w} \in \mathbb{R}^{|I| \times |A|}$ with success signals having covariance matrix $\Sigma$ with maximum eigenvalue $\lambda_{\max}(\Sigma)$, the variance of each component is bounded by:
+For the weight vector $\mathbf{w} \in \mathbb{R}^{|I| \times |A|}$ with independent success signals, each component $w_{ij}$ evolves independently under the same dynamics. Thus the bound holds component-wise:
 \[
-\max_i \text{Var}[w_i] \leq \frac{\eta^2 \lambda_{\max}(\Sigma)}{\lambda(2-\lambda)}
+\text{Var}[w_{ij}] \leq \frac{\eta^2 \sigma^2}{\lambda(2-\lambda)}
 \]
-
-\textbf{Step 6: Policy variance bound.}
-The routing policy $\pi_t = \text{softmax}(\mathbf{w}_t)$ maps weights to probabilities. By the delta method, $\text{Var}[\pi] \approx \|\nabla \pi\|^2 \text{Var}[w]$. Since softmax gradients satisfy $|\partial \pi_i / \partial w_j| \leq 0.25$ (maximum at $\pi_i = 0.5$), we have:
-\[
-\text{Var}[\pi_t] \leq 0.25 \cdot \text{Var}[w_t] \leq \frac{\eta^2 \sigma^2}{\lambda(2-\lambda)}
-\]
-where the factor 0.25 is absorbed into the inequality for simplicity.
 
 \textbf{Stability:} The system is stable for any $\lambda \in (0,1)$ and $\eta > 0$ since $(1-\lambda)^2 < 1$ always holds. For fast convergence with low variance, we recommend $\eta \approx 0.01$ and $\lambda \approx 0.1$.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:policy-variance}]
+The routing policy $\pi_t = \text{softmax}(\mathbf{w}_t)$ maps weights to probabilities. The softmax Jacobian has entries:
+\[
+\frac{\partial \pi_i}{\partial w_j} = \pi_i(\delta_{ij} - \pi_j)
+\]
+where $\delta_{ij}$ is the Kronecker delta.
+
+\textbf{Bounding the gradient norm.} We compute:
+\[
+\sum_j \left(\frac{\partial \pi_i}{\partial w_j}\right)^2 = \pi_i^2(1-\pi_i)^2 + \pi_i^2 \sum_{k \neq i} \pi_k^2
+\]
+Since $\sum_{k \neq i} \pi_k = 1 - \pi_i$ and by convexity $\sum_{k \neq i} \pi_k^2 \leq (1-\pi_i)^2$, we have:
+\[
+\sum_j \left(\frac{\partial \pi_i}{\partial w_j}\right)^2 \leq 2\pi_i^2(1-\pi_i)^2
+\]
+The function $f(x) = 2x^2(1-x)^2$ achieves its maximum at $x = 0.5$: $f(0.5) = 2 \times 0.25 \times 0.25 = 0.125$.
+
+\textbf{Delta method.} By the delta method for variance propagation:
+\[
+\text{Var}[\pi_i] \approx \sum_j \left(\frac{\partial \pi_i}{\partial w_j}\right)^2 \text{Var}[w_j] \leq 0.125 \cdot \text{Var}[w]
+\]
+Substituting the weight variance bound from Theorem~\ref{thm:variance-bound}:
+\[
+\text{Var}[\pi_t] \leq \frac{0.125 \cdot \eta^2 \sigma^2}{\lambda(2-\lambda)} = \frac{\eta^2 \sigma^2}{8 \cdot \lambda(2-\lambda)}
+\]
 \end{proof}
 
 \begin{remark}[Intuition]
@@ -1098,7 +1138,7 @@ The variance bound $\eta^2\sigma^2 / \lambda(2-\lambda)$ reveals a fundamental t
 \begin{itemize}
     \item \textbf{Small $\eta$}: Low variance but slow adaptation
     \item \textbf{Large $\lambda$}: Faster forgetting reduces variance but limits memory
-    \item \textbf{Sweet spot}: $\eta = 0.01$, $\lambda = 0.1$, $\sigma^2 = 0.25$ yields $\text{Var} \approx 0.00013$ (routing fluctuations $\approx 1.2\%$)
+    \item \textbf{Sweet spot}: $\eta = 0.01$, $\lambda = 0.1$, $\sigma^2 = 0.25$ yields $\text{Var}[w] \approx 0.00013$ and $\text{Var}[\pi] \approx 1.6 \times 10^{-5}$
 \end{itemize}
 \end{remark}
 
@@ -1117,11 +1157,12 @@ The variance bound $\eta^2\sigma^2 / \lambda(2-\lambda)$ reveals a fundamental t
 \subsection{Software Versions}
 
 \begin{itemize}
-    \item Python 3.11.4
-    \item FastAPI 0.104.1
-    \item Azure OpenAI API version 2024-02-15-preview
-    \item Weaviate 1.23.0
-    \item Redis 7.2
+    \item Python 3.13.1
+    \item FastAPI 0.115.6
+    \item Ray 2.53.0
+    \item Azure OpenAI API version 2025-01-01-preview
+    \item Weaviate 1.28.2
+    \item Redis 7.4.2
 \end{itemize}
 
 \subsection{Availability}
