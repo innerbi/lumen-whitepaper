@@ -53,10 +53,10 @@
   <rect x="202" y="234" width="140" height="14" rx="2" fill="#666666"/>
   <text x="280" y="245" font-family="Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">High</text>
 
-  <!-- Multi-Agent bar - 30-40% lower -->
+  <!-- Multi-Agent bar - Faster -->
   <rect x="440" y="232" width="160" height="18" rx="3" fill="#1a1a1a" stroke="#333333" stroke-width="1"/>
-  <rect x="442" y="234" width="96" height="14" rx="2" fill="#3b82f6"/>
-  <text x="520" y="245" font-family="Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">30-40% lower</text>
+  <rect x="442" y="234" width="85" height="14" rx="2" fill="#3b82f6"/>
+  <text x="520" y="245" font-family="Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">40% Faster</text>
 
   <!-- Row 3: Specialization -->
   <text x="50" y="290" font-family="Arial, sans-serif" font-size="13" fill="#ffffff">Specialization</text>

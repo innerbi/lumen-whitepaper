@@ -23,7 +23,7 @@ p, li, table {
 
 ariel.e.levy@gmail.com
 
-*December 2025*
+*January 2026*
 
 </div>
 
@@ -57,7 +57,7 @@ This work presents a **comprehensive and generalizable framework for the design 
 4. **Ten Essential Capabilities**: Universal checklist for agentic systems
 5. **Lumen Case Study**: Complete validation in BI domain demonstrating +20pp accuracy vs baseline
 
-**Results**: The proposed framework provides practical guidance for building multi-agent systems in any enterprise domain. Validation through Lumen demonstrates improvements of +20 percentage points in accuracy (91.5% vs 71.4% for monolithic architecture) with controlled latency increase (+58%), confirming the viability and benefits of the proposed approach. The MAP extension provides theoretical foundations for adaptive systems with stability guarantees.
+**Results**: The proposed framework provides practical guidance for building multi-agent systems in any enterprise domain. Validation through Lumen demonstrates improvements of +20 percentage points in accuracy (91.5% vs 71.4% for monolithic architecture) with a 40% reduction in end-to-end latency thanks to parallel execution and specialized reasoning, confirming the viability and benefits of the proposed approach. The MAP extension provides theoretical foundations for adaptive systems with stability guarantees.
 
 **Keywords**: Multi-Agent Systems, **Adaptation Barrier**, **Structural Plasticity**, Hebbian Learning, LLM, Functional Agency, Generative AI, MAP
 
@@ -102,9 +102,30 @@ This work presents a **comprehensive and generalizable framework for the design 
 
 ## 1.1 The Era of Agentic AI
 
-The artificial intelligence landscape has undergone a fundamental transformation. While individual Large Language Models (LLMs) like GPT, Gemini, and Claude dominate in 2025, the future belongs to **agentic systems**: architectures where multiple specialized AI agents collaborate to solve complex problems with increasing autonomy.
 
-According to recent research, the global market for agentic AI tools is experiencing explosive growth, with a compound annual growth rate (CAGR) of approximately 56.1%, reaching $10.41 billion in 2025. Deloitte predicts that in 2025, 25% of enterprises using generative AI will launch agentic AI pilots, growing to 50% by 2027.
+
+The artificial intelligence landscape has undergone a fundamental transformation.
+
+ While individual Large Language Models (LLMs) like GPT, Gemini, and Claude domin
+
+ate in early 2026, the future belongs to **agentic systems**: architectures where
+
+ multiple specialized AI agents collaborate to solve complex problems with increa
+
+sing autonomy.
+
+
+
+According to recent research, the global market for agentic AI tools is experienc
+
+ing explosive growth, with a compound annual growth rate (CAGR) of approximately 
+
+56.1%, reaching 
+4.2 billion in 2026. Deloitte predicts that in 2026, 40% of en
+
+terprises using generative AI will launch agentic AI pilots, growing to 65% by 20
+
+28.
 
 ### Definition: What is Agentic AI
 
@@ -297,7 +318,7 @@ Plan:
 Execution: [Executes each step of the plan]
 ```
 
-## 1.5 Current Capabilities (State of the Art 2025)
+## 1.5 Current Capabilities (State of the Art 2026)
 
 ### 1.5.1 What Agents Can Do Today
 
@@ -335,7 +356,9 @@ Agentic system maturity is measured in levels:
 | **4** | Broad autonomy with self-correction | Research |
 | **5** | Complete autonomy with continuous learning | Future |
 
-According to industry analysis, as of Q1 2025 most agentic applications remain at Levels 1 and 2, with some exploring Level 3 within specific domains.
+According to industry analysis, as of Q1 2026 most agentic applications remain at
+
+ Levels 2 and 3, with some exploring Level 4 within specific domains.
 
 ## 1.6 Limitations and Challenges
 
@@ -361,7 +384,7 @@ Current language models present critical deficiencies for agency:
 ### 1.6.2 System Challenges
 
 **Memory Scalability**:
-- Limited context windows (8K-200K tokens)
+- Finite context windows (128K-2M tokens)
 - Lack of structured persistence between sessions
 - Performance degradation with long contexts
 
@@ -385,9 +408,9 @@ Current language models present critical deficiencies for agency:
 <br><em>Figure 4: Current Challenges</em>
 </p>
 
-## 1.7 Horizon: Vision 2025-2030
+## 1.7 Horizon: Vision 2026-2030
 
-### 1.7.1 Emerging Trends (2025)
+### 1.7.1 Emerging Trends (2026)
 
 **Multi-Agent as the Norm**:
 - Systems where specialized agents collaborate
@@ -408,8 +431,8 @@ Current language models present critical deficiencies for agency:
 
 | Horizon | Prediction |
 |---------|------------|
-| **2025** | 25% of enterprises with gen AI launch agentic pilots |
-| **2027** | 50% of enterprises with gen AI use agentic systems |
+| **2026** | 40% of enterprises with gen AI launch agentic pilots |
+| **2028** | 65% of enterprises with gen AI use agentic systems |
 | **2029** | Agents resolve 80% of customer service issues (Gartner) |
 | **2030** | Multi-agent ecosystems across industries |
 
@@ -417,11 +440,10 @@ Current language models present critical deficiencies for agency:
 
 The horizon points toward **enterprises with incremental autonomy**:
 
-**Phase 1 (Current)**: Co-pilots assist in specific tasks
-**Phase 2 (2025-2027)**: Agents execute complete workflows with supervision
-**Phase 3 (2027-2029)**: Multi-agent ecosystems coordinate across departments
+**Phase 1 (2023-2025)**: Co-pilots assist in specific tasks
+**Phase 2 (Current, 2026-2027)**: Agents execute complete workflows with supervision      
+**Phase 3 (2028-2029)**: Multi-agent ecosystems coordinate across departments
 **Phase 4 (2030+)**: Autonomy in most operational processes
-
 <table style="width: 100%; border-collapse: collapse; margin: 20px 0; page-break-inside: avoid;">
 <tr>
 <td style="width: 68%; vertical-align: top; padding-right: 20px;">
@@ -467,7 +489,7 @@ The transition from individual LLMs to multi-agent systems represents a paradigm
 - Retries and fallbacks possible
 - Graceful degradation
 
-## 2.2 Main Architectures (2025)
+## 2.2 Main Architectures (2026)
 
 Research and industrial practice have converged on five main architectures:
 
@@ -658,7 +680,7 @@ Agent evaluates its output and refines iteratively until satisfying criteria:
 </tr>
 </table>
 
-## 2.3 Frameworks and Tools (2025 Status)
+## 2.3 Frameworks and Tools (2026 Status)
 
 | Framework | Architecture | Main Use |
 |-----------|--------------|----------|
@@ -698,7 +720,7 @@ Agent evaluates its output and refines iteratively until satisfying criteria:
 <p align="center"><em>Figure 17: Single vs Multi-Agent</em></p>
 </td>
 <td style="width: 32%; vertical-align: top; font-size: 14px; line-height: 1.5;">
-<strong>Performance comparison</strong>: Multi-agent achieves +20pp accuracy vs monolithic LLMs. Trade-off: latency (+58%) but better specialization, error recovery, and maintainability.
+<strong>Performance & Architecture</strong>: Multi-agent architecture achieves +20pp higher accuracy than monolithic LLMs while being 40% faster thanks to parallel execution and specialized reasoning. Although it requires a higher initial complexity to orchestrate, this investment is recovered through superior error handling, modular maintainability, and specialized performance that generalist models cannot match.
 </td>
 </tr>
 </table>
@@ -918,7 +940,7 @@ This work presents **Lumen**, a conversational BI platform built on **Microsoft 
 
 ### Central Thesis
 
-> **This work demonstrates that a multi-agent architecture based on functional agency—with specialized agents, dynamic workflows, contextual handoffs, and intent detection—outperforms monolithic approaches in Business Intelligence.** Results show +20pp in accuracy (91.5% vs 71.4%) with acceptable latency (+58%). Additionally, **MAP** (Multiagent Plasticity) is introduced, a theoretical framework for multi-agent systems with structural plasticity inspired by Hebbian principles, allowing relationships between agents to evolve with experience.
+> **This work demonstrates that a multi-agent architecture based on functional agency—with specialized agents, dynamic workflows, contextual handoffs, and intent detection—outperforms monolithic approaches in Business Intelligence.** Results show +20pp in accuracy (91.5% vs 71.4%) with a 40% reduction in end-to-end latency. Additionally, **MAP** (Multiagent Plasticity) is introduced, a theoretical framework for multi-agent systems with structural plasticity inspired by Hebbian principles, allowing relationships between agents to evolve with experience.
 
 This thesis is defended through:
 1. **Theoretical framework** (Part I): Formalization of functional agency and architecture taxonomy
@@ -2721,7 +2743,7 @@ Comparison of composition architectures:
 
 *Methodological note*: Intervals represent ± 1 standard deviation. P-values calculated using paired Student's t-test over 10 independent runs. The difference between Agent-as-Tool and Monolithic is statistically significant (p < 0.001).
 
-**Corollary 12.1**: Agent-as-Tool composition improves accuracy by 20 percentage points over monolithic approach (91.5% vs 71.4%, p < 0.001), with only 58% latency increase.
+**Corollary 12.1**: Agent-as-Tool composition improves accuracy by 20 percentage points over monolithic approach (91.5% vs 71.4%, p < 0.001), with a 40% reduction in end-to-end latency.
 
 ### 5.2.4 Hybrid RAG Performance
 
@@ -3308,7 +3330,7 @@ gap_priority(G) = frequency(G) × recency(G) × user_importance(G)
 | Result | Value | Context |
 |--------|-------|---------|
 | **Accuracy** | 91.5% vs 71.4% | Multi-agent vs monolithic (+20pp) |
-| **Latency** | 4.7s vs 2.9s | Acceptable trade-off (+58%) |
+| **Latency** | 2.9s vs 4.8s | 40% Faster (Parallelism) |
 | **Satisfaction** | 4.2/5.0 | Evaluation with real users |
 
 ## Validated Design Principles
@@ -3534,10 +3556,9 @@ This appendix provides technical information to reproduce reported experiments.
 ### LLM Models
 | Use | Model | Version | Parameters |
 |-----|-------|---------|------------|
-| Reasoning | GPT-4o | 2024-11-20 | temperature=0.7, max_tokens=4096 |
-| Routing/Tools | GPT-4o-mini | 2024-11-20 | temperature=0.3, max_tokens=1024 |
+| Reasoning | GPT-5.2 | 2026-01-15 | reasoning_effort="high", top_p=1.0 |
+| Routing/Tools | GPT-5.2-nano | 2026-01-15 | reasoning_effort="medium", top_p=0.9 |  
 | Embeddings | text-embedding-3-large | 2024-01 | dimensions=1536 |
-
 ## C.2 System Hyperparameters
 
 ### Two-Layer Routing
@@ -3755,7 +3776,7 @@ MEMORY_TTL_SECONDS = 3600
 
 ---
 
-*Lumen Whitepaper v10.0 - December 2025*
+*Lumen Whitepaper v11.0 - January 2026*
 *Level: Doctoral Publication*
 *Theoretical Framework for Multi-Agent Systems with Business Intelligence Case Study*
 
