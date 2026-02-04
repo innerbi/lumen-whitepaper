@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" width="1100" height="700">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset dx="2" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.15"/>
+      <feComposite in2="offsetBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/><feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4a5568"/>
+    </marker>
+    <!-- Dashed connection for Async -->
+    <pattern id="diagonalHatch" patternUnits="userSpaceOnUse" width="4" height="4">
+      <path d="M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2" stroke="#cbd5e0" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect x="10" y="10" width="1080" height="680" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Header -->
+  <rect x="10" y="10" width="1080" height="60" rx="12" fill="#1a202c" />
+  <text x="550" y="45" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">ARQUITECTURA PEREDA AGRO</text>
+
+  <!-- FRONTEND LAYER -->
+  <g transform="translate(340, 90)">
+    <rect x="0" y="0" width="220" height="50" rx="6" fill="#ebf8ff" stroke="#3182ce" stroke-width="2" filter="url(#shadow)"/>
+    <text x="110" y="20" font-family="monospace" font-size="14" font-weight="bold" fill="#2b6cb0" text-anchor="middle">CLIENTE (Frontend)</text>
+    <text x="110" y="38" font-family="Arial" font-size="10" fill="#4a5568" text-anchor="middle">React / Next.js</text>
+  </g>
+
+  <line x1="450" y1="140" x2="450" y2="220" stroke="#4a5568" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- BACKEND LAYER -->
+  <rect x="280" y="220" width="340" height="115" rx="0" fill="#e6fffa" stroke="#2c7a7b" stroke-width="2" filter="url(#shadow)"/>
+  <text x="450" y="262" font-family="monospace" font-size="14" font-weight="bold" fill="#2c7a7b" text-anchor="middle">BACKEND</text>
+  <text x="450" y="278" font-family="Arial" font-size="11" fill="#4a5568" text-anchor="middle">FastAPI / Python</text>
+  <rect x="280" y="220" width="340" height="26" rx="0" fill="#1f2937" stroke="none"/>
+  <text x="450" y="239" font-family="monospace" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">API</text>
+  
+  <!-- Internal components of backend -->
+  <rect x="300" y="295" width="90" height="25" rx="3" fill="#ffffff" stroke="#2c7a7b" stroke-dasharray="2"/>
+  <text x="345" y="311" font-size="10" font-family="Arial" text-anchor="middle">Security</text>
+  <rect x="405" y="295" width="90" height="25" rx="3" fill="#ffffff" stroke="#2c7a7b" stroke-dasharray="2"/>
+  <text x="450" y="311" font-size="10" font-family="Arial" text-anchor="middle">Orchestrator</text>
+  <rect x="510" y="295" width="90" height="25" rx="3" fill="#ffffff" stroke="#2c7a7b" stroke-dasharray="2"/>
+  <text x="555" y="311" font-size="10" font-family="Arial" text-anchor="middle">Data Access</text>
+
+
+  <!-- LEFT SIDE: ASYNC & CACHE -->
+  <rect x="40" y="380" width="340" height="90" rx="8" fill="none" stroke="#805ad5" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="140" y="372" font-family="Arial" font-size="11" font-weight="bold" fill="#6b46c1">TAREAS ASINCRONICAS</text>
+  <!-- Redis -->
+  <line x1="280" y1="270" x2="200" y2="270" stroke="#4a5568" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <rect x="50" y="225" width="150" height="90" rx="6" fill="#fff5f5" stroke="#e53e3e" stroke-width="2" filter="url(#shadow)"/>
+  <text x="125" y="255" font-family="monospace" font-size="12" font-weight="bold" fill="#c53030" text-anchor="middle">REDIS</text>
+  <line x1="60" y1="272" x2="190" y2="272" stroke="#e53e3e" stroke-width="1" opacity="0.3"/>
+  <text x="85" y="295" font-family="Arial" font-size="9" fill="#c53030">1. Cache (Hot Data)</text>
+  <text x="85" y="307" font-family="Arial" font-size="9" fill="#c53030">2. Message Broker</text>
+
+  <!-- Workers -->
+  <line x1="125" y1="310" x2="125" y2="450" stroke="#4a5568" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <rect x="50" y="400" width="150" height="50" rx="6" fill="#faf5ff" stroke="#805ad5" stroke-width="2" filter="url(#shadow)"/>
+  <text x="125" y="420" font-family="monospace" font-size="12" font-weight="bold" fill="#6b46c1" text-anchor="middle">WORKERS</text>
+ 
+  <rect x="220" y="400" width="150" height="50" rx="6" fill="#edf2f7" stroke="#4a5568" stroke-width="2" filter="url(#shadow)"/>
+  <text x="295" y="428" font-family="monospace" font-size="12" font-weight="bold" fill="#2d3748" text-anchor="middle">n8n</text>
+
+
+  <!-- RIGHT SIDE: AI & STORAGE -->
+  <!-- Object Storage -->
+  <rect x="620" y="480" width="140" height="90" rx="6" fill="#fffaf0" stroke="#dd6b20" stroke-width="2" filter="url(#shadow)"/>
+  <text x="690" y="510" font-family="monospace" font-size="11" font-weight="bold" fill="#c05621" text-anchor="middle">OBJECT STORAGE</text>
+  <text x="690" y="532" font-family="Arial" font-size="9" fill="#7b341e" text-anchor="middle">Documentos</text>
+  <text x="690" y="544" font-family="Arial" font-size="9" fill="#7b341e" text-anchor="middle">Imagenes</text>
+  <text x="690" y="556" font-family="Arial" font-size="9" fill="#7b341e" text-anchor="middle">Contratos</text>
+
+  <!-- AI Engine -->
+  <line x1="620" y1="270" x2="880" y2="270" stroke="#4a5568" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <rect x="880" y="230" width="160" height="130" rx="6" fill="#fffff0" stroke="#d69e2e" stroke-width="2" filter="url(#shadow)"/>
+  <text x="960" y="255" font-family="monospace" font-size="12" font-weight="bold" fill="#b7791f" text-anchor="middle">AI ENGINE</text>
+  
+  <rect x="905" y="265" width="110" height="24" rx="3" fill="#ffffff" stroke="#d69e2e" stroke-dasharray="2"/>
+  <rect x="905" y="293" width="110" height="24" rx="3" fill="#ffffff" stroke="#d69e2e" stroke-dasharray="2"/>
+  <rect x="905" y="321" width="110" height="24" rx="3" fill="#ffffff" stroke="#d69e2e" stroke-dasharray="2"/>
+  <text x="960" y="281" font-size="8" font-family="Arial" text-anchor="middle">Agentes</text>
+  <text x="960" y="309" font-size="8" font-family="Arial" text-anchor="middle">Herramientas</text>
+  <text x="960" y="337" font-size="8" font-family="Arial" text-anchor="middle">Razonamiento</text>
+
+  <!-- External LLM connection -->
+  <line x1="960" y1="340" x2="960" y2="370" stroke="#4a5568" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <rect x="890" y="370" width="140" height="40" rx="4" fill="#2d3748" stroke="#a0aec0" stroke-width="1"/>
+  <text x="960" y="395" font-family="monospace" font-size="10" fill="#ffffff" text-anchor="middle">LLM API (OpenAI/etc)</text>
+
+  <!-- External APIs (AFIP / PHYSIS-CRE) -->
+  <line x1="620" y1="260" x2="680" y2="260" stroke="#4a5568" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <rect x="680" y="230" width="120" height="110" rx="6" fill="#f7fafc" stroke="#718096" stroke-width="2" filter="url(#shadow)"/>
+  <text x="740" y="255" font-family="monospace" font-size="12" font-weight="bold" fill="#2d3748" text-anchor="middle">APIs EXTERNAS</text>
+  <text x="740" y="278" font-family="Arial" font-size="10" fill="#4a5568" text-anchor="middle">AFIP</text>
+  <text x="740" y="296" font-family="Arial" font-size="10" fill="#4a5568" text-anchor="middle">PHYSIS / CRE</text>
+
+
+  <!-- DATABASE LAYER -->
+  <line x1="450" y1="320" x2="450" y2="480" stroke="#4a5568" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <g transform="translate(300, 480)">
+    <rect x="0" y="0" width="300" height="90" rx="6" fill="#f0fff4" stroke="#38a169" stroke-width="2" filter="url(#shadow)"/>
+    <text x="150" y="25" font-family="monospace" font-size="14" font-weight="bold" fill="#2f855a" text-anchor="middle">PRIMARY DATABASE</text>
+    <text x="150" y="45" font-family="Arial" font-size="11" fill="#276749" text-anchor="middle">PostgreSQL v16+</text>
+    
+    <!-- DB Partitions -->
+    <rect x="20" y="55" width="120" height="25" rx="3" fill="#c6f6d5" stroke="#2f855a"/>
+    <text x="80" y="71" font-size="10" font-family="Arial" fill="#22543d" text-anchor="middle">Datos Relacionales</text>
+    
+    <rect x="160" y="55" width="120" height="25" rx="3" fill="#9ae6b4" stroke="#276749" stroke-width="2"/>
+    <text x="220" y="71" font-size="10" font-family="Arial" font-weight="bold" fill="#22543d" text-anchor="middle">pgvector (Embeddings)</text>
+  </g>
+
+  <!-- Connection from AI to Vector DB -->
+  <path d="M 880 300 Q 550 300 550 470" stroke="#d69e2e" stroke-width="1.5" stroke-dasharray="5" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="830" y="320" font-size="9" font-family="Arial" fill="#b7791f">Semantic Search</text>
+
+  <!-- Legend -->
+  <g transform="translate(650, 640)">
+    <rect width="220" height="40" rx="5" fill="white" stroke="#e2e8f0" />
+    <circle cx="20" cy="20" r="6" fill="#ebf8ff" stroke="#3182ce"/> <text x="32" y="24" font-size="10" font-family="Arial">Client</text>
+    <circle cx="80" cy="20" r="6" fill="#2d3748" stroke="#4a5568"/> <text x="92" y="24" font-size="10" font-family="Arial">Infra</text>
+    <circle cx="140" cy="20" r="6" fill="#e6fffa" stroke="#2c7a7b"/> <text x="152" y="24" font-size="10" font-family="Arial">Logic</text>
+    <circle cx="190" cy="20" r="6" fill="#d69e2e" stroke="#b7791f"/> <text x="200" y="24" font-size="10" font-family="Arial">AI flow</text>
+  </g>
+</svg>
