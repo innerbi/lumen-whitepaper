@@ -11,6 +11,7 @@ arxiv/*.bbl
 arxiv/*.blg
 arxiv/*.out
 arxiv/*.pdf
+!arxiv/arxiv_lumen_whitepaper.pdf
 arxiv/svg-inkscape/
 
 # OS files
